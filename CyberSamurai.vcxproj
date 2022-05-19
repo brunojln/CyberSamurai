@@ -139,9 +139,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Includes\stdafx.h" />
     <ClInclude Include="Menus\MainMenu.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Includes\stdafx.cpp" />
     <ClCompile Include="Main\main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
