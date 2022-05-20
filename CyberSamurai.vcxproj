@@ -140,10 +140,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Includes\stdafx.h" />
+    <ClInclude Include="Entidades\Player.h" />
+    <ClInclude Include="Principal\Jogo.h" />
     <ClInclude Include="Menus\MainMenu.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Includes\stdafx.cpp" />
+    <ClCompile Include="Entidades\Player.cpp" />
+    <ClCompile Include="Principal\Jogo.cpp" />
     <ClCompile Include="Menus\MainMenu.cpp" />
     <ClCompile Include="Main\main.cpp" />
   </ItemGroup>
