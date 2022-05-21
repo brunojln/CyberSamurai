@@ -13,8 +13,10 @@ void Jogo::initPlayer()
 
 Jogo::Jogo()
 {
-	this->initWindow();
-	this->initPlayer();
+	MenuSJ.run_men();
+	//Menu.run_menu();
+	/*this->initWindow();
+	this->initPlayer();*/
 }
 
 Jogo::~Jogo()

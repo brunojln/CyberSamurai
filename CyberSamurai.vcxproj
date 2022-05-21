@@ -141,14 +141,16 @@
   <ItemGroup>
     <ClInclude Include="Includes\stdafx.h" />
     <ClInclude Include="Entidades\Player.h" />
+    <ClInclude Include="Menus\Menu.h" />
     <ClInclude Include="Principal\Jogo.h" />
-    <ClInclude Include="Menus\MainMenu.h" />
+    <ClInclude Include="Menus\MenuSobreOJogo.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Includes\stdafx.cpp" />
     <ClCompile Include="Entidades\Player.cpp" />
+    <ClCompile Include="Menus\Menu.cpp" />
     <ClCompile Include="Principal\Jogo.cpp" />
-    <ClCompile Include="Menus\MainMenu.cpp" />
+    <ClCompile Include="Menus\MenuSobreOJogo.cpp" />
     <ClCompile Include="Main\main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

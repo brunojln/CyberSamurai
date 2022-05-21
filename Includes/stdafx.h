@@ -9,6 +9,7 @@
 #include <iostream>
 #include <string>
 #include <SFML/Graphics.hpp>
+#include <vector>
 
 
 using namespace std;
