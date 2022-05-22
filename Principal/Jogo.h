@@ -1,4 +1,3 @@
-#pragma once
 #include "../Includes/stdafx.h"
 #include "../Entidades/Player.h"
 
