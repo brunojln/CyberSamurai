@@ -33,6 +33,5 @@ void Button::select(const bool isSelected)
 
 void Button::render()
 {
-
-
+	//incluir renderizacao
 }

@@ -1,16 +1,56 @@
-#include "../Includes/stdafx.h"
-#include "../Botao/Botao.h"
+#include "Menu.h"
 
-class Menu
+
+Menu::Menu(): sel{0}, min{0}, max{2}, active{false}
 {
-protected:
-	vector<Button*> ButtonVector;
-	vector<Button*>::iterator iB;
+	//Gerar janela
 
-	int sel;
-	int min, max;
-	bool active;
+	sf::Texture* image;
+	image->loadFromFile("InclusaoExterna/Imagens/Background/background_menu.png");
+	background->setTexture(*image);
+}
+Menu::~Menu()
+{  
+	Button* aux = NULL;
+	while (ButtonVector.size() != 0) {
+		aux = ButtonVector.back();
+		delete (aux);
+		ButtonVector.pop_back();
+	}
+	ButtonVector.clear();
+}
 
-public:
 
-};
+void Menu::Up()
+{  
+	if (active) //Se o botao estiver selecionado
+	{ 
+		ButtonVector[sel]->select(false); //Altera a fonte e tamanho
+		sel++;
+
+		if (sel > max)
+		{
+			sel = min;
+		}
+
+		ButtonVector[sel]->select(true);
+	}
+
+}
+void Menu::Down()
+{ 
+	if (active) 
+	{
+		ButtonVector[sel]->select(false);
+
+		sel--;
+
+		if (sel < min)
+		{
+			sel = max;
+		}
+			
+		ButtonVector[sel]->select(true);
+	}
+
+}
