@@ -10,7 +10,7 @@ private:
 	sf::RenderWindow window;
 	sf::Event ev;
 	Menu Menu;
-	MenuSJ MenuSJ;
+	
 
 	Player* player;
 
