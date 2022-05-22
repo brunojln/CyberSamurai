@@ -16,7 +16,7 @@ Button::~Button()
 {
 
 }
-void Button::select(const bool isSelected)
+void Button::selected(const bool isSelected)
 {
 	if (isSelected)
 	{

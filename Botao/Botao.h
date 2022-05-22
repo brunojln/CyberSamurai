@@ -14,7 +14,7 @@ public:
 
 	Button(sf::Vector2f position, string string);
 	~Button();
-	void select(const bool isSelected);
+	void selected(const bool isSelected);
 	void render();
 
 };

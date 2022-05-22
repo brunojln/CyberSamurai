@@ -5,7 +5,12 @@ Menu::Menu(): sel{0}, min{0}, max{2}, active{false}
 {
 	//Gerar janela
 
+	
 	sf::Texture* image;
+	/*
+	image = new sf::Texture;
+	image = NULL;*/
+
 	image->loadFromFile("InclusaoExterna/Imagens/Background/background_menu.png");
 	background->setTexture(*image);
 }

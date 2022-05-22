@@ -20,7 +20,7 @@ public:
 
 	virtual void exec() = 0;
 
-	// void updateScreen();
+	//void updateScreen();
 
 	void Up();
 	void Down();

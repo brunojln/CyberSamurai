@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Botao\Botao.h" />
+    <ClInclude Include="Menus\MenuEntrada.h" />
     <ClInclude Include="Includes\stdafx.h" />
     <ClInclude Include="Entidades\Player.h" />
     <ClInclude Include="Principal\Jogo.h" />
@@ -149,6 +150,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Botao\Botao.cpp" />
+    <ClCompile Include="Menus\MenuEntrada.cpp" />
     <ClCompile Include="Includes\stdafx.cpp" />
     <ClCompile Include="Entidades\Player.cpp" />
     <ClCompile Include="Principal\Jogo.cpp" />
