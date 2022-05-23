@@ -27,6 +27,9 @@
     <ClInclude Include="Entidades\Player.h">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
+<<<<<<< HEAD
+    <ClInclude Include="Gerenciadores\Platform.h">
+=======
     <ClInclude Include="Botao\Botao.h">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
@@ -37,6 +40,7 @@
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
     <ClInclude Include="Menus\MenuEntrada.h">
+>>>>>>> master
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
   </ItemGroup>
@@ -56,6 +60,9 @@
     <ClCompile Include="Entidades\Player.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
+<<<<<<< HEAD
+    <ClCompile Include="Gerenciadores\Platform.cpp">
+=======
     <ClCompile Include="Botao\Botao.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
@@ -66,6 +73,7 @@
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
     <ClCompile Include="Menus\MenuEntrada.cpp">
+>>>>>>> master
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
   </ItemGroup>
