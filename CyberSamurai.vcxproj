@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Gerenciadores\Collider.h" />
+    <ClInclude Include="Gerenciadores\Graphics.h" />
     <ClInclude Include="Includes\stdafx.h" />
     <ClInclude Include="Entidades\Player.h" />
     <ClInclude Include="Gerenciadores\Platform.h" />
@@ -148,6 +149,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Gerenciadores\Collider.cpp" />
+    <ClCompile Include="Gerenciadores\Graphics.cpp" />
     <ClCompile Include="Includes\stdafx.cpp" />
     <ClCompile Include="Entidades\Player.cpp" />
     <ClCompile Include="Gerenciadores\Platform.cpp" />

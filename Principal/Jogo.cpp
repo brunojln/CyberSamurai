@@ -23,7 +23,8 @@ void Jogo::initView()
 void Jogo::initPlayer()
 {
 	this->player = new Player();
-	this->platform1 = new Platform(sf::Vector2f(0.2f, 0.2f), sf::Vector2f(800.0f, 850.0f));
+	this->platform1 = new Platform(sf::Vector2f(0.2f, 0.2f), sf::Vector2f(800.0f, 850.0f)); //temporario
+	this->platform2 = new Platform(sf::Vector2f(0.2f, 0.2f), sf::Vector2f(-200.0f, 850.0f));
 }
 
 Jogo::Jogo() 
@@ -37,6 +38,15 @@ Jogo::~Jogo()
 {
 	delete this->player;
 	delete this->platform1;
+}
+void Jogo::showCoords()
+{
+	if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+	{
+		// left click...
+		sf::Vector2i position = sf::Mouse::getPosition();
+		std::cout << "X:" << position.x << "\nY:" << position.y << std::endl;
+	}
 }
 /*
 Collider Jogo::getCollider()
@@ -53,7 +63,7 @@ void Jogo::run()
 	}
 }
 
-void Jogo::player_platformCollision()
+void Jogo::player_platformCollision(Platform *platform1)
 {
 	sf::FloatRect playerBounds;
 	sf::FloatRect platformBounds;
@@ -114,7 +124,8 @@ void Jogo::updatePlayer()
 
 void Jogo::updateCollision()
 {
-	this->player_platformCollision();
+	this->player_platformCollision(this->platform1);
+	//this->player_platformCollision(this->platform2);
 
 	//collision bottom screen
 	if (this->player->getPosition().y + this->player->getGlobalBounds().height >= this->window.getSize().y)
@@ -167,6 +178,7 @@ void Jogo::update()
 	this->updatePlayer();
 	this->updateView();
 	this->updateCollision();
+	this->showCoords(); // temporario
 }
 
 void Jogo::render()
@@ -178,6 +190,7 @@ void Jogo::render()
 	this->window.draw(this->sprite);
 	this->player->render(this->window);
 	this->platform1->render(this->window);
+	this->platform2->render(this->window);
 
 	this->window.setView(window.getDefaultView());
 	this->window.display();

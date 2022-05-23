@@ -101,7 +101,7 @@ void Player::setCanJump(bool can_jump)
 
 void Player::updatePhysics()
 {
-	this->velocity.y += 0.97 * this->gravity;
+	this->velocity.y += 0.8 * this->gravity;
 	if (std::abs(this->velocity.y) > this->velocityMaxY) {
 		this->velocity.y = this->velocityMaxY * ((this->velocity.y < 0.f) ? -1.f : 1.f);
 	}
@@ -115,7 +115,6 @@ void Player::updatePhysics()
 		this->velocity.y = 0.f;
 
 	this->sprite.move(this->velocity);
-	
 
 }
 

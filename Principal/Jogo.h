@@ -3,6 +3,9 @@
 #include "../Entidades/Player.h"
 #include "../Gerenciadores/Platform.h"
 
+namespace entidades {
+
+
 class Jogo
 {
 private:
@@ -20,7 +23,8 @@ private:
 	sf::Event ev;
 
 	Player* player;
-	Platform* platform1; 
+	Platform* platform1; //criar um map e inserir as plataformas
+	Platform* platform2;
 
 
 	void initWindow();
@@ -31,8 +35,9 @@ public:
 	Jogo();
 	~Jogo();
 
+	void showCoords();
 	//Collider getCollider();
-	void player_platformCollision();
+	void player_platformCollision(Platform* platform1);
 
 	void updatePlayer();
 	void updateCollision();
@@ -44,3 +49,6 @@ public:
 
 };
 
+
+
+}
