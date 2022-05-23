@@ -3,7 +3,7 @@
 #include "../Entidades/Player.h"
 #include "../Gerenciadores/Platform.h"
 
-namespace entidades {
+// namespace entidades {
 
 
 class Jogo
@@ -51,4 +51,4 @@ public:
 
 
 
-}
+//}

@@ -42,8 +42,3 @@ void Platform::render(sf::RenderTarget& target)
 {
 	target.draw(this->sprite);
 }
-
-Collider Platform::getCollider()
-{
-	return Collider(this->sprite);
-}

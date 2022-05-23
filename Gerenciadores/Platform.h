@@ -1,7 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "../Includes/stdafx.h"
-#include "../Gerenciadores/Collider.h"
+
 class Platform
 {
 private:
@@ -22,6 +22,6 @@ public:
 	const sf::FloatRect getGlobalBounds() const;
 
 	void render(sf::RenderTarget& target);
-	Collider getCollider();
+
 };
 

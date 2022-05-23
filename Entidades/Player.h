@@ -1,6 +1,5 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-#include "../Gerenciadores/Collider.h"
 #include <iostream>
 
 enum PLAYER_ANIMATION_STATES { IDLE = 0, MOVING_LEFT, MOVING_RIGHT, JUMPING, ATTACK };
@@ -46,7 +45,6 @@ public:
 	//Accessors
 	const sf::Vector2f getPosition() const;
 	const sf::FloatRect getGlobalBounds() const;
-	Collider getCollider();
 
 	//modifiers
 	void setPosition(const float x, const float y);

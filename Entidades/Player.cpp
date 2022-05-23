@@ -63,10 +63,6 @@ const sf::FloatRect Player::getGlobalBounds() const
 	return this->sprite.getGlobalBounds();
 }
 
-Collider Player::getCollider()
-{
-	return Collider(this->sprite);
-}
 
 void Player::setPosition(const float x, const float y)
 {
