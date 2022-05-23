@@ -15,7 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Menus\MainMenu.h">
     <ClInclude Include="Menus\Menu.h">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
