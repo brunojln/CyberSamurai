@@ -7,15 +7,24 @@ class Jogo
 {
 private:
 	sf::RenderWindow window;
+	int windowWidth;
+	int windowHeight;
+
+	sf::View view;
+	sf::Clock deltClock;
+	float deltaTime; 
+	bool canMove;
+
 	sf::Texture texture;
 	sf::Sprite sprite;
 	sf::Event ev;
 
 	Player* player;
-	Platform* platform1; //talvez fzr isso sem ponteiro
+	Platform* platform1; 
 
 
 	void initWindow();
+	void initView();
 	void initPlayer();
 
 public:
@@ -27,6 +36,7 @@ public:
 
 	void updatePlayer();
 	void updateCollision();
+	void updateView();
 	void run();
 	void update();
 

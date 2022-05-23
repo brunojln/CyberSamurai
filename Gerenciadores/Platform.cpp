@@ -2,7 +2,10 @@
 
 void Platform::initTexture()
 {
-	this->texture.loadFromFile("InclusaoExterna/Imagens/Personagens/amogus.png");
+	if (!this->texture.loadFromFile("InclusaoExterna/Imagens/Background/moonstone.jpg"))
+	{
+		std::cout << "ERROR::PLATFORM::INITTEXTURE\n";
+	}
 }
 
 void Platform::initSprite()
@@ -18,6 +21,7 @@ Platform::Platform(sf::Vector2f size, sf::Vector2f position)
 	sprite.setScale(size);
 	sprite.setOrigin(size / 2.0f);
 	sprite.setPosition(position);
+
 
 	this->leftSide = sprite.getPosition().x;
 	this->rightSide = sprite.getPosition().x + (sprite.getGlobalBounds().width * size.x);

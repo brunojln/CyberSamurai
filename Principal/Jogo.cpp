@@ -2,23 +2,34 @@
 
 void Jogo::initWindow()
 {
-	this->window.create(sf::VideoMode(1000, 800), "Teste Animacao", sf::Style::Close | sf::Style::Titlebar);
+	this->windowWidth = 1720;
+	this->windowHeight = 980;
+	this->window.create(sf::VideoMode(windowWidth, windowHeight),"CyberSamurai", sf::Style::Close | sf::Style::Titlebar);
 	this->window.setFramerateLimit(60);
 
-	//this->texture.loadFromFile("InclusaoExterna/Imagens/Background/gameBackground.gif");
-	//this->sprite.setTexture(this->texture);
-	//this->sprite.setPosition(0, 0);
+	this->texture.loadFromFile("InclusaoExterna/Imagens/Background/city.jpg");
+	this->sprite.setTexture(this->texture);
+	this->sprite.setPosition(0, 0);
+	this->sprite.setScale(0.3f, 0.3f);
+}
+
+void Jogo::initView()
+{
+	this->view.setSize(windowWidth, windowHeight);
+	this->view.setCenter(window.getSize().x / 2.f, window.getSize().y / 2.f);
+	this->canMove = true;
 }
 
 void Jogo::initPlayer()
 {
 	this->player = new Player();
-	this->platform1 = new Platform(sf::Vector2f(0.5f, 0.5f), sf::Vector2f(450.0f, 700.0f));
+	this->platform1 = new Platform(sf::Vector2f(0.2f, 0.2f), sf::Vector2f(800.0f, 850.0f));
 }
 
-Jogo::Jogo() //: platform1(sf::Vector2f(1.f, 1.f), sf::Vector2f(900.0f, 500.0f))
+Jogo::Jogo() 
 {
 	this->initWindow();
+	this->initView();
 	this->initPlayer();
 }
 
@@ -30,7 +41,7 @@ Jogo::~Jogo()
 /*
 Collider Jogo::getCollider()
 {
-	//say whaat, viajei nisso sepa
+	//mudar isso
 	// return Collider(*this->platform1);
 }*/
 
@@ -49,7 +60,7 @@ void Jogo::player_platformCollision()
 
 	playerBounds = this->player->getGlobalBounds();
 	platformBounds = this->platform1->getGlobalBounds();
-
+	this->canMove = true;
 	if (playerBounds.intersects(platformBounds))
 	{	//bottom-top collision
 		if (playerBounds.top < platformBounds.top &&
@@ -80,6 +91,7 @@ void Jogo::player_platformCollision()
 			)
 		{
 			this->player->setPosition(platformBounds.left - playerBounds.width, playerBounds.top);
+			this->canMove = false;
 		}
 		//left-right collision
 		else if (playerBounds.left > platformBounds.left &&
@@ -89,7 +101,9 @@ void Jogo::player_platformCollision()
 			)
 		{
 			this->player->setPosition(platformBounds.left + platformBounds.width, playerBounds.top);
+			this->canMove = false;
 		}
+		
 	}
 }
 
@@ -111,12 +125,15 @@ void Jogo::updateCollision()
 		this->player->setCanJump(true);
 	} 
 	//collision top screen
-	if (this->player->getPosition().y <= 0.f)
+	else if (this->player->getPosition().y <= 0.f)
 	{
 		this->player->resetVelocityY();
 		this->player->setPosition(this->player->getPosition().x,0.f);
 	}
+
+	
 	//collision left screen
+	/*
 	if (this->player->getPosition().x  <= 0.f)
 	{
 		this->player->setPosition(0.f, this->player->getPosition().y);
@@ -126,6 +143,16 @@ void Jogo::updateCollision()
 	{
 		this->player->setPosition(this->window.getSize().x - this->player->getGlobalBounds().width,
 			this->player->getPosition().y);
+	}*/
+}
+
+void Jogo::updateView()
+{
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) && canMove) {
+		this->view.move(-9.f, 0.f);
+	}
+	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) && canMove) {
+		this->view.move(9.f, 0.f);
 	}
 }
 
@@ -138,17 +165,20 @@ void Jogo::update()
 		}
 	}
 	this->updatePlayer();
-
+	this->updateView();
 	this->updateCollision();
 }
 
 void Jogo::render()
 {
 	this->window.clear();
-	//drawing
 
+	this->window.setView(view);
+	//rendering
+	this->window.draw(this->sprite);
 	this->player->render(this->window);
 	this->platform1->render(this->window);
 
+	this->window.setView(window.getDefaultView());
 	this->window.display();
 }

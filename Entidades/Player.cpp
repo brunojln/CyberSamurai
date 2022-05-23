@@ -37,6 +37,7 @@ void Player::initSprite()
 	this->currentFrame = sf::IntRect(0, 0, 125, 100);
 	this->sprite.setTextureRect(this->currentFrame);
 	this->sprite.setScale(2.5f, 2.5f);
+	this->sprite.setPosition(860.f, 440.f);
 }
 
 Player::Player()
@@ -114,6 +115,7 @@ void Player::updatePhysics()
 		this->velocity.y = 0.f;
 
 	this->sprite.move(this->velocity);
+	
 
 }
 
