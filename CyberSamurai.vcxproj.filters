@@ -1,86 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Arquivos de Origem">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Arquivos de Cabeçalho">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
-    <Filter Include="Arquivos de Recurso">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
+    <ClCompile Include="Botao\Botao.cpp" />
+    <ClCompile Include="Gerenciadores\GraphicManager.cpp" />
+    <ClCompile Include="Menus\MenuEntrada.cpp" />
+    <ClCompile Include="Includes\stdafx.cpp" />
+    <ClCompile Include="Entidades\Player.cpp" />
+    <ClCompile Include="Gerenciadores\Platform.cpp" />
+    <ClCompile Include="Principal\Jogo.cpp" />
+    <ClCompile Include="Menus\Menu.cpp" />
+    <ClCompile Include="Main\main.cpp" />
+    <ClCompile Include="States\Estado.cpp" />
+    <ClCompile Include="States\GerenciadorEstato.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Menus\Menu.h">
-      <Filter>Arquivos de Cabeçalho</Filter>
-    </ClInclude>
-    <ClInclude Include="Includes\stdafx.h">
-      <Filter>Arquivos de Cabeçalho</Filter>
-    </ClInclude>
-    <ClInclude Include="Principal\Jogo.h">
-      <Filter>Arquivos de Cabeçalho</Filter>
-    </ClInclude>
-    <ClInclude Include="Entidades\Player.h">
-      <Filter>Arquivos de Cabeçalho</Filter>
-    </ClInclude>
-<<<<<<< HEAD
-    <ClInclude Include="Gerenciadores\Platform.h">
-=======
-    <ClInclude Include="Botao\Botao.h">
-      <Filter>Arquivos de Cabeçalho</Filter>
-    </ClInclude>
-    <ClInclude Include="States\GerenciadorEstado.h">
-      <Filter>Arquivos de Cabeçalho</Filter>
-    </ClInclude>
-    <ClInclude Include="States\Estado.h">
-      <Filter>Arquivos de Cabeçalho</Filter>
-    </ClInclude>
-    <ClInclude Include="Menus\MenuEntrada.h">
->>>>>>> master
-      <Filter>Arquivos de Cabeçalho</Filter>
-    </ClInclude>
-    <ClInclude Include="GraphicManager.h">
-      <Filter>Arquivos de Cabeçalho</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Main\main.cpp">
-      <Filter>Arquivos de Origem</Filter>
-    </ClCompile>
-    <ClCompile Include="Includes\stdafx.cpp">
-      <Filter>Arquivos de Origem</Filter>
-    </ClCompile>
-    <ClCompile Include="Menus\Menu.cpp">
-      <Filter>Arquivos de Origem</Filter>
-    </ClCompile>
-    <ClCompile Include="Principal\Jogo.cpp">
-      <Filter>Arquivos de Origem</Filter>
-    </ClCompile>
-    <ClCompile Include="Entidades\Player.cpp">
-      <Filter>Arquivos de Origem</Filter>
-    </ClCompile>
-<<<<<<< HEAD
-    <ClCompile Include="Gerenciadores\Platform.cpp">
-=======
-    <ClCompile Include="Botao\Botao.cpp">
-      <Filter>Arquivos de Origem</Filter>
-    </ClCompile>
-    <ClCompile Include="States\GerenciadorEstato.cpp">
-      <Filter>Arquivos de Origem</Filter>
-    </ClCompile>
-    <ClCompile Include="States\Estado.cpp">
-      <Filter>Arquivos de Origem</Filter>
-    </ClCompile>
-    <ClCompile Include="Menus\MenuEntrada.cpp">
->>>>>>> master
-      <Filter>Arquivos de Origem</Filter>
-    </ClCompile>
-    <ClCompile Include="GraphicManager.cpp">
-      <Filter>Arquivos de Origem</Filter>
-    </ClCompile>
+    <ClInclude Include="Botao\Botao.h" />
+    <ClInclude Include="Gerenciadores\GraphicManager.h" />
+    <ClInclude Include="Menus\MenuEntrada.h" />
+    <ClInclude Include="Includes\stdafx.h" />
+    <ClInclude Include="Entidades\Player.h" />
+    <ClInclude Include="Gerenciadores\Platform.h" />
+    <ClInclude Include="Principal\Jogo.h" />
+    <ClInclude Include="Menus\Menu.h" />
+    <ClInclude Include="States\Estado.h" />
+    <ClInclude Include="States\GerenciadorEstado.h" />
   </ItemGroup>
 </Project>
