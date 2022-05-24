@@ -3,9 +3,9 @@
 //Tentar a conversao estatica para ponteiro de jogo
 EntranceMenu::EntranceMenu(Game* pointerGame) : Menu(), State((StateControl*)pointerGame, sID::EntranceMenu), pG(pointerGame), title()
 {
-	//Pegar instancia do gerenciador grafico 
+	Managers::GraphicManager* pGM = Managers::GraphicManager::getGraphics();
 	Button* button = NULL;
-
+	
 	//Botoes
 	button = new Button(sf::Vector2f(100, 200), "Play");
 	button->selected(true); //Play como primeiro selecionado
@@ -26,9 +26,13 @@ EntranceMenu::EntranceMenu(Game* pointerGame) : Menu(), State((StateControl*)poi
 	title.setPosition(100, 50);
 	title.setCharacterSize(75);
 
+	/*
 	sf::Font* fontAux; //Inicializar com parametro
 	fontAux->loadFromFile("InclusaoExterna/Fonte/Cyber-BoldRustique.ttf");
 	title.setFont(*fontAux);
+	*/
+
+	title.setFont(*pGM->loadFont("InclusaoExterna/Fonte/Cyber-BoldRustique.ttf"));
 
 
 }
@@ -39,29 +43,32 @@ EntranceMenu::~EntranceMenu()
 
 void EntranceMenu::render()
 {  
-	//updateScreen();
+	Managers::GraphicManager* pGM = Managers::GraphicManager::getGraphics();
 
-	//back.render();
+	pGM->render(background);
 
 	for (iB = ButtonVector.begin(); iB != ButtonVector.end(); iB++)
 	{
 		(*iB)->render();
 	}
 
-	//title.render(); falta o gerenciador grafico
+	pGM->render(&title);
 
 }
 void EntranceMenu::resetState()
 { 
 
-	// ButtonVector[sel]->select(false); select do gerenciador grafico
+	ButtonVector[sel]->selected(false); 
 	sel = 0;
-	// ButtonVector[sel]->select(true); select do gerenciador grafico
+	ButtonVector[sel]->selected(true); 
 
 }
 
 void EntranceMenu::exec()
 {
+
+	Managers::GraphicManager* pGM = Managers::GraphicManager::getGraphics();
+
 	if (active) //Se o botao estiver ativo
 	{
 		active = false; //Como mudar isso?
@@ -77,7 +84,7 @@ void EntranceMenu::exec()
 			updateState(sID::SobreJogo);
 			break;
 		case 3:
-			// pGame->endGame();
+			pGM->close();
 			break;
 
 		default:

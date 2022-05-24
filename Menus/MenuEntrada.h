@@ -15,8 +15,10 @@ public:
 	EntranceMenu(Game* pointerGame = NULL);
 	~EntranceMenu();
 
-	//Virual void herdadas de State
+	//Funcoes virual void herdadas de State
+
 	void render();
+
 	void resetState();
 
 	void exec();

@@ -1,4 +1,5 @@
 #include "../Includes/stdafx.h"
+#include "../GraphicManager.h"
 
 
 class Button

@@ -3,16 +3,20 @@
 
 Menu::Menu(): sel{0}, min{0}, max{2}, active{false}
 {
-	//Gerar janela
+	Managers::GraphicManager* pGM = Managers::GraphicManager::getGraphics();
 
-	
-	sf::Texture* image;
+
+	background->setTexture(*pGM->loadTexture("InclusaoExterna/Imagens/Background/background_menu.png"));
+	//Talvez nao funcione
+
 	/*
+	sf::Texture* image;
+	
 	image = new sf::Texture;
-	image = NULL;*/
+	image = NULL;
 
 	image->loadFromFile("InclusaoExterna/Imagens/Background/background_menu.png");
-	background->setTexture(*image);
+	background->setTexture(*image);*/
 }
 Menu::~Menu()
 {  
@@ -30,7 +34,7 @@ void Menu::Up()
 {  
 	if (active) //Se o botao estiver selecionado
 	{ 
-		ButtonVector[sel]->select(false); //Altera a fonte e tamanho
+		ButtonVector[sel]->selected(false); //Altera a fonte e tamanho
 		sel++;
 
 		if (sel > max)
@@ -38,7 +42,7 @@ void Menu::Up()
 			sel = min;
 		}
 
-		ButtonVector[sel]->select(true);
+		ButtonVector[sel]->selected(true);
 	}
 
 }
@@ -46,7 +50,7 @@ void Menu::Down()
 { 
 	if (active) 
 	{
-		ButtonVector[sel]->select(false);
+		ButtonVector[sel]->selected(false);
 
 		sel--;
 
@@ -55,7 +59,7 @@ void Menu::Down()
 			sel = max;
 		}
 			
-		ButtonVector[sel]->select(true);
+		ButtonVector[sel]->selected(true);
 	}
 
 }

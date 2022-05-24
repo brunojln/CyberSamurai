@@ -3,8 +3,10 @@
 
 Button::Button(sf::Vector2f position, string string): data(string)
 {
-	fontDefault->loadFromFile("InclusaoExterna/Fonte/Cyber.ttf");
-	fontSelected->loadFromFile("InclusaoExterna/Fonte/Cyber-BoldRustique.ttf");
+	Managers::GraphicManager* pGM = Managers::GraphicManager::getGraphics();
+
+	fontDefault = pGM->loadFont("InclusaoExterna/Fonte/Cyber.ttf");
+	fontSelected = pGM->loadFont("InclusaoExterna/Fonte/Cyber-BoldRustique.ttf");
 
 	text.setPosition(position);
 	text.setFont(*fontDefault);
@@ -33,5 +35,8 @@ void Button::selected(const bool isSelected)
 
 void Button::render()
 {
-	//incluir renderizacao
+	Managers::GraphicManager* pGM = Managers::GraphicManager::getGraphics();
+
+	pGM->render(&text);
+
 }
