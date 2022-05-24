@@ -1,5 +1,5 @@
 #include "../Includes/stdafx.h"
-#include "../Entidades/Player.h"
+#include "../Entidades/Characters/Player.h"
 #include "../Gerenciadores/Platform.h"
 
 // namespace entidades {
@@ -21,7 +21,7 @@ private:
 	sf::Sprite sprite;
 	sf::Event ev;
 
-	Player* player;
+	Entities::Player* player;
 	Platform* platform1; //criar um map e inserir as plataformas
 	Platform* platform2;
 
