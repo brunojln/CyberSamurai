@@ -1,4 +1,4 @@
-#include "../CyberSamurai/Includes/stdafx.h"
+#include "../Includes/stdafx.h"
 
 namespace Managers { 
 
