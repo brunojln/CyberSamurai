@@ -11,7 +11,7 @@ namespace Entities {
         //core
         int lifePoints;
         int exp; //para o player sera += exp dos inimigos eliminados
-
+        //ok
 
     public:
         Character();
