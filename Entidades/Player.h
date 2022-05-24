@@ -2,7 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
-enum PLAYER_ANIMATION_STATES { IDLE = 0, MOVING_LEFT, MOVING_RIGHT, JUMPING };
+enum PLAYER_ANIMATION_STATES { IDLE = 0, MOVING_LEFT, MOVING_RIGHT, JUMPING, ATTACK };
 
 class Player
 {
@@ -14,9 +14,14 @@ private:
 	sf::Clock animationTimer;
 	short animationState;
 	sf::IntRect currentFrame;
-	//movemente
+
+	//movement
 	bool moving;
+	bool canJump;
+	float jumpHeight;
+	
 	//core
+	sf::RectangleShape hitBox;
 
 	//physics
 	sf::Vector2f velocity;
@@ -46,6 +51,8 @@ public:
 	void resetVelocityY();
 
 	void move(const float dirX, const float dirY);
+	void setCanJump(bool can_jump);
+	void jump();
 
 	void updatePhysics();
 	void updateMovement();

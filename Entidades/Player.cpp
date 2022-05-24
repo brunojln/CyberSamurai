@@ -3,6 +3,10 @@
 void Player::initVariables()
 {
 	this->animationState = IDLE;
+	this->canJump = true;
+	this->jumpHeight = 1000.f;
+	
+	//this->hitBox.setSize(this->sprite.);
 }
 
 void Player::initAnimations()
@@ -12,12 +16,12 @@ void Player::initAnimations()
 
 void Player::initPhysics()
 {
-	this->velocityMax = 6.f;
+	this->velocityMax = 10.f;
 	this->velocityMin = 1.f;
 	this->acceleration = 1.f;
 	this->drag = 0.9f;
-	this->gravity = 4.f;
-	this->velocityMaxY = 15.f;
+	this->gravity = 2.f;
+	this->velocityMaxY = 40.f;
 }
 
 void Player::initTexture()
@@ -25,15 +29,15 @@ void Player::initTexture()
 	if (!this->textureSheet.loadFromFile("InclusaoExterna/Imagens/Personagens/BontenmaruSheet.png")) {
 		std::cout << "ERROR::PLAYER::INITTEXTURE::Falha ao carregar textura" << "\n";
 	}
-	else { std::cout << "deu boa"; }
 }
 
 void Player::initSprite()
 {
 	this->sprite.setTexture(this->textureSheet);
-	this->currentFrame = sf::IntRect(0, 0, 125, 115);
+	this->currentFrame = sf::IntRect(0, 0, 125, 100);
 	this->sprite.setTextureRect(this->currentFrame);
 	this->sprite.setScale(2.5f, 2.5f);
+	this->sprite.setPosition(860.f, 440.f);
 }
 
 Player::Player()
@@ -59,6 +63,7 @@ const sf::FloatRect Player::getGlobalBounds() const
 	return this->sprite.getGlobalBounds();
 }
 
+
 void Player::setPosition(const float x, const float y)
 {
 	this->sprite.setPosition(x, y);
@@ -80,9 +85,19 @@ void Player::move(const float dirX, const float dirY)
 	}
 }
 
+void Player::setCanJump(bool can_jump)
+{
+	this->canJump = can_jump;
+}
+
+//void Player::checkCollision()
+//{
+	
+//}
+
 void Player::updatePhysics()
 {
-	this->velocity.y += 1.0 * this->gravity;
+	this->velocity.y += 0.8 * this->gravity;
 	if (std::abs(this->velocity.y) > this->velocityMaxY) {
 		this->velocity.y = this->velocityMaxY * ((this->velocity.y < 0.f) ? -1.f : 1.f);
 	}
@@ -111,6 +126,17 @@ void Player::updateMovement()
 		this->move(3.f, 0.f);
 		this->animationState = MOVING_RIGHT;
 	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && canJump) {
+		this->canJump = false;
+		this->velocity.y = -sqrtf(2.0f * this->gravity * this->jumpHeight);
+		std::cout << velocity.y << std::endl;
+		this->animationState = JUMPING;
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::K)) {
+		//attack function
+		//reset attack cooldown
+		this->animationState = ATTACK;
+	}
 
 
 }
@@ -133,7 +159,7 @@ void Player::updateAnimations()
 	}
 	else if (this->animationState == MOVING_RIGHT)
 	{
-		if (this->animationTimer.getElapsedTime().asSeconds() >= 0.25f)
+		if (this->animationTimer.getElapsedTime().asSeconds() >= 0.22f)
 		{
 			this->currentFrame.top = 230.f;
 			this->currentFrame.left += 120.f;
@@ -149,7 +175,7 @@ void Player::updateAnimations()
 	}
 	else if (this->animationState == MOVING_LEFT)
 	{
-		if (this->animationTimer.getElapsedTime().asSeconds() >= 0.25f)
+		if (this->animationTimer.getElapsedTime().asSeconds() >= 0.22f)
 		{
 			this->currentFrame.top = 230.f;
 			this->currentFrame.left += 120.f;
@@ -163,7 +189,30 @@ void Player::updateAnimations()
 		this->sprite.setScale(-2.5f, 2.5f);
 		this->sprite.setOrigin(this->sprite.getGlobalBounds().width / 2.5f, 0.f);
 	}
-	else {
+	else if (this->animationState == JUMPING) 
+	{
+		this->currentFrame.top = 115.f;
+		this->currentFrame.left = 600.f;
+		this->animationTimer.restart();
+		this->sprite.setTextureRect(this->currentFrame);
+	}
+	else if (this->animationState == ATTACK) 
+	{
+
+		if (this->animationTimer.getElapsedTime().asSeconds() >= 0.1f)
+		{
+			this->currentFrame.left = 480.f;
+			this->currentFrame.top = 0.f;
+			this->currentFrame.left += 140.f;
+			if (this->currentFrame.left >= 720)
+			{
+				this->currentFrame.left = 480.f;
+			}
+			this->animationTimer.restart();
+			this->sprite.setTextureRect(this->currentFrame);
+		}
+	}
+	else { 
 		this->animationTimer.restart();
 	}
 
