@@ -140,10 +140,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Botao\Botao.h" />
+    <ClInclude Include="Entidades\Characters\Character.h" />
+    <ClInclude Include="Entidades\Characters\Player.h" />
+    <ClInclude Include="Entidades\Entity.h" />
     <ClInclude Include="Gerenciadores\GraphicManager.h" />
+    <ClInclude Include="Lista\List.h" />
     <ClInclude Include="Menus\MenuEntrada.h" />
     <ClInclude Include="Includes\stdafx.h" />
-    <ClInclude Include="Entidades\Player.h" />
     <ClInclude Include="Gerenciadores\Platform.h" />
     <ClInclude Include="Principal\Jogo.h" />
     <ClInclude Include="Menus\Menu.h" />
@@ -152,16 +155,24 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Botao\Botao.cpp" />
+    <ClCompile Include="Entidades\Characters\Character.cpp" />
+    <ClCompile Include="Entidades\Characters\Player.cpp" />
+    <ClCompile Include="Entidades\Entity.cpp" />
     <ClCompile Include="Gerenciadores\GraphicManager.cpp" />
+    <ClCompile Include="Lista\List.cpp" />
     <ClCompile Include="Menus\MenuEntrada.cpp" />
     <ClCompile Include="Includes\stdafx.cpp" />
-    <ClCompile Include="Entidades\Player.cpp" />
     <ClCompile Include="Gerenciadores\Platform.cpp" />
     <ClCompile Include="Principal\Jogo.cpp" />
     <ClCompile Include="Menus\Menu.cpp" />
     <ClCompile Include="Main\main.cpp" />
     <ClCompile Include="States\Estado.cpp" />
-    <ClCompile Include="States\GerenciadorEstato.cpp" />
+    <ClCompile Include="States\GerenciadorEstado.cpp" />
+
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="InclusaoExterna\Fonte\Cyber-BoldRustique.ttf" />
+    <Font Include="InclusaoExterna\Fonte\Cyber.ttf" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
