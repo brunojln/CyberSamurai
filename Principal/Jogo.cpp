@@ -22,9 +22,9 @@ void Jogo::initView()
 
 void Jogo::initPlayer()
 {
-	this->player = new Player();
-	this->platform1 = new Platform(sf::Vector2f(0.2f, 0.2f), sf::Vector2f(800.0f, 850.0f)); //temporario
-	this->platform2 = new Platform(sf::Vector2f(0.2f, 0.2f), sf::Vector2f(-200.0f, 850.0f));
+	this->player = new Entities::Player();
+	this->platform1 = new Entities::Platform(sf::Vector2f(0.2f, 0.2f), sf::Vector2f(800.0f, 850.0f)); //temporario
+	this->platform2 = new Entities::Platform(sf::Vector2f(0.2f, 0.2f), sf::Vector2f(-200.0f, 850.0f));
 }
 
 Jogo::Jogo() 
@@ -63,7 +63,7 @@ void Jogo::run()
 	}
 }
 
-void Jogo::player_platformCollision(Platform *platform1)
+void Jogo::player_platformCollision(Entities::Platform *platform1)
 {
 	sf::FloatRect playerBounds;
 	sf::FloatRect platformBounds;

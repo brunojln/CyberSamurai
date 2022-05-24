@@ -1,6 +1,6 @@
 #include "Platform.h"
 
-void Platform::initTexture()
+void Entities::Platform::initTexture()
 {
 	if (!this->texture.loadFromFile("InclusaoExterna/Imagens/Background/moonstone.jpg"))
 	{
@@ -8,12 +8,12 @@ void Platform::initTexture()
 	}
 }
 
-void Platform::initSprite()
+void Entities::Platform::initSprite()
 {
 	this->sprite.setTexture(this->texture);
 }
 
-Platform::Platform(sf::Vector2f size, sf::Vector2f position)
+Entities::Platform::Platform(sf::Vector2f size, sf::Vector2f position)
 {
 	this->initTexture();
 	this->initSprite(); //talvez tirar essa função
@@ -29,16 +29,16 @@ Platform::Platform(sf::Vector2f size, sf::Vector2f position)
 	this->bottomSide = sprite.getPosition().y + (sprite.getGlobalBounds().height * size.y);
 }
 
-Platform::~Platform()
+Entities::Platform::~Platform()
 {
 }
 
-const sf::FloatRect Platform::getGlobalBounds() const
+const sf::FloatRect Entities::Platform::getGlobalBounds() const
 {
 	return this->sprite.getGlobalBounds();
 }
 
-void Platform::render(sf::RenderTarget& target)
+void Entities::Platform::render(sf::RenderTarget& target)
 {
 	target.draw(this->sprite);
 }

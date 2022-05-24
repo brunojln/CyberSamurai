@@ -19,6 +19,7 @@ private:
 		~Node();
 
 		Personagem* getInfo();
+
 		void setInfo(Personagem* Info);
 
 		Node* getAnt();
