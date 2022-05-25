@@ -5,7 +5,6 @@
     <ClCompile Include="Gerenciadores\GraphicManager.cpp" />
     <ClCompile Include="Menus\MenuEntrada.cpp" />
     <ClCompile Include="Includes\stdafx.cpp" />
-    <ClCompile Include="Gerenciadores\Platform.cpp" />
     <ClCompile Include="Principal\Jogo.cpp" />
     <ClCompile Include="Menus\Menu.cpp" />
     <ClCompile Include="Main\main.cpp" />
@@ -15,13 +14,15 @@
     <ClCompile Include="Entidades\Entity.cpp" />
     <ClCompile Include="States\GerenciadorEstado.cpp" />
     <ClCompile Include="Lista\List.cpp" />
+    <ClCompile Include="Entidades\Estruturas\Structures.cpp" />
+    <ClCompile Include="Entidades\Estruturas\Platform.cpp" />
+    <ClCompile Include="Gerenciadores\Collider.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Botao\Botao.h" />
     <ClInclude Include="Gerenciadores\GraphicManager.h" />
     <ClInclude Include="Menus\MenuEntrada.h" />
     <ClInclude Include="Includes\stdafx.h" />
-    <ClInclude Include="Gerenciadores\Platform.h" />
     <ClInclude Include="Principal\Jogo.h" />
     <ClInclude Include="Menus\Menu.h" />
     <ClInclude Include="States\Estado.h" />
@@ -31,6 +32,9 @@
     <ClInclude Include="Entidades\Entity.h" />
     <ClInclude Include="Lista\List.h" />
     <ClInclude Include="Ente.h" />
+    <ClInclude Include="Entidades\Estruturas\Structures.h" />
+    <ClInclude Include="Entidades\Estruturas\Platform.h" />
+    <ClInclude Include="Gerenciadores\Collider.h" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="InclusaoExterna\Fonte\Cyber-BoldRustique.ttf" />

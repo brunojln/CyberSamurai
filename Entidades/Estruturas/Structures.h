@@ -1,16 +1,13 @@
 #pragma once
 #include "../Entity.h"
-#include "../../Ente.h"
 #include "SFML/Graphics.hpp"
 
 namespace Entities {
 
     class Structures :
-        public Entity, public Ente
+        public Entity
     {
     protected:
-        sf::Sprite StructureSprite;
-        sf::Texture StructureTexture;
         //coordenadas de Entity
         bool damaging;
 
@@ -18,7 +15,7 @@ namespace Entities {
         Structures();
         ~Structures();
 
-        virtual void run();
+        //virtual void run();
     };
 }
 
