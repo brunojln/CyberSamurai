@@ -13,7 +13,7 @@ List<type>::Node::~Node()
 {
 
 }
-
+/*
 template<class type>
 type* List<type>::Node::getInfo()
 {
@@ -47,7 +47,7 @@ template<class type>
 void List<type>::Node::setProx(Node* Prox)
 {
 	pNext = Prox;
-}
+}*/
 
 //Personagens
 template<class type>
@@ -56,7 +56,7 @@ template<class type>
 List<type>::~List() { clear(); }
 
 template<class type>
-void List<type>::insert(Personagem* Info)
+void List<type>::insert(type* Info)
 {
 	if (Info)
 	{
@@ -98,7 +98,7 @@ void List<type>::clear()
 
 }
 template<class type>
-Personagem* List<type>::voltarInicio()
+type* List<type>::voltarInicio()
 {
 	atual = inicio;
 	if (atual)
@@ -107,7 +107,7 @@ Personagem* List<type>::voltarInicio()
 		return NULL;
 }
 template<class type>
-Personagem* List<type>::irProximo()
+type* List<type>::irProximo()
 {
 	atual = atual->getProx();
 
@@ -115,7 +115,7 @@ Personagem* List<type>::irProximo()
 
 }
 template<class type>
-Personagem* List<type>::voltarAnt()
+type* List<type>::voltarAnt()
 {
 	atual = atual->getAnt();
 
@@ -123,19 +123,19 @@ Personagem* List<type>::voltarAnt()
 
 }
 template<class type>
-Personagem* List<type>::operator ++()
+type* List<type>::operator ++()
 {
 	return irProximo();
 }
 template<class type>
-Personagem* List<type>::operator --()
+type* List<type>::operator --()
 {
 	return voltarAnt();
 }
 template<class type>
 void List<type>::update(float t)
 {
-	Personagem* p = voltarInicio();
+	type* p = voltarInicio();
 
 	while (p)
 	{
@@ -147,7 +147,7 @@ void List<type>::update(float t)
 template<class type>
 void List<type>::render(sf::RenderWindow* janela)
 {
-	Personagem* p = voltarInicio();
+	type* p = voltarInicio();
 
 	while (p)
 	{
@@ -158,7 +158,7 @@ void List<type>::render(sf::RenderWindow* janela)
 template<class type>
 void List<type>::deleteCharacters()
 {
-	Personagem* p = voltarInicio();
+	type* p = voltarInicio();
 
 	while (p)
 	{

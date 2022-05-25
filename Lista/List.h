@@ -1,7 +1,6 @@
 #pragma once
 #include "../Includes/stdafx.h"
 
-class Personagem; //alterar, temporario
 
 template<class type>
 
@@ -20,14 +19,14 @@ private:
 		Node(type* Info = NULL, Node* Ant = NULL, Node* Prox = NULL);
 		~Node();
 
-		type* getInfo();
-		void setInfo(type* Info);
+		type* getInfo(){ return info; }
+		void setInfo(type* Info){ info = Info; }
 
-		Node* getAnt();
-		void setAnt(Node* Ant);
+		Node* getAnt(){ return pAnt; }
+		void setAnt(Node* Ant){ pAnt = Ant; }
 
-		Node* getProx();
-		void setProx(Node* Prox);
+		Node* getProx(){ return pNext; }
+		void setProx(Node* Prox){ pNext = Prox; }
 
 	};
 
@@ -40,15 +39,15 @@ public:
 	List();
 	~List();
 
-	void insert(Personagem* Info);
+	void insert(type* Info);
 	void clear();
 
-	Personagem* voltarInicio();
-	Personagem* irProximo();
-	Personagem* voltarAnt();
+	type* voltarInicio();
+	type* irProximo();
+	type* voltarAnt();
 	
-	Personagem* operator ++();
-	Personagem* operator --();
+	type* operator ++();
+	type* operator --();
 
 	void update(float t);
 	void render(sf::RenderWindow* janela);
