@@ -1,53 +1,66 @@
 #include "List.h"
 
-
 //Node
 
-List::Node::Node(Personagem* Info, Node* Ant, Node* Prox) : info{ Info }, pAnt{ Ant }, pNext{ Prox }
+template<class type>
+List<type>::Node::Node(type* Info, Node* Ant, Node* Prox)
 {
-
 }
 
-List::Node::~Node()
+template<class type>
+List<type>::Node::~Node()
 {
-
 }
 
 
-Personagem* List::Node::getInfo()
+
+template<class type>
+type* List<type>::Node::getInfo()
 {
 	return info;
 }
-void List::Node::setInfo(Personagem* Info)
+
+template<class type>
+void List<type>::Node::setInfo(type* Info)
 {
 	info = Info;
 }
 
-List::Node* List::Node::getAnt()
-{
-	return pAnt;
-}
-void List::Node::setAnt(Node* Ant)
+template<class type>
+void List<type>::Node::setAnt(Node* Ant)
 {
 	pAnt = Ant;
 }
 
-List::Node* List::Node::getProx()
-{
-	return pNext;
-}
-void List::Node::setProx(Node* Prox)
+template<class type>
+void List<type>::Node::setProx(Node* Prox)
 {
 	pNext = Prox;
 }
 
+
 //Personagens
 
-List::List() : inicio{ NULL }, fim{ NULL }, atual{ NULL } { }
-List::~List() { clear(); }
 
 
-void List::insert(Personagem* Info)
+template<class type>
+List<type>::List()
+{
+	inicio = NULL;
+	fim = NULL;
+	atual = NULL;
+}
+
+template<class type>
+List<type>::~List()
+{
+	inicio = NULL;
+	fim = NULL;
+	atual = NULL;
+}
+
+template<class type>
+void List<type>::insert(type* Info)
 {
 	if (Info)
 	{
@@ -69,7 +82,10 @@ void List::insert(Personagem* Info)
 	}
 
 }
-void List::clear()
+
+
+template<class type>
+void List<type>::clear()
 {
 	Node* Paux = inicio;
 	atual = inicio;
@@ -88,7 +104,9 @@ void List::clear()
 
 }
 
-Personagem* List::voltarInicio()
+
+template<class type>
+type* List<type>::voltarInicio()
 {
 	atual = inicio;
 	if (atual)
@@ -96,7 +114,10 @@ Personagem* List::voltarInicio()
 	else
 		return NULL;
 }
-Personagem* List::irProximo()
+
+
+template<class type>
+type* List<type>::irProximo()
 {
 	atual = atual->getProx();
 
@@ -105,9 +126,12 @@ Personagem* List::irProximo()
 
 }
 
-void List::update(float t)
+
+
+template<class type>
+void List<type>::update(float t)
 {
-	Personagem* p = voltarInicio();
+	type* p = voltarInicio();
 
 	while (p)
 	{
@@ -116,9 +140,12 @@ void List::update(float t)
 	}
 
 }
-void List::render(sf::RenderWindow* janela)
+
+
+template<class type>
+void List<type>::render(sf::RenderWindow* janela)
 {
-	Personagem* p = voltarInicio();
+	type* p = voltarInicio();
 
 	while (p)
 	{
@@ -127,9 +154,11 @@ void List::render(sf::RenderWindow* janela)
 	}
 }
 
-void List::deleteCharacters()
+
+template<class type>
+void List<type>::deleteCharacters()
 {
-	Personagem* p = voltarInicio();
+	type* p = voltarInicio();
 
 	while (p)
 	{
