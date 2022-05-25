@@ -1,31 +1,37 @@
 #include "JogoEstado.h"
+#include "../Menus/MenuEntrada.h"
+#include "../Menus/MenuLeaderboard.h"
+
+#define TICK_RATE 0.0078125
 
 Game::Game(): pGM(Managers::GraphicManager::getGraphics())
 {
-	time.restart();
-	t = 0;
+	clock.restart();
+	dt = 0;
 
-    /*
-    State* states = newLevel(this);
-    insertState(states);
+    
+    State* states = new Level(this);
+    /*setState(states);
 
     states = static_cast<State*>(new Menus::PauseMenuState(this, dynamic_cast<States::Level*>(mapOfStates[stateID::playing])));
-    insertState(states);
+    setState(states);*/
 
-    states = static_cast<State*>(new Menus::MainMenuState(this));
-    insertState(states);
+    states = static_cast<State*>(new EntranceMenu(this));
+    setState(states);
 
+    /*
     states = static_cast<State*>(new Menus::SettingsMenu(this));
-    insertState(states);
+    setState(states);*/
 
-    states = static_cast<State*>(new Menus::LeaderboardMenu(this));
-    insertState(states);
+    states = static_cast<State*>(new MenuLeaderboard(this));
+    setState(states);
 
-    states = static_cast<State*>(new Menus::GameOverMenu(this, dynamic_cast<States::Level*>(mapOfStates[stateID::playing])));
-    insertState(states);
+    /*
+    states = static_cast<State*>(new GameOverMenu(this, dynamic_cast<States::Level*>(mapOfStates[stateID::playing])));
+    setState(states);*/
 
-    changeCurrentState(stateID::mainMenu);*/
-
+    changeRunningState(MainMenu);
+    exe(); //Rodar o loop  
 }
 
 Game::~Game()
@@ -36,10 +42,8 @@ Game::~Game()
 
 void Game::exe()
 {
-    /*
+    
     while (pGM->WindowIsOpen()) {
-
-
 
         pGM->clear();
 
@@ -48,14 +52,14 @@ void Game::exe()
             clock.restart();
         }
         else {
-            updateCurrentState(0.01);
+            updateRunningState(0.01);
             dt -= TICK_RATE;
         }
 
-        renderCurrentState();
+        updateRunningState();
 
         pGM->display();
-    }*/
+    }
 }
 
 void Game::end()

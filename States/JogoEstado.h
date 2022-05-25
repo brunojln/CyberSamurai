@@ -8,8 +8,8 @@ class Game : public StateControl
 
 private:
 	Managers::GraphicManager* pGM;
-	sf::Clock time;
-	float t;
+	sf::Clock clock;
+	float dt;
 
 public:
 

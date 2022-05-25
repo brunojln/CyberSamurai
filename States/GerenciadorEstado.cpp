@@ -25,7 +25,7 @@ void StateControl::changeRunningState(sID id)
 }
 void StateControl::updateRunningState(const float dt)
 { 
-	//StateMap[runningState]->update(dt);
+	StateMap[runningState]->update(dt);
 }
 void StateControl::renderRunningState()
 {  

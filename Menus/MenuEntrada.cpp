@@ -100,3 +100,8 @@ void EntranceMenu::exec()
 
 }
 
+void EntranceMenu::update(float dt)
+{
+	active = true;
+}
+
