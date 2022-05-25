@@ -18,7 +18,7 @@ namespace Entities {
 
 	void Player::initPhysics()
 	{
-		this->velocityMax = 10.f;
+		velocityMax = 10.f;
 		this->velocityMin = 1.f;
 		this->acceleration = 1.f;
 		this->drag = 0.9f;
@@ -42,7 +42,20 @@ namespace Entities {
 		this->sprite.setPosition(860.f, 440.f);
 	}
 
-	Player::Player()
+	Player::Player(const float atkCd, const float atkDis) : Character(atkCd, atkDis)
+	{
+		this->initVariables();
+		this->initAnimations();
+		this->initPhysics();
+		this->initTexture();
+		this->initSprite();
+	}
+
+	Player::Player(int hp, int xp, int atkDmg, const float atkCd, const float atkDis,
+		int id, sf::Vector2f velocidade, float vMax, float vMin, float accel, float dr, float grav, float vMaxY):
+
+		Character(hp, xp, atkDmg, atkCd, atkDis,
+			id, velocidade, vMax,vMin, accel, dr, grav, vMaxY)
 	{
 		this->initVariables();
 		this->initAnimations();
@@ -131,7 +144,7 @@ namespace Entities {
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && canJump) {
 			this->canJump = false;
 			this->velocity.y = -sqrtf(2.0f * this->gravity * this->jumpHeight);
-			std::cout << velocity.y << std::endl;
+			std::cout << this->velocity.y << std::endl;
 			this->animationState = JUMPING;
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::K)) {

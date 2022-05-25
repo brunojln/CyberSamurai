@@ -10,7 +10,6 @@
     <ClCompile Include="Menus\Menu.cpp" />
     <ClCompile Include="Main\main.cpp" />
     <ClCompile Include="States\Estado.cpp" />
-    <ClCompile Include="States\GerenciadorEstato.cpp" />
     <ClCompile Include="Entidades\Characters\Player.cpp" />
     <ClCompile Include="Entidades\Characters\Character.cpp" />
     <ClCompile Include="Entidades\Entity.cpp" />
@@ -31,6 +30,7 @@
     <ClInclude Include="Entidades\Characters\Character.h" />
     <ClInclude Include="Entidades\Entity.h" />
     <ClInclude Include="Lista\List.h" />
+    <ClInclude Include="Ente.h" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="InclusaoExterna\Fonte\Cyber-BoldRustique.ttf" />

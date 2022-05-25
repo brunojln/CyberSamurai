@@ -1,11 +1,13 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include "Character.h"
 
 enum PLAYER_ANIMATION_STATES { IDLE = 0, MOVING_LEFT, MOVING_RIGHT, JUMPING, ATTACK };
 
 namespace Entities {
-	class Player
+
+	class Player: public Character
 	{
 	private:
 		sf::Texture textureSheet;
@@ -24,23 +26,17 @@ namespace Entities {
 		//core
 		sf::RectangleShape hitBox;
 
-		//physics
-		sf::Vector2f velocity;
-		float velocityMax;
-		float velocityMin;
-		float acceleration;
-		float drag;
-		float gravity;
-		float velocityMaxY;
-
 		//initialization
 		void initVariables();
 		void initAnimations();
 		void initPhysics();
 		void initTexture();
 		void initSprite();
+
 	public:
-		Player();
+		Player(const float atkCd, const float atkDis);
+		Player(int hp, int xp, int atkDmg, const float atkCd, const float atkDis,
+			int id, sf::Vector2f velocidade, float vMax, float vMin, float accel, float dr, float grav, float vMaxY);
 		~Player();
 
 		//Accessors
@@ -60,7 +56,7 @@ namespace Entities {
 		void updateAnimations();
 
 		void update();
-		void render(sf::RenderTarget& target);
+		void render(sf::RenderTarget& target); //virtual <-
 
 	};
 
