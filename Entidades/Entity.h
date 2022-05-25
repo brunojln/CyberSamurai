@@ -7,10 +7,6 @@ namespace Entities {
 	class Entity : public Ente
 	{
 	protected:
-		//coordenadas
-		int x;
-		int y;
-
 		//física
 		sf::Vector2f velocity;
 		float velocityMax;
@@ -25,6 +21,8 @@ namespace Entities {
 
 	public:
 		Entity();
+		Entity(int id, sf::Vector2f velocidade, float vMax, float vMin, float accel, 
+			float dr, float grav, float vMaxY);
 		~Entity();
 
 		//set e get coordenadas(?)
@@ -38,10 +36,10 @@ namespace Entities {
 		//modifiers
 		//void setPosition(const float x, const float y);
 
-		virtual void update() = 0;
-		virtual void render() = 0;
+		//virtual void update() = 0;
+		//virtual void render() = 0;
 
-		virtual void run() = 0;
+		//virtual void run() = 0;
 	};
 
 }

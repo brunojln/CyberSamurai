@@ -5,7 +5,7 @@ protected:
 	int id;
 
 public:
-	Ente();
-	~Ente();
-	virtual void run() = 0;
+	Ente(int ID = 0) { id = ID; }
+	~Ente(){}
+	//virtual void run() = 0;
 };
