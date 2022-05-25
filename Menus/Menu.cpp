@@ -1,13 +1,17 @@
 #include "Menu.h"
 
 
+
 Menu::Menu(): sel{0}, min{0}, max{2}, active{false}
 {
 	Managers::GraphicManager* pGM = Managers::GraphicManager::getGraphics();
+	
+	
+	background = pGM->loadTexture("InclusaoExterna/Imagens/Background/background_menu.png");
 
-
-	background->setTexture(*pGM->loadTexture("InclusaoExterna/Imagens/Background/background_menu.png"));
-	//Talvez nao funcione
+	body.setSize(sf::Vector2f(1280, 720));
+	body.setPosition(sf::Vector2f(640,360));
+	body.setTexture(background);
 
 	/*
 	sf::Texture* image;

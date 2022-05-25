@@ -3,23 +3,25 @@
 
 class Personagem; //alterar, temporario
 
+template<class type>
+
 class List {
 private:
 
 	class Node {
 	private:
-		Personagem* info;
+		type* info;
 		Node* pAnt;
 		Node* pNext;
 
 
 	public:
 
-		Node(Personagem* Info = NULL, Node* Ant = NULL, Node* Prox = NULL);
+		Node(type* Info = NULL, Node* Ant = NULL, Node* Prox = NULL);
 		~Node();
 
-		Personagem* getInfo();
-		void setInfo(Personagem* Info);
+		type* getInfo();
+		void setInfo(type* Info);
 
 		Node* getAnt();
 		void setAnt(Node* Ant);
@@ -33,6 +35,7 @@ private:
 	Node* fim;
 	Node* atual;
 
+
 public:
 	List();
 	~List();
@@ -42,6 +45,10 @@ public:
 
 	Personagem* voltarInicio();
 	Personagem* irProximo();
+	Personagem* voltarAnt();
+	
+	Personagem* operator ++();
+	Personagem* operator --();
 
 	void update(float t);
 	void render(sf::RenderWindow* janela);

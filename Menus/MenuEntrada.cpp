@@ -1,7 +1,7 @@
 #include "MenuEntrada.h"
 
 //Tentar a conversao estatica para ponteiro de jogo
-EntranceMenu::EntranceMenu(Game* pointerGame) : Menu(), State((StateControl*)pointerGame, sID::EntranceMenu), pG(pointerGame), title()
+EntranceMenu::EntranceMenu(Game* pointerGame) : Menu(), State((StateControl*)pointerGame, sID::MainMenu), pG(pointerGame), title()
 {
 	Managers::GraphicManager* pGM = Managers::GraphicManager::getGraphics();
 	Button* button = NULL;
@@ -45,7 +45,7 @@ void EntranceMenu::render()
 {  
 	Managers::GraphicManager* pGM = Managers::GraphicManager::getGraphics();
 
-	pGM->render(background);
+	pGM->render(&body);
 
 	for (iB = ButtonVector.begin(); iB != ButtonVector.end(); iB++)
 	{
@@ -53,6 +53,11 @@ void EntranceMenu::render()
 	}
 
 	pGM->render(&title);
+
+	
+	
+
+	
 
 }
 void EntranceMenu::resetState()
@@ -71,7 +76,7 @@ void EntranceMenu::exec()
 
 	if (active) //Se o botao estiver ativo
 	{
-		active = false; //Como mudar isso?
+		active = false; //Desativa e entra no escolhido
 		
 		switch (sel) {
 		case 0:

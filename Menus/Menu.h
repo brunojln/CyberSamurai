@@ -11,7 +11,8 @@ protected:
 	int min, max;
 	bool active;
 
-	sf::Sprite* background;
+	sf::RectangleShape body;
+	sf::Texture* background;
 
 public:
 

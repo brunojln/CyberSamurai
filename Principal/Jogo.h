@@ -1,6 +1,7 @@
 #include "../Includes/stdafx.h"
 #include "../Entidades/Characters/Player.h"
 #include "../Gerenciadores/Platform.h"
+#include "../Menus/MenuEntrada.h"
 
 // namespace entidades {
 
@@ -21,6 +22,7 @@ private:
 	sf::Sprite sprite;
 	sf::Event ev;
 
+	EntranceMenu mainmenu;
 	Entities::Player* player;
 	Platform* platform1; //criar um map e inserir as plataformas
 	Platform* platform2;

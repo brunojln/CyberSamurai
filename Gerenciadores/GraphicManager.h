@@ -36,6 +36,8 @@ public:
 
 	sf::Font* loadFont(const char* path);
 
+	bool WindowIsOpen() const;
+
 	/*
 	float updateDeltaTime();
 	*/

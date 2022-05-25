@@ -52,8 +52,9 @@ void GraphicManager::render(sf::Text* text)
 
 void GraphicManager::render(sf::Sprite* sprite)
 {
-    window->draw(*sprite);
+   window->draw(*sprite);
 }
+
 
 void GraphicManager::display()
 {     
@@ -70,6 +71,10 @@ void GraphicManager::close()
 {
     window->close();
 } 
+
+bool GraphicManager::WindowIsOpen() const {
+    return window->isOpen();
+}
 
 sf::Texture* GraphicManager::loadTexture(const char* path)
 {

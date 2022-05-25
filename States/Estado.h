@@ -6,7 +6,7 @@ class StateControl;
 
 enum sID
 {
-	null = -1, EntranceMenu = 0, Play, Playing, Pause, SobreJogo, Leaderboard, GameOver
+	null = -1, MainMenu = 0, Play, Playing, Pause, SobreJogo, Leaderboard, GameOver
 };
 
 class State
@@ -25,7 +25,7 @@ public:
 
 	void updateState(sID id);
 
-	virtual void update(const float dt) = 0;
+	// virtual void update(const float dt) = 0;
 
 	virtual void render() = 0;
 
