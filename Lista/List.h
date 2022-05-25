@@ -1,9 +1,8 @@
 #pragma once
 #include "../Includes/stdafx.h"
 
- //alterar, temporario
 
-template <class type>
+template<class type>
 
 class List {
 private:
@@ -20,20 +19,21 @@ private:
 		Node(type* Info = NULL, Node* Ant = NULL, Node* Prox = NULL);
 		~Node();
 
-		type* getInfo();
-		void setInfo(type* Info);
+		type* getInfo() { return info; }
+		void setInfo(type* Info) { info = Info; }
 
 		Node* getAnt() { return pAnt; }
-		void setAnt(Node* Ant);
+		void setAnt(Node* Ant) { pAnt = Ant; }
 
-		Node* getProx() { return pProx;  }
-		void setProx(Node* Prox);
+		Node* getProx() { return pNext; }
+		void setProx(Node* Prox) { pNext = Prox; }
 
 	};
 
 	Node* inicio;
 	Node* fim;
 	Node* atual;
+
 
 public:
 	List();
@@ -44,6 +44,10 @@ public:
 
 	type* voltarInicio();
 	type* irProximo();
+	type* voltarAnt();
+
+	type* operator ++();
+	type* operator --();
 
 	void update(float t);
 	void render(sf::RenderWindow* janela);
