@@ -1,30 +1,32 @@
 #pragma once
 #include "../Includes/stdafx.h"
 
-class Personagem; //alterar, temporario
+ //alterar, temporario
+
+template <class type>
 
 class List {
 private:
 
 	class Node {
 	private:
-		Personagem* info;
+		type* info;
 		Node* pAnt;
 		Node* pNext;
 
 
 	public:
 
-		Node(Personagem* Info = NULL, Node* Ant = NULL, Node* Prox = NULL);
+		Node(type* Info = NULL, Node* Ant = NULL, Node* Prox = NULL);
 		~Node();
 
-		Personagem* getInfo();
-		void setInfo(Personagem* Info);
+		type* getInfo();
+		void setInfo(type* Info);
 
-		Node* getAnt();
+		Node* getAnt() { return pAnt; }
 		void setAnt(Node* Ant);
 
-		Node* getProx();
+		Node* getProx() { return pProx;  }
 		void setProx(Node* Prox);
 
 	};
@@ -37,11 +39,11 @@ public:
 	List();
 	~List();
 
-	void insert(Personagem* Info);
+	void insert(type* Info);
 	void clear();
 
-	Personagem* voltarInicio();
-	Personagem* irProximo();
+	type* voltarInicio();
+	type* irProximo();
 
 	void update(float t);
 	void render(sf::RenderWindow* janela);
