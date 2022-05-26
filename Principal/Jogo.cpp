@@ -29,9 +29,11 @@ void Jogo::initPlayer()
 
 Jogo::Jogo() 
 {
+	//menu.render();
+	/*
 	this->initWindow();
 	this->initView();
-	this->initPlayer();
+	this->initPlayer();*/
 }
 
 Jogo::~Jogo()

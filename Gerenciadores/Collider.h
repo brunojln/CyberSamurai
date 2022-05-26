@@ -12,7 +12,7 @@ namespace Managers {
 	{
 	private:
 		//vector<Enemy> enemyList;
-		list <Entities::Structures*> structureList;
+		std::list <Entities::Structures*> structureList;
 	public:
 		Collider();
 		~Collider();

@@ -50,10 +50,10 @@ namespace Managers {
 					other->move(0.0f, intersectY);
 				}
 			}
-			cout << "true\n";
+			std::cout << "true\n";
 			return true;
 		}
-		cout << "false\n";
+		std::cout << "false\n";
 		return false;
 	}
 }

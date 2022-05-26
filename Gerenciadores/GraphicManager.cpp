@@ -81,10 +81,13 @@ namespace Managers{
         }
     }
 
+bool GraphicManager::WindowIsOpen() const {
+    return window->isOpen();
+}
 
-    sf::Texture* GraphicManager::loadTexture(const char* path)
-    {
-        std::map<const char*, sf::Texture*>::iterator iT = textureMap.begin();
+sf::Texture* GraphicManager::loadTexture(const char* path)
+{
+    std::map<const char*, sf::Texture*>::iterator iT = textureMap.begin();
 
         while (iT != textureMap.end()) //Verificacao se ja existe a textura carregada
         {

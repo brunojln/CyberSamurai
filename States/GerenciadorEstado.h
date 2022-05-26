@@ -1,6 +1,7 @@
 #include "../Includes/stdafx.h"
 #include "Estado.h"
 
+
 class StateControl
 {
 
@@ -8,7 +9,7 @@ protected:
 	sID runningState;
 	sID lastState;
 
-	map<sID, State*> StateMap;
+	std::map<sID, State*> StateMap;
 	
 public:
 

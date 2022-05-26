@@ -4,13 +4,14 @@
 class Menu
 {
 protected:
-	vector<Button*> ButtonVector;
-	vector<Button*>::iterator iB;
+	std::vector<Button*> ButtonVector;
+	std::vector<Button*>::iterator iB;
 
 	int sel;
 	int min, max;
 	bool active;
 
+	sf::RectangleShape body;
 	sf::Sprite* background;
 
 public:

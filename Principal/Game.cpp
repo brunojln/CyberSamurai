@@ -7,7 +7,7 @@ Game::Game() :
 	State* state = static_cast<State*>(new Menus::EntranceMenu(this));
 	setState(state);
 
-	changeRunningState(sID::EntranceMenu);
+	changeRunningState(sID::MainMenu);
 }
 
 Game::~Game()
