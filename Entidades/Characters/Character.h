@@ -19,7 +19,8 @@ namespace Entities {
     public:
         Character(const float atkCd, const float atkDis);
         Character(int hp, int xp, int atkDmg, const float atkCd, const float atkDis,
-            int id, sf::Vector2f velocidade, float vMax, float vMin, float accel, float dr, float grav, float vMaxY);
+            int id, sf::Vector2f velocidade, float vMax, float vMin, float accel, 
+            float dr, float grav, float vMaxY, sf::Vector2f size);
         ~Character();
 
         const int getLifePoints() const;

@@ -1,46 +1,52 @@
-#include "../Includes/stdafx.h"
+#pragma once
+#include <SFML/Graphics.hpp>
+#include <iostream>
+#include <map>
 
 namespace Managers { 
 
-class GraphicManager
-{
+	class GraphicManager
+	{
 
-private:
-	sf::RenderWindow* window;
-	sf::View view;
-	map <const char*, sf::Texture*> textureMap;
-	map <const char*, sf::Font*> fontMap;
+	private:
+		sf::RenderWindow* window;
+		sf::View view;
+		std::map <const char*, sf::Texture*> textureMap;
+		std::map <const char*, sf::Font*> fontMap;
 
-	static Managers::GraphicManager* instance;
-	GraphicManager();
+		static Managers::GraphicManager* instance;
+		GraphicManager();
 
-public:
+	public:
 
-	~GraphicManager();
+		~GraphicManager();
 
-	static GraphicManager* getGraphics();
+		static GraphicManager* getGraphics();
 
-	void render(sf::RectangleShape* shape);
+		void render(sf::RectangleShape* shape);
 
-	void render(sf::Text* text);
+		void render(sf::Text* text);
 
-	void render(sf::Sprite* sprite);
+		void render(sf::Sprite* sprite);
 
-	void display();
+		void display();
 
-	void clear();
+		void clear();
 
-	void close();
+		void close();
 
-	sf::Texture* loadTexture(const char* path);
+		bool isWindowOpen();
 
-	sf::Font* loadFont(const char* path);
+		sf::Texture* loadTexture(const char* path);
 
-	/*
-	float updateDeltaTime();
-	*/
+		sf::Font* loadFont(const char* path);
+
+		sf::RenderWindow* getWindow() const;
+		/*
+		float updateDeltaTime();
+		*/
 
 
-};
+	};
 
 }

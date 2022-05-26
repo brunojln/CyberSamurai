@@ -1,6 +1,7 @@
 #pragma once
 #include "../Includes/stdafx.h"
 
+namespace Lists {
 
 template<class type>
 
@@ -46,6 +47,8 @@ public:
 	type* irProximo();
 	type* voltarAnt();
 
+	type* remover(type* Info);
+
 	type* operator ++();
 	type* operator --();
 
@@ -55,3 +58,5 @@ public:
 
 
 };
+
+}

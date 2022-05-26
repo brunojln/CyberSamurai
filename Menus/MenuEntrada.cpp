@@ -1,5 +1,7 @@
 #include "MenuEntrada.h"
 
+namespace Menus {
+
 //Tentar a conversao estatica para ponteiro de jogo
 EntranceMenu::EntranceMenu(Game* pointerGame) : Menu(), State((StateControl*)pointerGame, sID::EntranceMenu), pG(pointerGame), title()
 {
@@ -95,3 +97,5 @@ void EntranceMenu::exec()
 
 }
 
+
+}

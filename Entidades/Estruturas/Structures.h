@@ -12,7 +12,8 @@ namespace Entities {
         bool damaging;
 
     public:
-        Structures();
+        Structures(bool dmg, int id, sf::Vector2f velocidade, float vMax, 
+            float vMin, float accel, float dr, float grav, float vMaxY, sf::Vector2f size);
         ~Structures();
 
         //virtual void run();

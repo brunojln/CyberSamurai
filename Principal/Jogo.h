@@ -1,6 +1,7 @@
 #include "../Includes/stdafx.h"
 #include "../Entidades/Characters/Player.h"
-#include "../Gerenciadores/Platform.h"
+#include "../Entidades/Estruturas/Platform.h"
+#include "../Gerenciadores/Collider.h"
 #include "../Menus/MenuEntrada.h"
 // namespace entidades {
 
@@ -21,9 +22,10 @@ private:
 	sf::Sprite sprite;
 	sf::Event ev;
 
+	Managers::Collider collider;
 	Entities::Player* player;
-	Platform* platform1; //criar um map e inserir as plataformas
-	Platform* platform2;
+	Entities::Platform* platform1; //criar um map e inserir as plataformas
+	Entities::Platform* platform2;
 
 	void initWindow();
 	void initView();
@@ -35,7 +37,7 @@ public:
 
 	void showCoords();
 	//Collider getCollider();
-	void player_platformCollision(Platform* platform1);
+	void player_platformCollision(Entities::Platform* platform1);
 
 	void updatePlayer();
 	void updateCollision();

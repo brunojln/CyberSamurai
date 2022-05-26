@@ -6,17 +6,22 @@ Menu::Menu(): sel{0}, min{0}, max{2}, active{false}
 	Managers::GraphicManager* pGM = Managers::GraphicManager::getGraphics();
 
 
-	background->setTexture(*pGM->loadTexture("InclusaoExterna/Imagens/Background/background_menu.png"));
+	//background->setTexture(*pGM->loadTexture("InclusaoExterna/Imagens/Background/background_menu.png"));
 	//Talvez nao funcione
 
-	/*
+	
 	sf::Texture* image;
 	
-	image = new sf::Texture;
-	image = NULL;
+	image = new sf::Texture();
 
-	image->loadFromFile("InclusaoExterna/Imagens/Background/background_menu.png");
-	background->setTexture(*image);*/
+	if (!image->loadFromFile("InclusaoExterna/Imagens/Background/background_menu.png"))
+	{
+		std::cout << "ERROR::MENU::Erro ao carregar imagem" << "\n";
+	}
+
+	background = new sf::Sprite();
+
+	background->setTexture(*image);
 }
 Menu::~Menu()
 {  

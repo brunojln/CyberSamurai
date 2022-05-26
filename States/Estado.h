@@ -25,7 +25,7 @@ public:
 
 	void updateState(sID id);
 
-	virtual void update(const float dt) = 0;
+	//virtual void update(const float dt) = 0;
 
 	virtual void render() = 0;
 
