@@ -1,3 +1,4 @@
+#pragma once
 #include "../Includes/stdafx.h"
 #include "../States/Estado.h"
 #include "Menu.h"

@@ -19,6 +19,7 @@
     <ClCompile Include="Gerenciadores\Collider.cpp" />
     <ClCompile Include="Menus\MenuLeaderboard.cpp" />
     <ClCompile Include="States\JogoEstado.cpp" />
+    <ClCompile Include="States\Level.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Botao\Botao.h" />
@@ -39,6 +40,7 @@
     <ClInclude Include="Gerenciadores\Collider.h" />
     <ClInclude Include="Menus\MenuLeaderboard.h" />
     <ClInclude Include="States\JogoEstado.h" />
+    <ClInclude Include="States\Level.h" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="InclusaoExterna\Fonte\Cyber-BoldRustique.ttf" />

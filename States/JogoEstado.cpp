@@ -1,6 +1,5 @@
 #include "JogoEstado.h"
-#include "../Menus/MenuEntrada.h"
-#include "../Menus/MenuLeaderboard.h"
+
 
 #define TICK_RATE 0.0078125
 
@@ -11,8 +10,9 @@ Game::Game(): pGM(Managers::GraphicManager::getGraphics())
 
     
     State* states = new Level(this);
-    /*setState(states);
+    setState(states);
 
+    /*
     states = static_cast<State*>(new Menus::PauseMenuState(this, dynamic_cast<States::Level*>(mapOfStates[stateID::playing])));
     setState(states);*/
 
@@ -56,7 +56,7 @@ void Game::exe()
             dt -= TICK_RATE;
         }
 
-        updateRunningState();
+        renderRunningState();
 
         pGM->display();
     }
