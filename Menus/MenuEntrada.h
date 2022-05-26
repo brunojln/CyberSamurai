@@ -1,3 +1,4 @@
+#pragma once
 #include "../Includes/stdafx.h"
 #include "../States/Estado.h"
 #include "Menu.h"
@@ -26,6 +27,8 @@ public:
 	void resetState();
 
 	void exec();
+
+	void update(float dt);
 
 };
 

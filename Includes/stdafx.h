@@ -7,9 +7,11 @@
 
 #include <stdio.h>
 #include <iostream>
-#include <string>
 #include <SFML/Graphics.hpp>
+#include <string>
+#include <vector>
 #include <map>
+#include <fstream>
 
 
 using namespace std;

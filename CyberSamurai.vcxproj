@@ -152,13 +152,16 @@
     <ClInclude Include="Entidades\Estruturas\Platform.h" />
     <ClInclude Include="Entidades\Estruturas\Structures.h" />
     <ClInclude Include="Gerenciadores\GraphicManager.h" />
+    <ClInclude Include="States\Level.h" />
     <ClInclude Include="Lista\List.h" />
+    <ClInclude Include="Menus\MenuLeaderboard.h" />
     <ClInclude Include="Menus\MenuEntrada.h" />
     <ClInclude Include="Includes\stdafx.h" />
     <ClInclude Include="Principal\Jogo.h" />
     <ClInclude Include="Menus\Menu.h" />
     <ClInclude Include="States\Estado.h" />
     <ClInclude Include="States\GerenciadorEstado.h" />
+    <ClInclude Include="States\JogoEstado.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Botao\Botao.cpp" />
@@ -173,7 +176,9 @@
     <ClCompile Include="Entidades\Estruturas\Platform.cpp" />
     <ClCompile Include="Entidades\Estruturas\Structures.cpp" />
     <ClCompile Include="Gerenciadores\GraphicManager.cpp" />
+    <ClCompile Include="States\Level.cpp" />
     <ClCompile Include="Lista\List.cpp" />
+    <ClCompile Include="Menus\MenuLeaderboard.cpp" />
     <ClCompile Include="Menus\MenuEntrada.cpp" />
     <ClCompile Include="Includes\stdafx.cpp" />
     <ClCompile Include="Principal\Jogo.cpp" />
@@ -181,6 +186,7 @@
     <ClCompile Include="Main\main.cpp" />
     <ClCompile Include="States\Estado.cpp" />
     <ClCompile Include="States\GerenciadorEstado.cpp" />
+    <ClCompile Include="States\JogoEstado.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="InclusaoExterna\Fonte\Cyber-BoldRustique.ttf" />

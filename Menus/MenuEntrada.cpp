@@ -56,6 +56,11 @@ void EntranceMenu::render()
 
 	pGM->render(&title);
 
+	
+	
+
+	
+
 }
 void EntranceMenu::resetState()
 { 
@@ -73,7 +78,7 @@ void EntranceMenu::exec()
 
 	if (active) //Se o botao estiver ativo
 	{
-		active = false; //Como mudar isso?
+		active = false; //Desativa e entra no escolhido
 		
 		switch (sel) {
 		case 0:
@@ -95,6 +100,11 @@ void EntranceMenu::exec()
 
 	}
 
+}
+
+void EntranceMenu::update(float dt)
+{
+	active = true;
 }
 
 

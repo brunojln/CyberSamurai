@@ -21,6 +21,11 @@
     <ClCompile Include="Fases\LevelOne.cpp" />
     <ClCompile Include="Fases\Level.cpp" />
     <ClCompile Include="Lista\ListEntity.cpp" />
+
+    >
+    <ClCompile Include="Menus\MenuLeaderboard.cpp" />
+    <ClCompile Include="States\JogoEstado.cpp" />
+    <ClCompile Include="States\Level.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Botao\Botao.h" />
@@ -35,14 +40,18 @@
     <ClInclude Include="Entidades\Characters\Character.h" />
     <ClInclude Include="Entidades\Entity.h" />
     <ClInclude Include="Lista\List.h" />
-    <ClInclude Include="Ente.h" />
-    <ClInclude Include="Entidades\Estruturas\Structures.h" />
-    <ClInclude Include="Entidades\Estruturas\Platform.h" />
-    <ClInclude Include="Gerenciadores\Collider.h" />
+    
     <ClInclude Include="Principal\Game.h" />
     <ClInclude Include="Fases\LevelOne.h" />
     <ClInclude Include="Fases\Level.h" />
     <ClInclude Include="Lista\ListEntity.h" />
+    <ClInclude Include="Ente.h" />
+    <ClInclude Include="Entidades\Estruturas\Structures.h" />
+    <ClInclude Include="Entidades\Estruturas\Platform.h" />
+    <ClInclude Include="Gerenciadores\Collider.h" />
+    <ClInclude Include="Menus\MenuLeaderboard.h" />
+    <ClInclude Include="States\JogoEstado.h" />
+    <ClInclude Include="States\Level.h" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="InclusaoExterna\Fonte\Cyber-BoldRustique.ttf" />

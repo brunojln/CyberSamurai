@@ -1,6 +1,7 @@
 #include "Menu.h"
 
 
+
 Menu::Menu(): sel{0}, min{0}, max{2}, active{false}
 {
 	Managers::GraphicManager* pGM = Managers::GraphicManager::getGraphics();
