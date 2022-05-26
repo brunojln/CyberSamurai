@@ -17,6 +17,10 @@
     <ClCompile Include="Entidades\Estruturas\Structures.cpp" />
     <ClCompile Include="Entidades\Estruturas\Platform.cpp" />
     <ClCompile Include="Gerenciadores\Collider.cpp" />
+    <ClCompile Include="Principal\Game.cpp" />
+    <ClCompile Include="Fases\LevelOne.cpp" />
+    <ClCompile Include="Fases\Level.cpp" />
+    <ClCompile Include="Lista\ListEntity.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Botao\Botao.h" />
@@ -35,6 +39,10 @@
     <ClInclude Include="Entidades\Estruturas\Structures.h" />
     <ClInclude Include="Entidades\Estruturas\Platform.h" />
     <ClInclude Include="Gerenciadores\Collider.h" />
+    <ClInclude Include="Principal\Game.h" />
+    <ClInclude Include="Fases\LevelOne.h" />
+    <ClInclude Include="Fases\Level.h" />
+    <ClInclude Include="Lista\ListEntity.h" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="InclusaoExterna\Fonte\Cyber-BoldRustique.ttf" />

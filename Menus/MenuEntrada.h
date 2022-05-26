@@ -2,7 +2,11 @@
 #include "../States/Estado.h"
 #include "Menu.h"
 
+
+
 class Game;
+
+namespace Menus {
 
 class EntranceMenu : public Menu, public State
 {
@@ -25,3 +29,5 @@ public:
 
 };
 
+
+}

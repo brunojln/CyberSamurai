@@ -140,6 +140,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Botao\Botao.h" />
+    <ClInclude Include="Fases\LevelOne.h" />
+    <ClInclude Include="Fases\Level.h" />
+    <ClInclude Include="Lista\ListEntity.h" />
+    <ClInclude Include="Principal\Game.h" />
     <ClInclude Include="Gerenciadores\Collider.h" />
     <ClInclude Include="Ente.h" />
     <ClInclude Include="Entidades\Characters\Character.h" />
@@ -158,6 +162,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Botao\Botao.cpp" />
+    <ClCompile Include="Fases\LevelOne.cpp" />
+    <ClCompile Include="Fases\Level.cpp" />
+    <ClCompile Include="Lista\ListEntity.cpp" />
+    <ClCompile Include="Principal\Game.cpp" />
     <ClCompile Include="Gerenciadores\Collider.cpp" />
     <ClCompile Include="Entidades\Characters\Character.cpp" />
     <ClCompile Include="Entidades\Characters\Player.cpp" />

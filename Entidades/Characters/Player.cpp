@@ -8,7 +8,7 @@ namespace Entities {
 		this->canJump = true;
 		this->jumpHeight = 1000.f;
 	
-		//this->hitBox.setSize(this->sprite.);
+		//this->hitBox.setSize(this->body.);
 	}
 
 	void Player::initAnimations()
@@ -28,18 +28,20 @@ namespace Entities {
 
 	void Player::initTexture()
 	{
-		if (!this->textureSheet.loadFromFile("InclusaoExterna/Imagens/Personagens/BontenmaruSheet.png")) {
+		textureSheet = new sf::Texture();
+
+		if (!textureSheet->loadFromFile("InclusaoExterna/Imagens/Personagens/BontenmaruSheet.png")) {
 			std::cout << "ERROR::PLAYER::INITTEXTURE::Falha ao carregar textura" << "\n";
 		}
 	}
 
 	void Player::initSprite()
 	{
-		this->sprite.setTexture(this->textureSheet);
+		this->body.setTexture(textureSheet);
 		this->currentFrame = sf::IntRect(0, 0, 125, 100);
-		this->sprite.setTextureRect(this->currentFrame);
-		this->sprite.setScale(2.5f, 2.5f);
-		this->sprite.setPosition(860.f, 440.f);
+		this->body.setTextureRect(this->currentFrame);
+		this->body.setSize(sf::Vector2f(125.f, 100.f));
+		this->body.setPosition(860.f, 440.f);
 	}
 
 	Player::Player(const float atkCd, const float atkDis) : Character(atkCd, atkDis)
@@ -52,10 +54,11 @@ namespace Entities {
 	}
 
 	Player::Player(int hp, int xp, int atkDmg, const float atkCd, const float atkDis,
-		int id, sf::Vector2f velocidade, float vMax, float vMin, float accel, float dr, float grav, float vMaxY):
+		int id, sf::Vector2f velocidade, float vMax, float vMin, float accel, 
+		float dr, float grav, float vMaxY, sf::Vector2f size):
 
 		Character(hp, xp, atkDmg, atkCd, atkDis,
-			id, velocidade, vMax,vMin, accel, dr, grav, vMaxY)
+			id, velocidade, vMax,vMin, accel, dr, grav, vMaxY, size)
 	{
 		this->initVariables();
 		this->initAnimations();
@@ -68,20 +71,15 @@ namespace Entities {
 	{
 	}
 
-	const sf::Vector2f Player::getPosition() const
-	{
-		return this->sprite.getPosition();
-	}
-
 	const sf::FloatRect Player::getGlobalBounds() const
 	{
-		return this->sprite.getGlobalBounds();
+		return this->body.getGlobalBounds();
 	}
 
 
 	void Player::setPosition(const float x, const float y)
 	{
-		this->sprite.setPosition(x, y);
+		this->body.setPosition(x, y);
 	}
 
 	void Player::resetVelocityY()
@@ -105,11 +103,6 @@ namespace Entities {
 		this->canJump = can_jump;
 	}
 
-	//void Player::checkCollision()
-	//{
-	
-	//}
-
 	void Player::updatePhysics()
 	{
 		this->velocity.y += 0.8 * this->gravity;
@@ -125,7 +118,7 @@ namespace Entities {
 		if (std::abs(this->velocity.y) < this->velocityMin)
 			this->velocity.y = 0.f;
 
-		this->sprite.move(this->velocity);
+		this->body.move(this->velocity);
 
 	}
 
@@ -144,7 +137,7 @@ namespace Entities {
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && canJump) {
 			this->canJump = false;
 			this->velocity.y = -sqrtf(2.0f * this->gravity * this->jumpHeight);
-			std::cout << this->velocity.y << std::endl;
+			//std::cout << this->velocity.y << std::endl;
 			this->animationState = JUMPING;
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::K)) {
@@ -169,7 +162,7 @@ namespace Entities {
 					this->currentFrame.left = 0;
 				}
 				this->animationTimer.restart();
-				this->sprite.setTextureRect(this->currentFrame);
+				this->body.setTextureRect(this->currentFrame);
 			}
 		}
 		else if (this->animationState == MOVING_RIGHT)
@@ -183,10 +176,10 @@ namespace Entities {
 					this->currentFrame.left = 0;
 				}
 				this->animationTimer.restart();
-				this->sprite.setTextureRect(this->currentFrame);
+				this->body.setTextureRect(this->currentFrame);
 			}
-			this->sprite.setScale(2.5f, 2.5f);
-			this->sprite.setOrigin(0.f, 0.f);
+			this->body.setScale(2.5f, 2.5f);
+			this->body.setOrigin(0.f, 0.f);
 		}
 		else if (this->animationState == MOVING_LEFT)
 		{
@@ -199,17 +192,17 @@ namespace Entities {
 					this->currentFrame.left = 0;
 				}
 				this->animationTimer.restart();
-				this->sprite.setTextureRect(this->currentFrame);
+				this->body.setTextureRect(this->currentFrame);
 			}
-			this->sprite.setScale(-2.5f, 2.5f);
-			this->sprite.setOrigin(this->sprite.getGlobalBounds().width / 2.5f, 0.f);
+			this->body.setScale(-2.5f, 2.5f);
+			this->body.setOrigin(this->body.getGlobalBounds().width / 2.5f, 0.f);
 		}
 		else if (this->animationState == JUMPING) 
 		{
 			this->currentFrame.top = 115.f;
 			this->currentFrame.left = 600.f;
 			this->animationTimer.restart();
-			this->sprite.setTextureRect(this->currentFrame);
+			this->body.setTextureRect(this->currentFrame);
 		}
 		else if (this->animationState == ATTACK) 
 		{
@@ -224,7 +217,7 @@ namespace Entities {
 					this->currentFrame.left = 480.f;
 				}
 				this->animationTimer.restart();
-				this->sprite.setTextureRect(this->currentFrame);
+				this->body.setTextureRect(this->currentFrame);
 			}
 		}
 		else { 
@@ -243,7 +236,7 @@ namespace Entities {
 
 	void Player::render(sf::RenderTarget& target)
 	{
-		target.draw(this->sprite);
+		target.draw(this->body);
 	}
 
 }

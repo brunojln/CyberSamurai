@@ -23,8 +23,8 @@ void Jogo::initView()
 void Jogo::initPlayer()
 {
 	this->player = new Entities::Player(20.f, 5.f);
-	this->platform1 = new Platform(sf::Vector2f(0.2f, 0.2f), sf::Vector2f(800.0f, 850.0f)); //temporario
-	this->platform2 = new Platform(sf::Vector2f(0.2f, 0.2f), sf::Vector2f(-200.0f, 850.0f));
+	this->platform1 = new Entities::Platform(false, 0, sf::Vector2f(0.f, 0.f), 0, 0, 0, 0, 0, 0, sf::Vector2f(10.f, 10.f)); //temporario
+	//this->platform2 = new Entities::Platform(dmg, id, velocidade, vMax, vMin, accel, dr, grav, vMaxY, size);
 }
 
 Jogo::Jogo() 
@@ -38,6 +38,7 @@ Jogo::~Jogo()
 {
 	delete this->player;
 	delete this->platform1;
+	//delete this->textureSheet;
 }
 void Jogo::showCoords()
 {
@@ -63,7 +64,7 @@ void Jogo::run()
 	}
 }
 
-void Jogo::player_platformCollision(Platform *platform1)
+void Jogo::player_platformCollision(Entities::Platform *platform1)
 {
 	sf::FloatRect playerBounds;
 	sf::FloatRect platformBounds;
@@ -125,7 +126,7 @@ void Jogo::updatePlayer()
 void Jogo::updateCollision()
 {
 	this->player_platformCollision(this->platform1);
-	//this->player_platformCollision(this->platform2);
+	//collider.checkCollision(platform2, player, 1.0f);
 
 	//collision bottom screen
 	if (this->player->getPosition().y + this->player->getGlobalBounds().height >= this->window.getSize().y)

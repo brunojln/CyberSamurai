@@ -6,9 +6,9 @@ Entities::Character::Character(const float atkCd, const float atkDis): Entity(),
 }
 
 Entities::Character::Character(int hp, int xp, int atkDmg, const float atkCd, const float atkDis,
-	int id, sf::Vector2f velocidade, float vMax, float vMin, float accel, float dr, float grav, float vMaxY):
+	int id, sf::Vector2f velocidade, float vMax, float vMin, float accel, float dr, float grav, float vMaxY, sf::Vector2f size):
 
-	Entity(id, velocidade, vMax, vMin, accel, dr, grav, vMaxY),
+	Entity(id, velocidade, vMax, vMin, accel, dr, grav, vMaxY, size),
 	atkCooldown(atkCd), atkDistance(atkDis)
 {
 	lifePoints = hp;

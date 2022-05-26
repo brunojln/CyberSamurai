@@ -10,7 +10,7 @@ namespace Entities {
 	class Player: public Character
 	{
 	private:
-		sf::Texture textureSheet;
+		sf::Texture *textureSheet;
 		sf::Sprite sprite;
 
 		//Animation
@@ -36,11 +36,12 @@ namespace Entities {
 	public:
 		Player(const float atkCd, const float atkDis);
 		Player(int hp, int xp, int atkDmg, const float atkCd, const float atkDis,
-			int id, sf::Vector2f velocidade, float vMax, float vMin, float accel, float dr, float grav, float vMaxY);
+			int id, sf::Vector2f velocidade, float vMax, float vMin, 
+			float accel, float dr, float grav, float vMaxY, sf::Vector2f size);
 		~Player();
 
 		//Accessors
-		const sf::Vector2f getPosition() const;
+		//const sf::Vector2f getPosition() const;
 		const sf::FloatRect getGlobalBounds() const;
 
 		//modifiers

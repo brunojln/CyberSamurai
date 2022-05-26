@@ -16,24 +16,22 @@ namespace Entities {
 		float gravity;
 		float velocityMaxY;
 
-		sf::Sprite sprite;
+		sf::RectangleShape body;
 		sf::Texture texture;
 
 	public:
 		Entity();
 		Entity(int id, sf::Vector2f velocidade, float vMax, float vMin, float accel, 
-			float dr, float grav, float vMaxY);
+			float dr, float grav, float vMaxY, sf::Vector2f size);
 		~Entity();
-
-		//set e get coordenadas(?)
-		//int getX();
-		//int getY();
 
 		//accessors
 		const sf::FloatRect getGlobalBounds() const;
 		const sf::Vector2f getPosition() const;
-
+		const sf::Vector2f getSize() const;
 		//modifiers
+
+		void move(float dirX, float dirY);
 		//void setPosition(const float x, const float y);
 
 		//virtual void update() = 0;
