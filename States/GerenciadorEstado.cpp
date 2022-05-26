@@ -7,7 +7,7 @@ StateControl::StateControl(): runningState{null}, lastState{null}
 
 StateControl::~StateControl()
 {  
-	map<sID, State*>::iterator iterator;
+	std::map<sID, State*>::iterator iterator;
 
 	for (iterator = StateMap.begin(); iterator != StateMap.end(); iterator++)
 	{
@@ -39,7 +39,7 @@ sID StateControl::getRunningState() const
 
 void StateControl::setState(State* pS)
 {
-	StateMap.insert(pair<sID, State*>(pS->getID(), pS));
+	StateMap.insert(std::pair<sID, State*>(pS->getID(), pS));
 }
 sID StateControl::getLastState() const
 {

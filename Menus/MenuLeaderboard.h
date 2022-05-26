@@ -3,14 +3,14 @@
 #include "../States/Estado.h"
 #include "Menu.h"
 
-class MenuLeaderboard : public Menu, public State::State
+class MenuLeaderboard : public Menu, public State
 {
 private:
-	vector<sf::Text*> score;
-	vector<sf::Text*>::iterator iP;
+	std::vector<sf::Text*> score;
+	std::vector<sf::Text*>::iterator iP;
 
 public:
-	MenuLeaderboard(StateControl* pSM);
+	MenuLeaderboard(StateControl* pSC);
 	~MenuLeaderboard();
 
 	void render();
@@ -21,7 +21,7 @@ public:
 
 	void construct();
 
-	void update(float dt)
+	void update(float dt);
 
 };
 

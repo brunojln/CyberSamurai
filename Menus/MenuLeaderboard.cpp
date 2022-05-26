@@ -1,6 +1,6 @@
 #include "MenuLeaderboard.h"
 
-MenuLeaderboard::MenuLeaderboard(StateControl* pSM): Menu(), State::State(pSC, sID::Leaderboard)
+MenuLeaderboard::MenuLeaderboard(StateControl* pSC): Menu(), State(pSC, sID::Leaderboard)
 { 
 	Managers::GraphicManager* pGM = Managers::GraphicManager::getGraphics();
 	Button* button = NULL;

@@ -3,7 +3,7 @@
 namespace Menus {
 
 //Tentar a conversao estatica para ponteiro de jogo
-EntranceMenu::EntranceMenu(Game* pointerGame) : Menu(), State((StateControl*)pointerGame, sID::EntranceMenu), pG(pointerGame), title()
+EntranceMenu::EntranceMenu(Game* pointerGame) : Menu(), State((StateControl*)pointerGame, sID::MainMenu), pG(pointerGame), title()
 {
 	Managers::GraphicManager* pGM = Managers::GraphicManager::getGraphics();
 	Button* button = NULL;

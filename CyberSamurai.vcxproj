@@ -161,7 +161,6 @@
     <ClInclude Include="Menus\Menu.h" />
     <ClInclude Include="States\Estado.h" />
     <ClInclude Include="States\GerenciadorEstado.h" />
-    <ClInclude Include="States\JogoEstado.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Botao\Botao.cpp" />
@@ -186,7 +185,6 @@
     <ClCompile Include="Main\main.cpp" />
     <ClCompile Include="States\Estado.cpp" />
     <ClCompile Include="States\GerenciadorEstado.cpp" />
-    <ClCompile Include="States\JogoEstado.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="InclusaoExterna\Fonte\Cyber-BoldRustique.ttf" />

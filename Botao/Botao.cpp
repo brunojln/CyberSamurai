@@ -1,7 +1,7 @@
 #include "Botao.h"
 
 
-Button::Button(sf::Vector2f position, string string): data(string)
+Button::Button(sf::Vector2f position, std::string string): data(string)
 {
 	Managers::GraphicManager* pGM = Managers::GraphicManager::getGraphics();
 
