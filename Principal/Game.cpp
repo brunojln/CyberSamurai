@@ -1,10 +1,15 @@
+#pragma once
 #include "Game.h"
 #include "../Menus/MenuEntrada.h"
+#include "../Menus/MenuLeaderboard.h"
 
 Game::Game() :
 	pGraphics(Managers::GraphicManager::getGraphics())
 {
 	State* state = static_cast<State*>(new Menus::EntranceMenu(this));
+	setState(state);
+
+	state = static_cast<State*>(new MenuLeaderboard(this));
 	setState(state);
 
 	changeRunningState(sID::MainMenu);
@@ -33,6 +38,8 @@ void Game::update()
 
 	pGraphics->clear();
 	
+	updateRunningState(0);
+
 	renderRunningState();
 
 	pGraphics->display();

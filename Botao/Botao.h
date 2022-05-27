@@ -1,3 +1,4 @@
+#pragma once
 #include "../Includes/stdafx.h"
 #include "../Gerenciadores/GraphicManager.h"
 
