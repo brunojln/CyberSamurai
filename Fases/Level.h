@@ -5,28 +5,34 @@
 #include "../Lista/ListEntity.h"
 #include "../Gerenciadores/Collider.h"
 #include "../Gerenciadores/GraphicManager.h"
+#include "../States/Estado.h"
 #include "../States/GerenciadorEstado.h"
 #include <iostream>
 
-class Level :
-    public State
-{
-protected:
-    Entities::Player* player;
-    //Lists::ListEntity enemyList;
-    //Lists::ListEntity structureList;
-    sf::Texture backgroundTexture;
-    Managers::Collider collider;
-    Managers::GraphicManager* pGraphics;
+//namespace Fases {
 
-public:
-    Level(StateControl *pSC = nullptr);
-    ~Level();
+    class Level :
+        public State
+    {
+    protected:
+        //Entities::Player* player;
+        //Lists::ListEntity enemyList;
+        //Lists::ListEntity structureList;
+        sf::Texture backgroundTexture;
+        Managers::Collider collider;
+        Managers::GraphicManager* pGraphics;
 
-    //void update();
-    //void render();
+    public:
+        Level(StateControl *pSC = nullptr);
+        ~Level();
 
-    //void resetState();
-    //void endLevel();
-};
+        void update();
+        void render();
+
+        //void resetState();
+        //void endLevel();
+    };
+
+
+//}
 

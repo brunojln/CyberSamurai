@@ -1,7 +1,6 @@
 #include "Menu.h"
 
 
-
 Menu::Menu(): sel{0}, min{0}, max{2}, active{false}
 {
 	Managers::GraphicManager* pGM = Managers::GraphicManager::getGraphics();
@@ -37,13 +36,31 @@ Menu::~Menu()
 
 
 void Menu::Up()
-{  
+{
+
 	if (active) //Se o botao estiver selecionado
-	{ 
+	{
 		ButtonVector[sel]->selected(false); //Altera a fonte e tamanho
+		sel--;
+
+		if (sel < min)//Nao deixa passar do maximo de botoes
+		{
+			sel = max;
+		}
+
+		ButtonVector[sel]->selected(true);
+	}
+
+}
+void Menu::Down()
+{
+	if (active)
+	{
+		ButtonVector[sel]->selected(false);
+
 		sel++;
 
-		if (sel > max)
+		if (sel > max)//Nao deixa passar do maximo de botoes
 		{
 			sel = min;
 		}
@@ -52,20 +69,13 @@ void Menu::Up()
 	}
 
 }
-void Menu::Down()
-{ 
-	if (active) 
-	{
-		ButtonVector[sel]->selected(false);
 
-		sel--;
-
-		if (sel < min)
-		{
-			sel = max;
-		}
-			
-		ButtonVector[sel]->selected(true);
+void Menu::update()
+{
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
+		Down();
 	}
-
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
+		Up();
+	}
 }

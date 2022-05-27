@@ -46,6 +46,7 @@ namespace Entities {
 
 	Player::Player(const float atkCd, const float atkDis) : Character(atkCd, atkDis)
 	{
+		
 		this->initVariables();
 		this->initAnimations();
 		this->initPhysics();

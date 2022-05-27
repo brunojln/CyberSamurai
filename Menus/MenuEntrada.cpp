@@ -3,7 +3,8 @@
 namespace Menus {
 
 //Tentar a conversao estatica para ponteiro de jogo
-EntranceMenu::EntranceMenu(Game* pointerGame) : Menu(), State((StateControl*)pointerGame, sID::MainMenu), pG(pointerGame), title()
+EntranceMenu::EntranceMenu(Game* pointerGame) : Menu(), State((StateControl*)pointerGame, sID::MainMenu), 
+pG(pointerGame), title()
 {
 	Managers::GraphicManager* pGM = Managers::GraphicManager::getGraphics();
 	Button* button = NULL;
@@ -36,7 +37,8 @@ EntranceMenu::EntranceMenu(Game* pointerGame) : Menu(), State((StateControl*)poi
 
 	title.setFont(*pGM->loadFont("InclusaoExterna/Fonte/Cyber-BoldRustique.ttf"));
 
-
+	delay.restart();
+	max = 3;
 }
 EntranceMenu::~EntranceMenu()
 {
@@ -56,12 +58,8 @@ void EntranceMenu::render()
 
 	pGM->render(&title);
 
-	
-	
-
-	
-
 }
+
 void EntranceMenu::resetState()
 { 
 
@@ -101,10 +99,24 @@ void EntranceMenu::exec()
 	}
 
 }
-
+	
 void EntranceMenu::update(float dt)
 {
 	active = true;
+	
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && delay.getElapsedTime().asSeconds() >= 0.2) {
+		printf("Down ");
+		Down();
+		delay.restart();
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && delay.getElapsedTime().asSeconds() >= 0.2) {
+		Up();
+		delay.restart();
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter) && delay.getElapsedTime().asSeconds() >= 0.2) {
+		exec();
+		delay.restart();
+	}
 }
 
 

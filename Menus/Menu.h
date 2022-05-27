@@ -1,3 +1,4 @@
+#pragma once
 #include "../Includes/stdafx.h"
 #include "../Botao/Botao.h"
 
@@ -11,6 +12,7 @@ protected:
 	int min, max;
 	bool active;
 
+	sf::Clock delay;
 	sf::RectangleShape body;
 	sf::Sprite* background;
 
@@ -25,6 +27,7 @@ public:
 
 	void Up();
 	void Down();
+	void update();
 	
 
 
