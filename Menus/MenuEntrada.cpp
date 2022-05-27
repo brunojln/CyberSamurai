@@ -35,7 +35,7 @@ pG(pointerGame), title()
 	title.setFont(*fontAux);
 	*/
 
-	title.setFont(*pGM->loadFont("InclusaoExterna/Fonte/Cyber-BoldRustique.ttf"));
+	title.setFont(*pGM->loadFont("InclusaoExterna/Fonte/Cyber.ttf"));
 
 	delay.restart();
 	max = 3;
