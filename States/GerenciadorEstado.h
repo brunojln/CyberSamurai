@@ -1,7 +1,6 @@
 #pragma once
-#include "../Includes/stdafx.h"
 #include "Estado.h"
-
+#include <map>
 
 class StateControl
 {
@@ -15,7 +14,7 @@ protected:
 public:
 
 	StateControl();
-	~StateControl();
+	virtual ~StateControl(); //virtual 
 
 	void changeRunningState(sID id);
 	void updateRunningState(const float dt);

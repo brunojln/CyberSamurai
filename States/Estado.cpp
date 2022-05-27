@@ -21,6 +21,6 @@ void State::setStateControl(StateControl* aux)
 
 void State::updateState(sID id)
 {
-	pSC->updateRunningState(id);
+	pSC->changeRunningState(id);
 }
 
