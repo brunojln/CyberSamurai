@@ -1,40 +1,42 @@
 #pragma once
 #include "../Includes/stdafx.h"
 
-namespace Lists {
+namespace Lists 
+{
 
-template<class type>
+	template<class type>
 
-class List {
-private:
+		class List 
+		{
+		private:
 
-	class Node {
-	private:
-		type* info;
-		Node* pNext;
-		int size;
+			class Node 
+			{
 
-	public:
+			private:
+				type* info;
+				Node* pNext;
+				int size;
 
-		Node(type* Info = NULL, Node* Prox = NULL, int Size = 0);
-		~Node();
+			public:
 
-		type* getInfo() { return info; }
-		void setInfo(type* Info) { info = Info; size++; }
+				Node(type* Info = NULL, Node* Prox = NULL, int Size = 0);
+				~Node();
 
-		Node* getProx() { return pNext; }
-		void setProx(Node* Prox) { pNext = Prox; size++ }
+				type* getInfo() { return info; }
+				void setInfo(type* Info) { info = Info; size++; }
 
-		int getSize() { return size };
-	};
+				Node* getProx() { return pNext; }
+				void setProx(Node* Prox) { pNext = Prox; size++; }
+
+				int getSize(){ return size; };
+		};
 
 	Node* inicio;
 	Node* fim;
 	Node* atual;
-	Node::iterator iT;
 
-
-public:
+	public:
 	List();
 	~List();
 
@@ -48,6 +50,6 @@ public:
 	type* operator ++();
 	type* operator [](const int i);
 
-};
+	};
 
 }

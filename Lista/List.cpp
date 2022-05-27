@@ -1,10 +1,11 @@
 #include "List.h"
 
-namespace Lists {
+namespace Lists 
+{
 
 	//Node
 	template<class type>
-	List<type>::Node::Node(type* Info, Node* Prox, int Size) : info{ Info }, pNext{ Prox }, size{size}
+	List<type>::Node::Node(type* Info, Node* Prox, int Size) : info{ Info }, pNext{ Prox }, size{ size }
 	{
 
 	}
@@ -18,6 +19,7 @@ namespace Lists {
 	//Personagens
 	template<class type>
 	List<type>::List() : inicio{ NULL }, fim{ NULL }, atual{ NULL } { }
+
 	template<class type>
 	List<type>::~List() { clear(); }
 
@@ -41,8 +43,9 @@ namespace Lists {
 
 			}
 		}
-		
+
 	}
+
 	template<class type>
 	void List<type>::clear()
 	{
@@ -60,7 +63,7 @@ namespace Lists {
 		inicio = NULL;
 		fim = NULL;
 		atual = NULL;
-	
+
 	}
 	template<class type>
 	type* List<type>::voltarInicio()
@@ -80,7 +83,7 @@ namespace Lists {
 		return(atual) ? atual->getInfo() : NULL;
 
 	}
-	
+
 	template<class type>
 	void List<type>::remove(const int p)
 	{
@@ -88,23 +91,23 @@ namespace Lists {
 		Node* aux;
 		aux = inicio;
 
-		Node* anterior = inicio;  
+		Node* anterior = inicio;
 		aux = inicio;
 
-	
-		if (p > getSize(); || p < 1) {
+
+		if (p > atual->getSize() || p < 1) {
 			printf("Valor incompativel com tamanho da lista\n");
 		}
 		else if (p == 1) {
 			inicio = aux->getProx();
 			delete aux;
 		}
-		else {  
-			
-			while (i != p- 1) {
-				anterior = aux;  
-				aux = aux->proximo;  
-				i++;  
+		else {
+
+			while (i != p - 1) {
+				anterior = aux;
+				aux = aux->proximo;
+				i++;
 			}
 
 			anterior->getProx() = aux->getProx();
@@ -127,16 +130,19 @@ namespace Lists {
 		int tam = 0;
 		tam = atual->getSize();
 
+		auto iT = inicio;
+
 		if (i >= 0 && i < tam)
 		{
-			iT = inicio;
+
 			for (int c = 0; c < i; c++)
 			{
 				iT++;
 			}
-			return iT;
+			return iT->getInfo();
 		}
 		else
 			std::cout << "Operador de colchetes fora dos limites" << std::endl;
 	}
-	
+
+}

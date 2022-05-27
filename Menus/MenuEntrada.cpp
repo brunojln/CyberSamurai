@@ -105,7 +105,6 @@ void EntranceMenu::update(float dt)
 	active = true;
 	
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && delay.getElapsedTime().asSeconds() >= 0.2) {
-		printf("Down ");
 		Down();
 		delay.restart();
 	}
