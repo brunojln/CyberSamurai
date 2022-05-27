@@ -4,21 +4,9 @@ Entities::Entity::Entity()
 {
 }
 
-Entities::Entity::Entity(int id, sf::Vector2f velocidade, float vMax, float vMin, float accel,
-	float dr, float grav, float vMaxY, sf::Vector2f size):
+Entities::Entity::Entity(int id):
 	Ente(id)
 {
-	velocity = velocidade;
-	velocityMax = vMax;
-	velocityMin = vMin;
-	acceleration = accel;
-	drag = dr;
-	gravity = grav;
-	velocityMaxY = vMaxY;
-
-
-	body.setSize(size);
-
 }
 
 Entities::Entity::~Entity()
@@ -42,6 +30,6 @@ const sf::Vector2f Entities::Entity::getSize() const
 
 void Entities::Entity::move(float dirX, float dirY)
 {
-	body.move(dirX, dirY);
+	body.move(dirX * velocity.x, dirY * velocity.y);
 }
 

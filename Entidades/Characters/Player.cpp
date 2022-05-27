@@ -7,7 +7,9 @@ namespace Entities {
 		this->animationState = IDLE;
 		this->canJump = true;
 		this->jumpHeight = 1000.f;
-	
+		
+		velocity.x = 2.f;
+		velocity.y = 2.f;
 		//this->hitBox.setSize(this->body.);
 	}
 
@@ -18,12 +20,7 @@ namespace Entities {
 
 	void Player::initPhysics()
 	{
-		velocityMax = 10.f;
-		this->velocityMin = 1.f;
-		this->acceleration = 1.f;
-		this->drag = 0.9f;
-		this->gravity = 2.f;
-		this->velocityMaxY = 40.f;
+		
 	}
 
 	void Player::initTexture()
@@ -44,22 +41,8 @@ namespace Entities {
 		this->body.setPosition(860.f, 440.f);
 	}
 
-	Player::Player(const float atkCd, const float atkDis) : Character(atkCd, atkDis)
-	{
-		
-		this->initVariables();
-		this->initAnimations();
-		this->initPhysics();
-		this->initTexture();
-		this->initSprite();
-	}
-
-	Player::Player(int hp, int xp, int atkDmg, const float atkCd, const float atkDis,
-		int id, sf::Vector2f velocidade, float vMax, float vMin, float accel, 
-		float dr, float grav, float vMaxY, sf::Vector2f size):
-
-		Character(hp, xp, atkDmg, atkCd, atkDis,
-			id, velocidade, vMax,vMin, accel, dr, grav, vMaxY, size)
+	Player::Player():
+		Character()
 	{
 		this->initVariables();
 		this->initAnimations();
@@ -90,13 +73,13 @@ namespace Entities {
 
 	void Player::move(const float dirX, const float dirY)
 	{
-		this->velocity.x += dirX * this->acceleration;
+		//this->velocity.x += dirX * this->acceleration;
 		//this->velocity.y += dirY * this->acceleration;
 
-		//limit velocity
-		if (std::abs(this->velocity.x) > this->velocityMax) {
-			this->velocity.x = this->velocityMax * ((this->velocity.x < 0.f) ? -1.f : 1.f);
-		}
+		///limit velocity
+		//if (std::abs(this->velocity.x) > this->velocityMax) {
+		//	this->velocity.x = this->velocityMax * ((this->velocity.x < 0.f) ? -1.f : 1.f);
+		//}
 	}
 
 	void Player::setCanJump(bool can_jump)
@@ -106,7 +89,8 @@ namespace Entities {
 
 	void Player::updatePhysics()
 	{
-		this->velocity.y += 0.8 * this->gravity;
+		this->velocity.y += 0.8 * GRAVITY;
+		/*
 		if (std::abs(this->velocity.y) > this->velocityMaxY) {
 			this->velocity.y = this->velocityMaxY * ((this->velocity.y < 0.f) ? -1.f : 1.f);
 		}
@@ -118,7 +102,7 @@ namespace Entities {
 			this->velocity.x = 0.f;
 		if (std::abs(this->velocity.y) < this->velocityMin)
 			this->velocity.y = 0.f;
-
+		*/
 		this->body.move(this->velocity);
 
 	}
@@ -137,7 +121,7 @@ namespace Entities {
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && canJump) {
 			this->canJump = false;
-			this->velocity.y = -sqrtf(2.0f * this->gravity * this->jumpHeight);
+			this->velocity.y = -sqrtf(2.0f * GRAVITY * this->jumpHeight);
 			//std::cout << this->velocity.y << std::endl;
 			this->animationState = JUMPING;
 		}
@@ -237,7 +221,8 @@ namespace Entities {
 
 	void Player::render(sf::RenderTarget& target)
 	{
-		target.draw(this->body);
+		//target.draw(this->body);
+		pGraphic->render(&body);
 	}
 
 }

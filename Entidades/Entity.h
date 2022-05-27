@@ -1,6 +1,9 @@
 #pragma once
 #include "../Ente.h"
 #include "SFML/Graphics.hpp"
+#include "../Gerenciadores/GraphicManager.h"
+
+#define GRAVITY 980.f
 
 namespace Entities {
 
@@ -9,20 +12,23 @@ namespace Entities {
 	protected:
 		//física
 		sf::Vector2f velocity;
+		/*
 		float velocityMax;
 		float velocityMin;
 		float acceleration;
 		float drag;
-		float gravity;
 		float velocityMaxY;
-
+		*/
 		sf::RectangleShape body;
 		sf::Texture texture;
 
+		Managers::GraphicManager* pGraphic;
+
+
+		unsigned int damage;
 	public:
 		Entity();
-		Entity(int id, sf::Vector2f velocidade, float vMax, float vMin, float accel, 
-			float dr, float grav, float vMaxY, sf::Vector2f size);
+		Entity(int id);
 		~Entity();
 
 		//accessors

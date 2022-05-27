@@ -39,6 +39,12 @@ sID StateControl::getRunningState() const
 
 void StateControl::setState(State* pS)
 {
+	if (pS == nullptr)
+	{
+		std::cout << "ERROR::GerenciadorEstado::setState::Ponteiro nulo\n";
+		exit(1);
+	}
+
 	StateMap.insert(std::pair<sID, State*>(pS->getID(), pS));
 }
 sID StateControl::getLastState() const

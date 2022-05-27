@@ -19,17 +19,19 @@
         //Lists::ListEntity enemyList;
         //Lists::ListEntity structureList;
         sf::Texture backgroundTexture;
+        sf::Sprite body;
         Managers::Collider collider;
         Managers::GraphicManager* pGraphics;
+        bool endGame;
 
     public:
-        Level(StateControl *pSC = nullptr);
+        Level(StateControl* pSC = nullptr);
         ~Level();
 
-        void update();
+        void update(const float dt);
         void render();
 
-        //void resetState();
+        void resetState();
         //void endLevel();
     };
 
