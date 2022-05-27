@@ -12,15 +12,12 @@ namespace Entities {
         int lifePoints;
         int exp; //para o player sera += exp dos inimigos eliminados
         int atkDamage;
-        const float atkCooldown;
-        const float atkDistance;
+        float atkCooldown;
+        float atkDistance;
         //ok
 
     public:
-        Character(const float atkCd, const float atkDis);
-        Character(int hp, int xp, int atkDmg, const float atkCd, const float atkDis,
-            int id, sf::Vector2f velocidade, float vMax, float vMin, float accel, 
-            float dr, float grav, float vMaxY, sf::Vector2f size);
+        Character();
         ~Character();
 
         const int getLifePoints() const;

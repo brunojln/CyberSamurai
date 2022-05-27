@@ -2,11 +2,16 @@
 #include "Game.h"
 #include "../Menus/MenuEntrada.h"
 #include "../Menus/MenuLeaderboard.h"
+#include "../Fases/LevelOne.h"
+#include "../Fases/Level.h"
 
 Game::Game() :
 	pGraphics(Managers::GraphicManager::getGraphics())
 {
 	State* state = static_cast<State*>(new Menus::EntranceMenu(this));
+	setState(state);
+
+	state = new LevelOne(this);
 	setState(state);
 
 	state = static_cast<State*>(new MenuLeaderboard(this));

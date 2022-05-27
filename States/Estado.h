@@ -23,7 +23,7 @@ public:
 
 	void setStateControl(StateControl* aux);
 
-	void updateState(sID id);
+	void updateState(sID id); //<----
 
 	virtual void update(const float dt) = 0;
 

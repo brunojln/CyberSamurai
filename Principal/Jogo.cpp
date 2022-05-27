@@ -22,8 +22,8 @@ void Jogo::initView()
 
 void Jogo::initPlayer()
 {
-	this->player = new Entities::Player(20.f, 5.f);
-	this->platform1 = new Entities::Platform(false, 0, sf::Vector2f(0.f, 0.f), 0, 0, 0, 0, 0, 0, sf::Vector2f(10.f, 10.f)); //temporario
+	this->player = new Entities::Player();
+	//this->platform1 = new Entities::Platform(false, 0, sf::Vector2f(0.f, 0.f), 0, 0, 0, 0, 0, 0, sf::Vector2f(10.f, 10.f)); //temporario
 	//this->platform2 = new Entities::Platform(dmg, id, velocidade, vMax, vMin, accel, dr, grav, vMaxY, size);
 }
 

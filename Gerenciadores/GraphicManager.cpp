@@ -21,7 +21,7 @@ namespace Managers{
     window{ new sf::RenderWindow(sf::VideoMode(1280, 720), "CyberSamurai", sf::Style::Titlebar | sf::Style::Close) }, view{ sf::Vector2f(640, 360), sf::Vector2f(1280, 720)}, textureMap(),
     fontMap()
     {
-
+        window->setFramerateLimit(60);
     }
 
     GraphicManager::~GraphicManager()

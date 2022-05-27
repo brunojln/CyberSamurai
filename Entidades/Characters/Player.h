@@ -35,10 +35,7 @@ namespace Entities {
 		void initSprite();
 
 	public:
-		Player(const float atkCd, const float atkDis);
-		Player(int hp, int xp, int atkDmg, const float atkCd, const float atkDis,
-			int id, sf::Vector2f velocidade, float vMax, float vMin, 
-			float accel, float dr, float grav, float vMaxY, sf::Vector2f size);
+		Player();
 		~Player();
 
 		//Accessors

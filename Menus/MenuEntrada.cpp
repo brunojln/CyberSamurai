@@ -80,7 +80,7 @@ void EntranceMenu::exec()
 		
 		switch (sel) {
 		case 0:
-			updateState(sID::Play);
+			updateState(sID::Playing);
 			break;
 		case 1:
 			updateState(sID::Leaderboard);
@@ -118,6 +118,5 @@ void EntranceMenu::update(float dt)
 		delay.restart();
 	}
 }
-
 
 }
