@@ -2,6 +2,9 @@
 #include "List.h"
 #include "../Entidades/Entity.h"
 
+class Entity;
+
+
 namespace Lists {
 
 	class ListEntity
@@ -14,8 +17,10 @@ namespace Lists {
 		~ListEntity();
 
 		void push_back(Entities::Entity* pEntity);
-		void remove(Entities::Entity* pEntity);
 		void remove(unsigned int i);
+
+		Entity* operator [](const int i);
+
 	};
 
 

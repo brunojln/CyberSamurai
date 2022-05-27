@@ -11,29 +11,27 @@ private:
 	class Node {
 	private:
 		type* info;
-		Node* pAnt;
 		Node* pNext;
-
+		int size;
 
 	public:
 
-		Node(type* Info = NULL, Node* Ant = NULL, Node* Prox = NULL);
+		Node(type* Info = NULL, Node* Prox = NULL, int Size = 0);
 		~Node();
 
 		type* getInfo() { return info; }
-		void setInfo(type* Info) { info = Info; }
-
-		Node* getAnt() { return pAnt; }
-		void setAnt(Node* Ant) { pAnt = Ant; }
+		void setInfo(type* Info) { info = Info; size++; }
 
 		Node* getProx() { return pNext; }
-		void setProx(Node* Prox) { pNext = Prox; }
+		void setProx(Node* Prox) { pNext = Prox; size++ }
 
+		int getSize() { return size };
 	};
 
 	Node* inicio;
 	Node* fim;
 	Node* atual;
+	Node::iterator iT;
 
 
 public:
@@ -41,21 +39,14 @@ public:
 	~List();
 
 	void insert(type* Info);
-	void clear();
+	void remove(const int pos);
 
+	void clear();
 	type* voltarInicio();
 	type* irProximo();
-	type* voltarAnt();
-
-	type* remover(type* Info);
-
+	
 	type* operator ++();
-	type* operator --();
-
-	void update(float t);
-	void render(sf::RenderWindow* janela);
-	void deleteCharacters();
-
+	type* operator [](const int i);
 
 };
 
