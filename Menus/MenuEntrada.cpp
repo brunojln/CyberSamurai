@@ -80,7 +80,7 @@ void EntranceMenu::exec()
 		
 		switch (sel) {
 		case 0:
-			updateState(sID::Playing);
+			updateState(sID::Level);
 			break;
 		case 1:
 			updateState(sID::Leaderboard);
@@ -102,6 +102,10 @@ void EntranceMenu::exec()
 	
 void EntranceMenu::update(float dt)
 {
+	if (active == false)
+	{
+		delay.restart();
+	}
 	active = true;
 	
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && delay.getElapsedTime().asSeconds() >= 0.2) {
