@@ -20,5 +20,6 @@ public:
 	void run();
 
 	void update();
+	void render();
 };
 
