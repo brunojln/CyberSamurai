@@ -6,14 +6,14 @@ MenuLevel::MenuLevel(Game* pG): Menu(), State((StateControl*)(pG), sID::Level)
 	Button* button = NULL;
 
 	//Botoes
-	button = new Button(sf::Vector2f(630, 200), "Level I");
+	button = new Button(sf::Vector2f(550, 200), "Level I");
 	button->selected(true); //Play como primeiro selecionado
 	ButtonVector.push_back(button);
 
-	button = new Button(sf::Vector2f(630, 250), "Level II");
+	button = new Button(sf::Vector2f(550, 250), "Level II");
 	ButtonVector.push_back(button);
 
-	button = new Button(sf::Vector2f(630, 600), "Voltar");
+	button = new Button(sf::Vector2f(550, 600), "Voltar");
 	ButtonVector.push_back(button); 
 
 	max = 2;
