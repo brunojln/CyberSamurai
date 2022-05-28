@@ -1,62 +1,55 @@
 #pragma once
 #include "../Includes/stdafx.h"
 
-namespace Lists {
+namespace Lists 
+{
 
-template<class type>
+	template<class type>
 
-class List {
-private:
+		class List 
+		{
+		private:
 
-	class Node {
-	private:
-		type* info;
-		Node* pAnt;
-		Node* pNext;
+			class Node 
+			{
 
+			private:
+				type* info;
+				Node* pNext;
+				int size;
 
-	public:
+			public:
 
-		Node(type* Info = NULL, Node* Ant = NULL, Node* Prox = NULL);
-		~Node();
+				Node(type* Info = NULL, Node* Prox = NULL, int Size = 0);
+				~Node();
 
-		type* getInfo() { return info; }
-		void setInfo(type* Info) { info = Info; }
+				type* getInfo() { return info; }
+				void setInfo(type* Info) { info = Info; size++; }
 
-		Node* getAnt() { return pAnt; }
-		void setAnt(Node* Ant) { pAnt = Ant; }
+				Node* getProx() { return pNext; }
+				void setProx(Node* Prox) { pNext = Prox; size++; }
 
-		Node* getProx() { return pNext; }
-		void setProx(Node* Prox) { pNext = Prox; }
-
-	};
+				int getSize(){ return size; };
+		};
 
 	Node* inicio;
 	Node* fim;
 	Node* atual;
 
-
-public:
+	public:
 	List();
 	~List();
 
 	void insert(type* Info);
-	void clear();
+	void remove(const int pos);
 
+	void clear();
 	type* voltarInicio();
 	type* irProximo();
-	type* voltarAnt();
-
-	type* remover(type* Info);
-
+	
 	type* operator ++();
-	type* operator --();
+	type* operator [](const int i);
 
-	void update(float t);
-	void render(sf::RenderWindow* janela);
-	void deleteCharacters();
-
-
-};
+	};
 
 }

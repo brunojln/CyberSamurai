@@ -1,10 +1,11 @@
 #include "List.h"
 
-namespace Lists {
+namespace Lists 
+{
 
 	//Node
 	template<class type>
-	List<type>::Node::Node(type* Info, Node* Ant, Node* Prox) : info{ Info }, pAnt{ Ant }, pNext{ Prox }
+	List<type>::Node::Node(type* Info, Node* Prox, int Size) : info{ Info }, pNext{ Prox }, size{ size }
 	{
 
 	}
@@ -14,45 +15,11 @@ namespace Lists {
 	{
 
 	}
-	/*
-	template<class type>
-	type* List<type>::Node::getInfo()
-	{
-		return info;
-	}
-
-	template<class type>
-	void List<type>::Node::setInfo(type* Info)
-	{
-		info = Info;
-	}
-
-	template<class type>
-	List<type>::Node* List<type>::Node::getAnt()
-	{
-		return pAnt;
-	}
-	template<class type>
-	void List<type>::Node::setAnt(Node* Ant)
-	{
-		pAnt = Ant;
-	}
-
-	template<class type>
-	List<type>::Node* List<type>::Node::getProx()
-	{
-		return pNext;
-	}
-
-	template<class type>
-	void List<type>::Node::setProx(Node* Prox)
-	{
-		pNext = Prox;
-	}*/
 
 	//Personagens
 	template<class type>
 	List<type>::List() : inicio{ NULL }, fim{ NULL }, atual{ NULL } { }
+
 	template<class type>
 	List<type>::~List() { clear(); }
 
@@ -71,7 +38,6 @@ namespace Lists {
 			else
 			{
 				fim->setProx(novo);
-				novo->setAnt(fim);
 
 				fim = novo;
 
@@ -79,6 +45,7 @@ namespace Lists {
 		}
 
 	}
+
 	template<class type>
 	void List<type>::clear()
 	{
@@ -107,6 +74,7 @@ namespace Lists {
 		else
 			return NULL;
 	}
+
 	template<class type>
 	type* List<type>::irProximo()
 	{
@@ -115,18 +83,39 @@ namespace Lists {
 		return(atual) ? atual->getInfo() : NULL;
 
 	}
-	template<class type>
-	type* List<type>::voltarAnt()
-	{
-		atual = atual->getAnt();
 
-		return(atual) ? atual->getInfo() : NULL;
-
-	}
 	template<class type>
-	type* List<type>::remover(type* pInfo)
+	void List<type>::remove(const int p)
 	{
-		
+		int i = 0;
+		Node* aux;
+		aux = inicio;
+
+		Node* anterior = inicio;
+		aux = inicio;
+
+
+		if (p > atual->getSize() || p < 1) {
+			printf("Valor incompativel com tamanho da lista\n");
+		}
+		else if (p == 1) {
+			inicio = aux->getProx();
+			delete aux;
+		}
+		else {
+
+			while (i != p - 1) {
+				anterior = aux;
+				aux = aux->proximo;
+				i++;
+			}
+
+			anterior->getProx() = aux->getProx();
+
+			delete(aux);
+
+		}
+
 	}
 
 	template<class type>
@@ -134,45 +123,26 @@ namespace Lists {
 	{
 		return irProximo();
 	}
-	template<class type>
-	type* List<type>::operator --()
-	{
-		return voltarAnt();
-	}
-	template<class type>
-	void List<type>::update(float t)
-	{
-		type* p = voltarInicio();
 
-		while (p)
+	template<class type>
+	type* List<type>::operator [](const int i)
+	{
+		int tam = 0;
+		tam = atual->getSize();
+
+		auto iT = inicio;
+
+		if (i >= 0 && i < tam)
 		{
-			//p->atualizar(t); // <----
-			p = irProximo();
+
+			for (int c = 0; c < i; c++)
+			{
+				iT++;
+			}
+			return iT->getInfo();
 		}
-
+		else
+			std::cout << "Operador de colchetes fora dos limites" << std::endl;
 	}
-	template<class type>
-	void List<type>::render(sf::RenderWindow* janela)
-	{
-		type* p = voltarInicio();
 
-		while (p)
-		{
-			//p->desenhar(janela); //<---
-			p = irProximo();
-		}
-	}
-	template<class type>
-	void List<type>::deleteCharacters()
-	{
-		type* p = voltarInicio();
-
-		while (p)
-		{
-			delete p;
-
-			p = irProximo();
-		}
-		clear();
-	}
 }

@@ -35,7 +35,7 @@ pG(pointerGame), title()
 	title.setFont(*fontAux);
 	*/
 
-	title.setFont(*pGM->loadFont("InclusaoExterna/Fonte/Cyber-BoldRustique.ttf"));
+	title.setFont(*pGM->loadFont("InclusaoExterna/Fonte/Cyber.ttf"));
 
 	delay.restart();
 	max = 3;
@@ -105,7 +105,6 @@ void EntranceMenu::update(float dt)
 	active = true;
 	
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && delay.getElapsedTime().asSeconds() >= 0.2) {
-		printf("Down ");
 		Down();
 		delay.restart();
 	}
