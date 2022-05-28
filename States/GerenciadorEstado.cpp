@@ -20,6 +20,7 @@ void StateControl::changeRunningState(sID id)
 {  
 	lastState = runningState;
 	runningState = id;
+
 	StateMap[runningState]->resetState();
 
 }

@@ -6,7 +6,7 @@ class StateControl;
 
 enum sID
 {
-	null = -1, MainMenu = 0, Level, Playing, Pause, SobreJogo, Leaderboard, GameOver
+	null = -1, MainMenu = 0, Level, Level1, Level2, Playing, Pause, SobreJogo, Leaderboard, GameOver
 };
 
 class State
