@@ -29,7 +29,7 @@
         bool endGame;
 
     public:
-        Level(StateControl* pSC = nullptr);
+        Level(sID, StateControl* pSC = nullptr);
         ~Level();
 
         void update(const float dt);
