@@ -18,14 +18,22 @@
 	void Level::update(const float dt)
 	{
 		//percorrer pela lista e chamar o método update de todos
-		//std::cout << "update";
+		player->update();
 	}
 
 	void Level::render()
 	{
 		Managers::GraphicManager* pGraphics = Managers::GraphicManager::getGraphics();
-		pGraphics->render(&body);
-		//std::cout << "render";
+		pGraphics->render(&backgroundBody);
+		// 
+		// 		//renderizar os conteudos das listas
+		// 
+		spikes->render();
+		platform->render();
+		player->render(); //alterado para chamar pGraphics na Entity.cpp (talvez mudar isso)
+		//usado para testes
+
+		//std::cout << platform->getPosition().x << " " << platform->getPosition().y;
 	}
 
 	void Level::resetState()

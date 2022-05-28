@@ -191,9 +191,9 @@ void Jogo::render()
 	this->window.setView(view);
 	//rendering
 	this->window.draw(this->sprite);
-	this->player->render(this->window);
-	this->platform1->render(this->window);
-	this->platform2->render(this->window);
+	//this->player->render(this->window);
+	//this->platform1->render(this->window);
+	//this->platform2->render(this->window);
 
 	this->window.setView(window.getDefaultView());
 	this->window.display();

@@ -1,20 +1,19 @@
 #pragma once
-#include <SFML/Graphics.hpp>
-#include "../../Includes/stdafx.h"
 #include "Structures.h"
 
 namespace Entities {
 
-	class Platform : public Structures
+	class Platform : 
+		public Structures
 	{
 	private:
+		void initPlatform();
 
 	public:
 		Platform();
 		~Platform();
 
-		void render(sf::RenderTarget& target);
-
+		//void render(sf::RenderTarget& target);
 	};
 
 }

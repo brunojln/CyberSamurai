@@ -12,7 +12,6 @@ namespace Entities {
 	{
 	private:
 		sf::Texture *textureSheet;
-		sf::Sprite sprite;
 
 		//Animation
 		sf::Clock animationTimer;
@@ -25,7 +24,6 @@ namespace Entities {
 		float jumpHeight;
 	
 		//core
-		sf::RectangleShape hitBox;
 
 		//initialization
 		void initVariables();
@@ -55,7 +53,7 @@ namespace Entities {
 		void updateAnimations();
 
 		void update();
-		void render(sf::RenderTarget& target); //virtual <-
+		//void render(sf::RenderTarget& target); //virtual <-
 
 	};
 

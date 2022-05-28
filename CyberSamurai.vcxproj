@@ -158,6 +158,7 @@
     <ClInclude Include="Includes\stdafx.h" />
     <ClInclude Include="Principal\Jogo.h" />
     <ClInclude Include="Menus\Menu.h" />
+    <ClInclude Include="Entidades\Estruturas\Spikes.h" />
     <ClInclude Include="States\Estado.h" />
     <ClInclude Include="States\GerenciadorEstado.h" />
   </ItemGroup>
@@ -181,6 +182,7 @@
     <ClCompile Include="Principal\Jogo.cpp" />
     <ClCompile Include="Menus\Menu.cpp" />
     <ClCompile Include="Main\main.cpp" />
+    <ClCompile Include="Entidades\Estruturas\Spikes.cpp" />
     <ClCompile Include="States\Estado.cpp" />
     <ClCompile Include="States\GerenciadorEstado.cpp" />
   </ItemGroup>

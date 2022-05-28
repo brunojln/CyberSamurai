@@ -1,4 +1,6 @@
+#pragma once
 #include "LevelOne.h"
+//#include "../Entidades/Characters/Player.h"
 
 void LevelOne::initLevel()
 {
@@ -6,8 +8,14 @@ void LevelOne::initLevel()
 	{
 		std::cout << "ERROR::INITLEVEL::Erro ao carregar textura" << "\n";
 	}
-	body.setTexture(backgroundTexture);
-	body.setScale(0.9f, 0.9f);
+	backgroundBody.setTexture(backgroundTexture);
+	backgroundBody.setScale(0.9f, 0.9f);
+
+	spikes = new Entities::Spikes();
+	player = new Entities::Player();
+	platform = new Entities::Platform();
+
+	
 }
 
 LevelOne::LevelOne(StateControl* pSC):
@@ -20,4 +28,7 @@ LevelOne::LevelOne(StateControl* pSC):
 
 LevelOne::~LevelOne()
 {
+	delete player;
+	delete platform;
+	delete spikes;
 }

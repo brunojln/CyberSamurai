@@ -22,6 +22,7 @@
     <ClCompile Include="Main\main.cpp" />
     <ClCompile Include="States\Estado.cpp" />
     <ClCompile Include="States\GerenciadorEstado.cpp" />
+    <ClCompile Include="Entidades\Estruturas\Spikes.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Botao\Botao.h" />
@@ -45,6 +46,7 @@
     <ClInclude Include="Menus\Menu.h" />
     <ClInclude Include="States\Estado.h" />
     <ClInclude Include="States\GerenciadorEstado.h" />
+    <ClInclude Include="Entidades\Estruturas\Spikes.h" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="InclusaoExterna\Fonte\Cyber-BoldRustique.ttf" />
