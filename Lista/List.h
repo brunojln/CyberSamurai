@@ -6,50 +6,49 @@ namespace Lists
 
 	template<class type>
 
-		class List 
+	class List 
+	{
+	private:
+
+		class Node 
 		{
+
 		private:
+			type* info;
+			Node* pNext;
+			int size;
 
-			class Node 
-			{
+		public:
 
-			private:
-				type* info;
-				Node* pNext;
-				int size;
+			Node(type* Info = NULL, Node* Prox = NULL, int Size = 0);
+			~Node();
 
-			public:
+			type* getInfo() { return info; }
+			void setInfo(type* Info) { info = Info; size++; }
 
-				Node(type* Info = NULL, Node* Prox = NULL, int Size = 0);
-				~Node();
+			Node* getProx() { return pNext; }
+			void setProx(Node* Prox) { pNext = Prox; size++; }
 
-				type* getInfo() { return info; }
-				void setInfo(type* Info) { info = Info; size++; }
-
-				Node* getProx() { return pNext; }
-				void setProx(Node* Prox) { pNext = Prox; size++; }
-
-				int getSize(){ return size; };
-		};
-
+			int getSize(){ return size; };
+	};
+		
 	Node* inicio;
 	Node* fim;
 	Node* atual;
 
 	public:
-	List();
-	~List();
+		List();
+		~List();
 
-	void insert(type* Info);
-	void remove(const int pos);
+		void insert(type* Info);
+		void remove(const int pos);
 
-	void clear();
-	type* voltarInicio();
-	type* irProximo();
+		void clear();
+		type* voltarInicio();
+		type* irProximo();
 	
-	type* operator ++();
-	type* operator [](const int i);
-
+		type* operator ++();
+		type* operator [](const int i);
 	};
 
 }

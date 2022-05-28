@@ -2,8 +2,8 @@
 
 //namespace Fases {
 
-	Level::Level(StateControl* pSC) :
-		State(pSC, sID::Playing),
+	Level::Level(sID id, StateControl* pSC) :
+		State(pSC, id),
 		pGraphics(Managers::GraphicManager::getGraphics()),
 		endGame(false)
 	{

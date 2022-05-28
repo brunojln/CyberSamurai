@@ -19,7 +19,7 @@ void LevelOne::initLevel()
 }
 
 LevelOne::LevelOne(StateControl* pSC):
-	Level(pSC)
+	Level(sID::Level1, pSC)
 {
 	initLevel();
 	update(0);

@@ -51,9 +51,9 @@ void MenuLevel::exec()
 		switch (sel) {
 		case 0:
 			/*
-			Primeira fase
-			updateState(sID::);
-			break;*/
+			Primeira fase*/
+			updateState(sID::Level1);
+			break;
 		case 1:
 			/*
 			Segunda Fase

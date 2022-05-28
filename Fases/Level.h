@@ -21,7 +21,7 @@
         Entities::Platform* platform; //uso para testes, colocar em lista posteriormente
         Entities::Spikes* spikes;
         //Lists::ListEntity enemyList;
-        //Lists::ListEntity structureList;
+        Lists::ListEntity* structureList;
         sf::Texture backgroundTexture;
         sf::Sprite backgroundBody;
         Managers::Collider collider;
@@ -29,7 +29,7 @@
         bool endGame;
 
     public:
-        Level(StateControl* pSC = nullptr);
+        Level(sID, StateControl* pSC = nullptr);
         ~Level();
 
         void update(const float dt);
