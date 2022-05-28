@@ -3,6 +3,7 @@
 #include "SFML/Graphics.hpp"
 #include "../Gerenciadores/GraphicManager.h"
 
+
 #define GRAVITY 980.f
 
 namespace Entities {
@@ -20,7 +21,7 @@ namespace Entities {
 		float velocityMaxY;
 		*/
 		sf::RectangleShape body;
-		sf::Texture texture;
+		sf::Texture *texture;
 
 		Managers::GraphicManager* pGraphic;
 
@@ -35,6 +36,7 @@ namespace Entities {
 		const sf::FloatRect getGlobalBounds() const;
 		const sf::Vector2f getPosition() const;
 		const sf::Vector2f getSize() const;
+		sf::RectangleShape* getBody();
 		//modifiers
 
 		void move(float dirX, float dirY);
@@ -42,7 +44,7 @@ namespace Entities {
 
 		//virtual void update() = 0;
 		//virtual void render() = 0;
-
+		void render();
 		//virtual void run() = 0;
 	};
 

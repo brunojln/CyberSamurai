@@ -29,6 +29,7 @@ void Game::run()
 	while (pGraphics->isWindowOpen())
 	{
 		update();
+		render();
 	}
 }
 
@@ -40,10 +41,12 @@ void Game::update()
 			pGraphics->close();
 		}
 	}
-
-	pGraphics->clear();
-	
 	updateRunningState(0);
+}
+
+void Game::render()
+{
+	pGraphics->clear();
 
 	renderRunningState();
 

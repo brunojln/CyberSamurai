@@ -10,7 +10,6 @@ namespace Entities {
 		
 		velocity.x = 2.f;
 		velocity.y = 2.f;
-		//this->hitBox.setSize(this->body.);
 	}
 
 	void Player::initAnimations()
@@ -80,6 +79,7 @@ namespace Entities {
 		//if (std::abs(this->velocity.x) > this->velocityMax) {
 		//	this->velocity.x = this->velocityMax * ((this->velocity.x < 0.f) ? -1.f : 1.f);
 		//}
+		body.move(dirX, dirY);
 	}
 
 	void Player::setCanJump(bool can_jump)
@@ -103,7 +103,7 @@ namespace Entities {
 		if (std::abs(this->velocity.y) < this->velocityMin)
 			this->velocity.y = 0.f;
 		*/
-		this->body.move(this->velocity);
+		//this->body.move(this->velocity);
 
 	}
 
@@ -114,6 +114,7 @@ namespace Entities {
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
 			this->move(-3.f, 0.f);
 			this->animationState = MOVING_LEFT;
+			std::cout << "A";
 		}
 		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
 			this->move(3.f, 0.f);
@@ -163,7 +164,7 @@ namespace Entities {
 				this->animationTimer.restart();
 				this->body.setTextureRect(this->currentFrame);
 			}
-			this->body.setScale(2.5f, 2.5f);
+			this->body.setScale(1.f, 1.f);
 			this->body.setOrigin(0.f, 0.f);
 		}
 		else if (this->animationState == MOVING_LEFT)
@@ -179,7 +180,7 @@ namespace Entities {
 				this->animationTimer.restart();
 				this->body.setTextureRect(this->currentFrame);
 			}
-			this->body.setScale(-2.5f, 2.5f);
+			this->body.setScale(-1.f, 1.f);
 			this->body.setOrigin(this->body.getGlobalBounds().width / 2.5f, 0.f);
 		}
 		else if (this->animationState == JUMPING) 
@@ -216,14 +217,15 @@ namespace Entities {
 	{
 		this->updateMovement();
 		this->updateAnimations();
-		this->updatePhysics();
+		//this->updatePhysics();
+		//std::cout << "player";
 	}
-
+	/*
 	void Player::render(sf::RenderTarget& target)
 	{
 		//target.draw(this->body);
 		pGraphic->render(&body);
-	}
+	}*/
 
 }
 
