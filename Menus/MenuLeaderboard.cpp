@@ -1,4 +1,5 @@
 #include "MenuLeaderboard.h"
+#include <fstream>
 
 MenuLeaderboard::MenuLeaderboard(StateControl* pSC): Menu(), State(pSC, sID::Leaderboard)
 { 
@@ -6,10 +7,11 @@ MenuLeaderboard::MenuLeaderboard(StateControl* pSC): Menu(), State(pSC, sID::Lea
 	Button* button = NULL;
 
 	//Unico botao de retornar
-	button = new Button(sf::Vector2f(640, 600), "Voltar");
+	button = new Button(sf::Vector2f(100, 600), "Voltar");
 	button->selected(true); //Play como primeiro selecionado
 	ButtonVector.push_back(button);
 
+    max = 0;
 } 
 MenuLeaderboard::~MenuLeaderboard()
 { 
@@ -20,7 +22,8 @@ MenuLeaderboard::~MenuLeaderboard()
 void MenuLeaderboard::render()
 {
 	Managers::GraphicManager* pGM = Managers::GraphicManager::getGraphics();
-	pGM->render(&body);
+
+    pGM->render(background);
 
 	for (iB = ButtonVector.begin(); iB != ButtonVector.end(); iB++)
 	{
@@ -30,7 +33,7 @@ void MenuLeaderboard::render()
 	for (iP = score.begin(); iP != score.end(); iP++)
 	{
 		pGM->render(*iP);
-	}
+	} 
 			
 } 
 
@@ -57,75 +60,63 @@ void MenuLeaderboard::exec()
 
 void MenuLeaderboard::update(float dt) 
 {
+    if (active == false)
+    {
+        delay.restart();
+    }
     active = true;
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter) && delay.getElapsedTime().asSeconds() >= 0.2)
+    {
+        exec();
+        delay.restart();
+    }
 }
 
 void MenuLeaderboard::construct()
 { 
-    /*
-    ifstream file;
 
-    file.open(LEADERBOARD_PATH, std::ios::binary | std::ios::in);
+    
+    std::ifstream arq;
 
-    if (!file) {
-        std::ofstream writeFile(LEADERBOARD_PATH, std::ios::out | std::ios::trunc);
-        writeFile.close();
+    arq.open("./InclusaoExterna/Leaderboard/LeaderboardSave.txt", std::ios::binary | std::ios::in);
+
+    if (!arq)
+    {
+        std::cout << "ERROR::LEADERBOARDMENU::FILE" << std::endl;
     }
 
-    int points;
     std::string name;
     std::string textString;
-    std::string pointsString;
+    std::string points;
+    sf::Text* text;
 
-    sf::Text* txt;
+    for (int i = 0; i < 10; i++) 
+    {
+        name = ""; points = ""; 
 
-    for (int i = 0; i < 10; i++) {
-        name = "";
-        points = 0;
-        pointsString = "";
-
-        getline(file, pointsString);
-        getline(file, name);
-
-        textString = std::to_string((i + 1) / 10) + std::to_string((i + 1) % 10) + " - " + name + " ";
-
-        if (pointsString.length() > 0) {
-
-            points = std::stoi(pointsString);
-
-            pointsString = std::to_string(points / 1000000);
-            points %= 1000000;
-
-            pointsString += std::to_string(points / 100000);
-            points %= 100000;
-
-            pointsString += std::to_string(points / 10000);
-            points %= 10000;
-
-            pointsString += std::to_string(points / 1000);
-            points %= 1000;
-
-            pointsString += std::to_string(points / 100);
-            points %= 100;
-
-            pointsString += std::to_string(points / 10);
-            points %= 10;
-
-            pointsString += std::to_string(points);
-        }
-
-        while (textString.length() + pointsString.length() < 50) {
+        std::getline(arq, points);
+        std::getline(arq, name);
+       
+        textString = std::to_string((i + 1) / 10) + std::to_string((i + 1) % 10) + " : " + name + " ";
+       
+        while (textString.length() + points.length() < 50) {
             textString += ".";
         }
+        
+        Managers::GraphicManager* pGM = Managers::GraphicManager::getGraphics();
 
-        txt = new GraphicalElements::Text(Math::CoordF(Managers::Graphics::getInstance()->getWindowSize().x / 2.0f, 100 + 40 * i), textString + pointsString, LEADERBOARD_FONT_PATH);
-        txt->setFontSize(48);
-        txt->setTextAlignment(GraphicalElements::TextAlignment::center);
-        txt->setTextColor(77.6, 68.2, 44.3);
-        allPoints.push_back(txt);
+       
+        text = new sf::Text;
+        text->setPosition(100, 100 + 40*i);
+        text->setFont(*pGM->loadFont("InclusaoExterna/Fonte/NEONLEDLight.otf"));
+        text->setLetterSpacing(1.5);
+        text->setString(textString + points);
+        text->setCharacterSize(30);
+        score.push_back(text);
+      
     }
 
-    file.close();
-    */
+    arq.close();
+    
 
 } 

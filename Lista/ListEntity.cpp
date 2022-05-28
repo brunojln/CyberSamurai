@@ -27,6 +27,9 @@ namespace Lists{
 	Entities::Entity* ListEntity::operator [](int i)
 	{
 		return (Entities::Entity*)(lEntity.operator[](i));
-	} */
+	} 
 
-//}
+
+} */
+
+

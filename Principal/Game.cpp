@@ -2,8 +2,11 @@
 #include "Game.h"
 #include "../Menus/MenuEntrada.h"
 #include "../Menus/MenuLeaderboard.h"
+#include "../Menus/MenuSobreOJogo.h"
+#include "../Menus/MenuLevel.h"
 #include "../Fases/LevelOne.h"
 #include "../Fases/Level.h"
+
 
 Game::Game() :
 	pGraphics(Managers::GraphicManager::getGraphics())
@@ -15,6 +18,12 @@ Game::Game() :
 	setState(state);
 
 	state = static_cast<State*>(new MenuLeaderboard(this));
+	setState(state);
+
+	state = static_cast<State*>(new MenuLevel(this));
+	setState(state);
+
+	state = static_cast<State*>(new MenuSobreOJogo(this));
 	setState(state);
 
 	changeRunningState(sID::MainMenu);

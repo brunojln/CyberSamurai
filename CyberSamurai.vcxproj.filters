@@ -46,10 +46,15 @@
     <ClInclude Include="Menus\Menu.h" />
     <ClInclude Include="States\Estado.h" />
     <ClInclude Include="States\GerenciadorEstado.h" />
+    <ClInclude Include="Menus\MenuSobreOJogo.h" />
+    <ClInclude Include="Menus\MenuLevel.h" />
     <ClInclude Include="Entidades\Estruturas\Spikes.h" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="InclusaoExterna\Fonte\Cyber-BoldRustique.ttf" />
     <Font Include="InclusaoExterna\Fonte\Cyber.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="InclusaoExterna\Leaderboard\LeaderboardSave.txt" />
   </ItemGroup>
 </Project>
