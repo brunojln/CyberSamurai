@@ -1,148 +1,147 @@
 #include "List.h"
 
+/*
 namespace Lists 
 {
+	template<class ListType>
+	List<ListType>::List() : pStart{ NULL }, pEnd{ NULL }, size{0} {}
 
-	//Node
-	template<class type>
-	List<type>::Node::Node(type* Info, Node* Prox, int Size) : info{ Info }, pNext{ Prox }, size{ size }
-	{
-
+	template<class ListType>
+	List<ListType>::~List()
+	{ 
+		pStart{NULL};
+		pEnd{NULL};
 	}
 
-	template<class type>
-	List<type>::Node::~Node()
+	template<class ListType>
+	void List<ListType>::insert(Node<ListType>* pNode)
 	{
-
-	}
-
-	//Personagens
-	template<class type>
-	List<type>::List() : inicio{ NULL }, fim{ NULL }, atual{ NULL } { }
-
-	template<class type>
-	List<type>::~List() { clear(); }
-
-	template<class type>
-	void List<type>::insert(type* Info)
-	{
-		if (Info)
+		//Se for o primeiro elemento
+		if (pStart == NULL)
 		{
-			Node* novo = new Node(Info);
-
-			if (!inicio)
-			{
-				inicio = novo;
-				fim = novo;
-			}
-			else
-			{
-				fim->setProx(novo);
-
-				fim = novo;
-
-			}
+			pStart = pNode;
+			pEnd = pNode;
 		}
-
-	}
-
-	template<class type>
-	void List<type>::clear()
-	{
-		Node* Paux = inicio;
-		atual = inicio;
-
-		while (atual != NULL)
-		{
-			Paux = atual->getProx();
-			delete atual;
-
-			atual = Paux;
-		}
-
-		inicio = NULL;
-		fim = NULL;
-		atual = NULL;
-
-	}
-	template<class type>
-	type* List<type>::voltarInicio()
-	{
-		atual = inicio;
-		if (atual)
-			return atual->getInfo();
 		else
-			return NULL;
+		{
+			pEnd->setpNext(pNode);
+			pEnd = pNode;
+		}
+
+		size++;
 	}
 
-	template<class type>
-	type* List<type>::irProximo()
+	template<class ListType>
+	void List<ListType>::push_back(ListType* pInfo) 
 	{
-		atual = atual->getProx();
-
-		return(atual) ? atual->getInfo() : NULL;
-
+		Node<ListType>* pNew = NULL;
+		pNew = new Node<ListType>*; //()
+		pNew->setInfo(pInfo);
+		insert(pNew);
 	}
 
-	template<class type>
-	void List<type>::remove(const int p)
+	template<class ListType>
+	ListType* List<ListType>::remove(const int pos)
 	{
+		if (pos < 0 || pos > size + 1)
+		{
+			std::cout << "ERROR::LIST.CPP::REMOVE OUT OF RANGE" << std::endl;
+			exit(1);
+		}
+
+		Node<ListType>* aux = NULL;
+		Node<ListType>* aux2=NULL;
+		aux = pStart;
+
+		for (int i = 0; i < pos; i++)
+		{
+			aux2 = aux;
+			aux = aux->getpNext();
+		}
+
+		//Se o que se deseja remover for o primeiro
+		if (aux = pStart)
+		{
+			pStart = aux->getpNext();
+		}
+		else if (aux = pEnd)
+		{
+			pEnd = aux2;
+			aux2->setpNext(NULL);
+		}
+		else
+		{
+			aux2->setpNext(aux->getpNext());
+		}
+
+		ListType* auxInfo = aux->getInfo();
+
+		delete(aux);
+		size--;
+
+		return auxInfo;
+		
+	}
+
+	template<class ListType>
+	void List<ListType>::clear()
+	{ 
+		Node<ListType>* aux1, aux2;
+
+		aux1 = pStart;
+		aux2 = aux1;
 		int i = 0;
-		Node* aux;
-		aux = inicio;
 
-		Node* anterior = inicio;
-		aux = inicio;
-
-
-		if (p > atual->getSize() || p < 1) {
-			printf("Valor incompativel com tamanho da lista\n");
-		}
-		else if (p == 1) {
-			inicio = aux->getProx();
-			delete aux;
-		}
-		else {
-
-			while (i != p - 1) {
-				anterior = aux;
-				aux = aux->proximo;
-				i++;
-			}
-
-			anterior->getProx() = aux->getProx();
-
-			delete(aux);
-
-		}
-
-	}
-
-	template<class type>
-	type* List<type>::operator ++()
-	{
-		return irProximo();
-	}
-
-	template<class type>
-	type* List<type>::operator [](const int i)
-	{
-		int tam = 0;
-		tam = atual->getSize();
-
-		auto iT = inicio;
-
-		if (i >= 0 && i < tam)
+		while (aux1 != NULL && i < size)
 		{
+			delete(aux1->getInfo());
+			aux2 = aux1->getpNext();
 
-			for (int c = 0; c < i; c++)
-			{
-				iT++;
-			}
-			return iT->getInfo();
+			delete(aux1);
+			aux1 = aux2;
+
+			i++;
 		}
-		else
-			std::cout << "Operador de colchetes fora dos limites" << std::endl;
+
+		pStart{NULL}; pEnd{NULL}; size{0};
 	}
 
-}
+	template<class ListType>
+	int List<ListType>::getSize(){ return size; } 
+
+	template<class ListType>
+	ListType* List<ListType>::getFrist()
+	{  
+		return pStart;
+	}
+
+	template<class ListType>
+	ListType* List<ListType>::getLast()
+	{ 
+		return pEnd;
+	}
+
+
+	template<class ListType>
+	ListType* List<ListType>::operator [](const int i)
+	{
+		if (i < 0 || i > size + 1)
+		{
+			std::cout << "ERROR::LIST.CPP::OPERATOR[] OUT OF RANGE" << std::endl;
+			exit(1);
+		}
+		
+		
+		Node<ListType>* aux;
+		aux = pStart;
+
+		for (int c = 0; c < i; c++)
+		{
+			aux = aux->getpNext();
+		}
+
+		return aux->getInfo();
+	
+	}
+
+}*/

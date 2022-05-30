@@ -21,17 +21,27 @@ namespace Lists {
 
 		void push_back(Entities::Entity* pEntity)
 		{
-			lEntity.insert(pEntity);
+			lEntity.push_back(pEntity);
 		}
 
-		void remove(unsigned int i)
+		void pop(unsigned int i)
 		{
 			lEntity.remove(i);
 		}
 
+		void EntityDelete(unsigned int i)
+		{
+			Entities::Entity* aux;
+			aux = NULL;
+
+			aux = lEntity.remove(i);
+
+			delete(aux);
+		}
+
 		Entities::Entity* operator [](int i)
 		{
-			return (Entities::Entity*)(lEntity.operator[](i));
+			return lEntity[i];
 		}
 
 	};
