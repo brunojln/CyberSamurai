@@ -4,7 +4,7 @@
 #include "../Gerenciadores/GraphicManager.h"
 
 
-#define GRAVITY 980.f
+#define GRAVITY 4.f
 
 namespace Entities {
 
@@ -13,13 +13,12 @@ namespace Entities {
 	protected:
 		//física
 		sf::Vector2f velocity;
-		/*
+		float acceleration;
 		float velocityMax;
 		float velocityMin;
-		float acceleration;
-		float drag;
 		float velocityMaxY;
-		*/
+		float drag;
+
 		sf::RectangleShape body;
 		sf::Texture *texture;
 
@@ -40,6 +39,7 @@ namespace Entities {
 		//modifiers
 
 		void move(float dirX, float dirY);
+		void updatePhysics();
 		//void setPosition(const float x, const float y);
 
 		//virtual void update() = 0;

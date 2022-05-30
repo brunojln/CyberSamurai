@@ -10,7 +10,7 @@ namespace Entities {
 		void initPlatform();
 
 	public:
-		Platform();
+		Platform(float x, float y);
 		~Platform();
 
 		//void render(sf::RenderTarget& target);

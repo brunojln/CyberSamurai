@@ -13,16 +13,22 @@ void Entities::Platform::initPlatform()
 
 	body.setTexture(texture);
 	body.setFillColor(sf::Color(50, 50, 300));
-	body.setPosition(50, 50);
+	//body.setPosition(350, 600);
 	body.setSize(sf::Vector2f(100.f, 100.f));
 
+	velocityMin = 1.f;
+	velocityMaxY = 1.f;
+	acceleration = 1.f;
+	drag = 0.9f;
+	velocityMax = 6.f;
 	std::cout << "Plataforma criada\n";
 }
 
-Entities::Platform::Platform() :
+Entities::Platform::Platform(float x, float y) :
 	Structures()
 {
 	this->initPlatform();
+	body.setPosition(x, y);
 }
 
 Entities::Platform::~Platform()

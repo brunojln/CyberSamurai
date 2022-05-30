@@ -33,27 +33,28 @@ namespace Managers {
 			{
 				if (deltaX > 0.0f) {
 					body->move(intersectX * (1.0f - push), 0.0f);
-					other->move(-intersectX, 0.0f);
+					other->move(-intersectX * push, 0.0f);
 				}
 				else {
 					body->move(-intersectX * (1.0f - push), 0.0f);
-					other->move(intersectX, 0.0f);
+					other->move(intersectX * push, 0.0f); 
 				}
 			}
 			else {
+				body->setCanJump(true);
 				if (deltaY > 0.0f) {
 					body->move(0.0f, intersectY * (1.0f - push));
-					other->move(0.0f, -intersectY);
+					other->move(0.0f, -intersectY * push);
 				}
 				else {
 					body->move(0.0f, -intersectY * (1.0f - push));
-					other->move(0.0f, intersectY);
+					other->move(0.0f, intersectY * push);
 				}
 			}
-			std::cout << "true\n";
+			//std::cout << "true\n";
 			return true;
 		}
-		std::cout << "false\n";
+		//std::cout << "false\n";
 		return false;
 	}
 }
