@@ -45,7 +45,7 @@ namespace Managers {
 		/*
 		float updateDeltaTime();
 		*/
-	bool WindowIsOpen() const;
+		bool WindowIsOpen() const;
 
 	/*
 	float updateDeltaTime();

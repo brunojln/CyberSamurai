@@ -33,6 +33,7 @@ void Button::selected(const bool isSelected)
 
 }
 
+
 void Button::render()
 {
 	Managers::GraphicManager* pGM = Managers::GraphicManager::getGraphics();
