@@ -13,7 +13,13 @@ void LevelOne::initLevel()
 
 	spikes = new Entities::Spikes();
 	player = new Entities::Player();
-	platform = new Entities::Platform();
+	platform = new Entities::Platform(350, 650);
+
+	/*for (int i = 0; i < (rand() % 6 + 2); i++)
+	{
+
+	}*/
+	//structureList->push_back(platform);
 
 	
 }
