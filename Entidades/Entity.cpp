@@ -36,7 +36,33 @@ sf::RectangleShape* Entities::Entity::getBody()
 
 void Entities::Entity::move(float dirX, float dirY)
 {
-	body.move(dirX * velocity.x, dirY * velocity.y);
+	this->velocity.x += dirX * this->acceleration;
+	this->velocity.y += dirY * this->acceleration;
+
+	///limit velocity
+	if (std::abs(this->velocity.x) > this->velocityMax) {
+		this->velocity.x = this->velocityMax * ((this->velocity.x < 0.f) ? -1.f : 1.f);
+	}
+	body.move(dirX, dirY);
+}
+
+void Entities::Entity::updatePhysics()
+{
+	this->velocity.y += 1.0 * GRAVITY;
+
+	if (std::abs(this->velocity.y) > velocityMaxY) {
+		this->velocity.y = velocityMaxY * ((this->velocity.y < 0.f) ? -1.f : 1.f);
+	}
+
+
+	velocity *= drag;
+
+	if (std::abs(this->velocity.x) < this->velocityMin)
+		this->velocity.x = 0.f;
+	if (std::abs(this->velocity.y) < this->velocityMin)
+		this->velocity.y = 0.f;
+
+	this->body.move(this->velocity);
 }
 
 void Entities::Entity::render()

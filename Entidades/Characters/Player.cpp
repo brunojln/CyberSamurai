@@ -6,10 +6,12 @@ namespace Entities {
 	{
 		this->animationState = IDLE;
 		this->canJump = true;
-		this->jumpHeight = 1000.f;
-		
-		velocity.x = 2.f;
-		velocity.y = 2.f;
+		velocityMax = 5.f;
+		velocityMin = 1.f;
+		acceleration = 1.f;
+		drag = 0.9f;
+		velocityMaxY = 40.f;
+		jumpHeight = 1000.f;
 	}
 
 	void Player::initAnimations()
@@ -72,13 +74,13 @@ namespace Entities {
 
 	void Player::move(const float dirX, const float dirY)
 	{
-		//this->velocity.x += dirX * this->acceleration;
-		//this->velocity.y += dirY * this->acceleration;
+		this->velocity.x += dirX * this->acceleration;
+		this->velocity.y += dirY * this->acceleration;
 
 		///limit velocity
-		//if (std::abs(this->velocity.x) > this->velocityMax) {
-		//	this->velocity.x = this->velocityMax * ((this->velocity.x < 0.f) ? -1.f : 1.f);
-		//}
+		if (std::abs(this->velocity.x) > this->velocityMax) {
+			this->velocity.x = this->velocityMax * ((this->velocity.x < 0.f) ? -1.f : 1.f);
+		}
 		body.move(dirX, dirY);
 	}
 
@@ -89,21 +91,21 @@ namespace Entities {
 
 	void Player::updatePhysics()
 	{
-		this->velocity.y += 0.8 * GRAVITY;
-		/*
-		if (std::abs(this->velocity.y) > this->velocityMaxY) {
-			this->velocity.y = this->velocityMaxY * ((this->velocity.y < 0.f) ? -1.f : 1.f);
+		this->velocity.y += 1.0 * GRAVITY;
+		
+		if (std::abs(this->velocity.y) > velocityMaxY) {
+			this->velocity.y = velocityMaxY * ((this->velocity.y < 0.f) ? -1.f : 1.f);
 		}
 
-
-		this->velocity *= this->drag;
-
+		
+		velocity *= drag;
+		
 		if (std::abs(this->velocity.x) < this->velocityMin)
 			this->velocity.x = 0.f;
 		if (std::abs(this->velocity.y) < this->velocityMin)
 			this->velocity.y = 0.f;
-		*/
-		//this->body.move(this->velocity);
+		
+		this->body.move(this->velocity);
 
 	}
 
@@ -111,10 +113,11 @@ namespace Entities {
 	{
 		this->animationState = IDLE;
 
+		std::cout << this->velocity.y << std::endl;
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
 			this->move(-3.f, 0.f);
 			this->animationState = MOVING_LEFT;
-			std::cout << "A";
+			//std::cout << "A";
 		}
 		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
 			this->move(3.f, 0.f);
@@ -123,7 +126,7 @@ namespace Entities {
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && canJump) {
 			this->canJump = false;
 			this->velocity.y = -sqrtf(2.0f * GRAVITY * this->jumpHeight);
-			//std::cout << this->velocity.y << std::endl;
+			std::cout << this->velocity.y << std::endl;
 			this->animationState = JUMPING;
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::K)) {
@@ -217,7 +220,7 @@ namespace Entities {
 	{
 		this->updateMovement();
 		this->updateAnimations();
-		//this->updatePhysics();
+		this->updatePhysics();
 		//std::cout << "player";
 	}
 	/*

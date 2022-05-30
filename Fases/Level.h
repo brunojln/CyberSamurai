@@ -31,11 +31,16 @@
     public:
         Level(sID, StateControl* pSC = nullptr);
         ~Level();
-
+        
         void update(const float dt);
         void render();
-
         void resetState();
+
+
+        void windowCollision(Entities::Player* player);
+        //void windowCollision(Lists::ListEntity* enemyList);
+
+        
         //void endLevel();
     };
 
