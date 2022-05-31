@@ -5,13 +5,20 @@ namespace Entities {
 	void Player::initVariables()
 	{
 		this->animationState = IDLE;
-		this->canJump = true;
+		cooldownClock.restart();
+		canJump = true;
+		canAttack = true;
+		isAttacking = false;
 		velocityMax = 5.f;
 		velocityMin = 1.f;
 		acceleration = 1.f;
 		drag = 0.9f;
-		velocityMaxY = 40.f;
+		velocityMaxY = 60.f;
 		jumpHeight = 1000.f;
+
+		lifePoints = 4;
+		atkCooldown = 1.f;
+		atkDamage = 1.f;
 	}
 
 	void Player::initAnimations()
@@ -31,6 +38,12 @@ namespace Entities {
 		if (!textureSheet->loadFromFile("InclusaoExterna/Imagens/Personagens/BontenmaruSheet.png")) {
 			std::cout << "ERROR::PLAYER::INITTEXTURE::Falha ao carregar textura" << "\n";
 		}
+
+		heartTexture = new sf::Texture();
+
+		if (!heartTexture->loadFromFile("InclusaoExterna/Imagens/Background/heartSprite.png")) {
+			std::cout << "ERROR::PLAYER::initTexture::Fallha ao carregar textura" << "\n";
+		}
 	}
 
 	void Player::initSprite()
@@ -40,10 +53,16 @@ namespace Entities {
 		this->body.setTextureRect(this->currentFrame);
 		this->body.setSize(sf::Vector2f(125.f, 100.f));
 		this->body.setPosition(860.f, 440.f);
+
+		this->heartSprite.setTexture(*heartTexture);
+		this->heartFrame = sf::IntRect(0, 0, 92, 110);
+		this->heartSprite.setTextureRect(this->heartFrame);
+		this->heartSprite.setPosition(20, 20);
+		this->heartSprite.setScale(0.5f, 0.5f);
 	}
 
 	Player::Player():
-		Character()
+		Character(entityID::player)
 	{
 		this->initVariables();
 		this->initAnimations();
@@ -56,83 +75,43 @@ namespace Entities {
 	{
 	}
 
-	const sf::FloatRect Player::getGlobalBounds() const
-	{
-		return this->body.getGlobalBounds();
-	}
-
-
-	void Player::setPosition(const float x, const float y)
-	{
-		this->body.setPosition(x, y);
-	}
-
-	void Player::resetVelocityY()
-	{
-		this->velocity.y = 0.f;
-	}
-
-	void Player::move(const float dirX, const float dirY)
-	{
-		this->velocity.x += dirX * this->acceleration;
-		this->velocity.y += dirY * this->acceleration;
-
-		///limit velocity
-		if (std::abs(this->velocity.x) > this->velocityMax) {
-			this->velocity.x = this->velocityMax * ((this->velocity.x < 0.f) ? -1.f : 1.f);
-		}
-		body.move(dirX, dirY);
-	}
-
 	void Player::setCanJump(bool can_jump)
 	{
-		this->canJump = can_jump;
+		canJump = can_jump;
 	}
 
-	void Player::updatePhysics()
+	/*void Player::updateCooldown()
 	{
-		this->velocity.y += 1.0 * GRAVITY;
-		
-		if (std::abs(this->velocity.y) > velocityMaxY) {
-			this->velocity.y = velocityMaxY * ((this->velocity.y < 0.f) ? -1.f : 1.f);
+		if (cooldownClock.getElapsedTime().asSeconds() >= this->atkCooldown)
+		{
+			this->canAttack = true;
+			cooldownClock.restart();
 		}
-
-		
-		velocity *= drag;
-		
-		if (std::abs(this->velocity.x) < this->velocityMin)
-			this->velocity.x = 0.f;
-		if (std::abs(this->velocity.y) < this->velocityMin)
-			this->velocity.y = 0.f;
-		
-		this->body.move(this->velocity);
-
-	}
+	}*/
 
 	void Player::updateMovement()
 	{
 		this->animationState = IDLE;
 
-		std::cout << this->velocity.y << std::endl;
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
 			this->move(-3.f, 0.f);
 			this->animationState = MOVING_LEFT;
-			//std::cout << "A";
 		}
 		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
 			this->move(3.f, 0.f);
 			this->animationState = MOVING_RIGHT;
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && canJump) {
-			this->canJump = false;
+			canJump = false;
 			this->velocity.y = -sqrtf(2.0f * GRAVITY * this->jumpHeight);
-			std::cout << this->velocity.y << std::endl;
 			this->animationState = JUMPING;
 		}
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::K)) {
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::K) && canAttack) {
 			//attack function
 			//reset attack cooldown
+			isAttacking = true;
 			this->animationState = ATTACK;
+			//canAttack = false;
 		}
 
 
@@ -216,19 +195,20 @@ namespace Entities {
 
 	}
 
+	void Player::updateHearts(sf::RenderWindow* window)
+	{
+		//chamar função para alterar vida do jogador
+		window->draw(heartSprite);
+	}
+
 	void Player::update()
 	{
 		this->updateMovement();
 		this->updateAnimations();
-		this->updatePhysics();
-		//std::cout << "player";
+		updatePhysics();
+		updateCooldown();
 	}
-	/*
-	void Player::render(sf::RenderTarget& target)
-	{
-		//target.draw(this->body);
-		pGraphic->render(&body);
-	}*/
+	
 
 }
 

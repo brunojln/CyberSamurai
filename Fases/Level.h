@@ -4,6 +4,8 @@
 #include "../Entidades/Characters/Player.h"
 #include "../Entidades/Estruturas/Platform.h"
 #include "../Entidades/Estruturas/Spikes.h"
+#include "../Entidades/Estruturas/Elevator.h"
+#include "../Entidades/Characters/Robot.h"
 #include "../Lista/ListEntity.h"
 #include "../Gerenciadores/Collider.h"
 #include "../Gerenciadores/GraphicManager.h"
@@ -20,7 +22,12 @@
         Entities::Player* player;
         Entities::Platform* platform; //uso para testes, colocar em lista posteriormente
         Entities::Spikes* spikes;
-        Lists::ListEntity enemyList;
+
+        Entities::Elevator* elevator;
+        Entities::Robot* robot;
+
+        //Lists::ListEntity enemyList;
+
         Lists::ListEntity* structureList;
         sf::Texture backgroundTexture;
         sf::Sprite backgroundBody;
@@ -37,7 +44,7 @@
         void resetState();
 
 
-        void windowCollision(Entities::Player* player);
+        void windowCollision(Entities::Entity* player);
         //void windowCollision(Lists::ListEntity* enemyList);
 
         

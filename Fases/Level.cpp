@@ -7,7 +7,7 @@
 		pGraphics(Managers::GraphicManager::getGraphics()),
 		endGame(false)
 	{
-
+		//objetos compartilhados por fases
 	}
 
 	Level::~Level()
@@ -19,9 +19,23 @@
 	{
 		//percorrer pela lista e chamar o método update de todos
 		windowCollision(player);
+		windowCollision(spikes);
+		windowCollision(robot);
+
 		collider.checkCollision(platform, player, 0.0f);
+		collider.checkCollision(spikes, player, 0.6f);
+		collider.checkCollision(elevator, player, 0.0f);
+
 		player->update();
-		platform->updatePhysics();
+		platform->update();
+		elevator->update();
+		spikes->update();
+
+
+		robot->update(player, collider.checkCollision(robot, player, 1.f));
+
+		player->attack(robot, collider.checkCollision(robot, player, 1.f));
+		//std::cout << player->getLifePoints() << "\n";
 	}
 
 	void Level::render()
@@ -34,9 +48,11 @@
 		spikes->render();
 		platform->render();
 		player->render(); //alterado para chamar pGraphics na Entity.cpp (talvez mudar isso)
+		elevator->render();
+		robot->render();
 		//usado para testes
-
-		//std::cout << platform->getPosition().x << " " << platform->getPosition().y;
+		player->updateHearts(pGraphics->getWindow());
+	
 	}
 
 	void Level::resetState()
@@ -46,7 +62,7 @@
 		}
 	}
 
-	void Level::windowCollision(Entities::Player* player)
+	void Level::windowCollision(Entities::Entity* player)
 	{
 		Managers::GraphicManager* pGraphics = Managers::GraphicManager::getGraphics();
 

@@ -3,6 +3,7 @@
 #include "../Entidades/Estruturas/Platform.h"
 #include "../Entidades/Characters/Player.h"
 #include "../Entidades/Estruturas/Structures.h"
+#include "../Entidades/Entity.h"
 #include <list>
 #include <vector>
 
@@ -17,7 +18,7 @@ namespace Managers {
 		Collider();
 		~Collider();
 
-		bool checkCollision(Entities::Platform* other, Entities::Player *body, float push);
+		bool checkCollision(Entities::Entity* other, Entities::Player *body, float push);
 	};
 
 

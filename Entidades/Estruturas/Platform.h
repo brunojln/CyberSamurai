@@ -13,7 +13,7 @@ namespace Entities {
 		Platform(float x, float y);
 		~Platform();
 
-		//void render(sf::RenderTarget& target);
+		virtual void update();
 	};
 
 }
