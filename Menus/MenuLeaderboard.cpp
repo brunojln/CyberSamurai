@@ -75,10 +75,9 @@ void MenuLeaderboard::update(float dt)
 void MenuLeaderboard::construct()
 { 
 
-    
     std::ifstream arq;
 
-    arq.open("./InclusaoExterna/Leaderboard/LeaderboardSave.txt", std::ios::binary | std::ios::in);
+    arq.open("./InclusaoExterna/Leaderboard/LeaderboardSave.txt", std::ios::binary | std::ios::in); //?
 
     if (!arq)
     {

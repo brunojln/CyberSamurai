@@ -11,7 +11,7 @@ MenuSobreOJogo::MenuSobreOJogo(Game* pG): Menu(), State((StateControl*)(pG), sID
 	ButtonVector.push_back(button);
 
 	text = new sf::Text;
-	text->setString("O jogo CyberSamurai foi desenvolvido \npelos alunos Bruno Julian e Nathan Yuhei \npara a materia de Tecnicas de Programacao,\nministrado pelo professor Jean Simao, com\nfim de aplicar na pratica os conceitos \naprendidos sobre C++");
+	text->setString("O jogo CyberSamurai foi desenvolvido \npelos alunos Bruno Julian e Nathan Yuhei \npara a materia de Tecnicas de Programacao,\nministrado pelo professor Jean M. Simao, com\nfim de aplicar na pratica os conceitos \naprendidos sobre C++");
 	text->setCharacterSize(40);
 	text->setPosition(100, 100);
 	text->setLineSpacing(1.3);

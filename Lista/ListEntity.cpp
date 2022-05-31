@@ -1,35 +1,37 @@
 #include "ListEntity.h"
 
-/*
+
 namespace Lists{
 
-	ListEntity::ListEntity() 
-	{
-
-	}
-	ListEntity::~ListEntity() 
+	ListEntity::ListEntity(){};
+	ListEntity::~ListEntity()
 	{
 		lEntity.clear();
 	}
 
 	void ListEntity::push_back(Entities::Entity* pEntity)
 	{
-		lEntity.insert(pEntity); //Insere objeto
+		lEntity.push_back(pEntity);
 	}
 
-
-	void ListEntity::remove(unsigned int i)
+	void ListEntity::pop(unsigned int i)
 	{
 		lEntity.remove(i);
 	}
 
-	
+	void ListEntity::EntityDelete(unsigned int i)
+	{
+		Entities::Entity* aux;
+		aux = NULL;
+
+		aux = lEntity.remove(i);
+
+		delete(aux);
+	}
+
 	Entities::Entity* ListEntity::operator [](int i)
 	{
-		return (Entities::Entity*)(lEntity.operator[](i));
-	} 
+		return lEntity[i];
+	}
 
-
-} */
-
-
+}

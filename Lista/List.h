@@ -21,8 +21,8 @@ namespace Lists
 		public:
 
 			//Erros na implementacao em arquivos separados
-			Node(): pNext{NULL}, pInfo{NULL} {};
-			~Node() {};
+			Node() : pNext{ NULL }, pInfo{NULL} {}
+			~Node(){}
 
 			NodeType* getInfo() { return pInfo; }
 			void setInfo(NodeType* info) { pInfo = info;  }
