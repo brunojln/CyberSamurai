@@ -12,10 +12,10 @@ namespace Entities {
         bool damaging;
 
     public:
-        Structures();
+        Structures(entityID id);
         ~Structures();
 
-        //virtual void run();
+        virtual void update() = 0;
     };
 }
 

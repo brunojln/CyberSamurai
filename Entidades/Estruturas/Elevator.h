@@ -3,15 +3,17 @@
 
 namespace Entities {
 
-    class Spikes :
+    class Elevator :
         public Structures
     {
     private:
-        void initSpikes();
+        void initElevator();
 
     public:
-        Spikes(float x, float y);
-        ~Spikes();
+        Elevator(float x, float y);
+        ~Elevator();
+
+        void updateMovement();
 
         virtual void update();
     };

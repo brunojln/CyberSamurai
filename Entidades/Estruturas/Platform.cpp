@@ -25,7 +25,7 @@ void Entities::Platform::initPlatform()
 }
 
 Entities::Platform::Platform(float x, float y) :
-	Structures()
+	Structures(entityID::platform)
 {
 	this->initPlatform();
 	body.setPosition(x, y);
@@ -34,6 +34,10 @@ Entities::Platform::Platform(float x, float y) :
 Entities::Platform::~Platform()
 {
 	delete texture;
+}
+void Entities::Platform::update()
+{
+	this->updatePhysics();
 }
 /*
 void Entities::Platform::render(sf::RenderTarget& target)

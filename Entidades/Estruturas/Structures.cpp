@@ -1,7 +1,7 @@
 #include "Structures.h"
 
-Entities::Structures::Structures() : 	
-	Entity()
+Entities::Structures::Structures(entityID id) :
+	Entity(id)
 {
 	damaging = true; //mudar isso
 }

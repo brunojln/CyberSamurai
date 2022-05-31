@@ -9,15 +9,18 @@ namespace Entities {
     {
     protected:
         //core
-        int lifePoints;
+        float lifePoints;
         int exp; //para o player sera += exp dos inimigos eliminados
         int atkDamage;
         float atkCooldown;
         float atkDistance;
+        sf::Clock cooldown;
         //ok
+        bool canAttack;
+        bool isAttacking;
 
     public:
-        Character();
+        Character(entityID id);
         ~Character();
 
         const int getLifePoints() const;
@@ -25,7 +28,8 @@ namespace Entities {
 
         void setLifePoints(int hp);
         void setExp(int xp);
-
+        void updateCooldown();
+        void attack(Entities::Character *pCharacter, bool isNear);
         //virtual void render() = 0;
        // virtual void update();
     };
