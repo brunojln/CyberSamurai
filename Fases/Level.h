@@ -22,10 +22,12 @@
         Entities::Player* player;
         Entities::Platform* platform; //uso para testes, colocar em lista posteriormente
         Entities::Spikes* spikes;
+
         Entities::Elevator* elevator;
         Entities::Robot* robot;
 
         //Lists::ListEntity enemyList;
+
         Lists::ListEntity* structureList;
         sf::Texture backgroundTexture;
         sf::Sprite backgroundBody;

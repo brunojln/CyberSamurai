@@ -13,26 +13,16 @@ namespace Lists {
 		List<Entities::Entity> lEntity;
 
 	public:
-		ListEntity(){};
-		~ListEntity()
-		{ 
-			lEntity.clear();
-		}
+		ListEntity();
+		~ListEntity();
 
-		void push_back(Entities::Entity* pEntity)
-		{
-			lEntity.insert(pEntity);
-		}
+		void push_back(Entities::Entity* pEntity);
 
-		void remove(unsigned int i)
-		{
-			lEntity.remove(i);
-		}
+		void pop(unsigned int i);
 
-		Entities::Entity* operator [](int i)
-		{
-			return (Entities::Entity*)(lEntity.operator[](i));
-		}
+		void EntityDelete(unsigned int i);
+
+		Entities::Entity* operator[](int i);
 
 	};
 
