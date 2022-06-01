@@ -31,7 +31,7 @@ Game::Game() :
 	state = static_cast<State*>(new MenuGameOver(this));
 	setState(state);
 
-	changeRunningState(sID::GameOver);
+	changeRunningState(sID::MainMenu);
 }
 
 Game::~Game()
