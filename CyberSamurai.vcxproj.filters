@@ -24,8 +24,9 @@
     <ClCompile Include="Menus\MenuLevel.cpp" />
     <ClCompile Include="Menus\MenuSobreOJogo.cpp" />
     <ClCompile Include="Entidades\Estruturas\Elevator.cpp" />
-    <ClCompile Include="Entidades\Characters\Enemy.cpp" />
-    <ClCompile Include="Entidades\Characters\Robot.cpp" />
+    <ClCompile Include="Entidades\Characters\Enemies\Enemy.cpp" />
+    <ClCompile Include="Entidades\Characters\Enemies\Robot.cpp" />
+    <ClCompile Include="Entidades\Characters\Enemies\Flying.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Botao\Botao.h" />
@@ -52,8 +53,9 @@
     <ClInclude Include="Menus\MenuLevel.h" />
     <ClInclude Include="Entidades\Estruturas\Spikes.h" />
     <ClInclude Include="Entidades\Estruturas\Elevator.h" />
-    <ClInclude Include="Entidades\Characters\Enemy.h" />
-    <ClInclude Include="Entidades\Characters\Robot.h" />
+    <ClInclude Include="Entidades\Characters\Enemies\Enemy.h" />
+    <ClInclude Include="Entidades\Characters\Enemies\Robot.h" />
+    <ClInclude Include="Entidades\Characters\Enemies\Flying.h" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="InclusaoExterna\Fonte\Cyber-BoldRustique.ttf" />

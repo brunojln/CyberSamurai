@@ -14,14 +14,10 @@ void LevelOne::initLevel()
 	spikes = new Entities::Spikes(850, 650);
 	platform = new Entities::Platform(350, 650);
 	elevator = new Entities::Elevator(1000, 50);
-	robot = new Entities::Robot(0, 0);
 
 	structureList.push_back(spikes);
 	structureList.push_back(platform);
 	structureList.push_back(elevator);
-
-	robot->setPlayer(player);
-	enemyList.push_back(robot);
 
 }
 
