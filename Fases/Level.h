@@ -4,6 +4,9 @@
 #include "../Entidades/Characters/Player.h"
 #include "../Entidades/Estruturas/Platform.h"
 #include "../Entidades/Estruturas/Spikes.h"
+#include "../Entidades/Estruturas/Elevator.h"
+#include "../Entidades/Characters/Enemies/Robot.h"
+#include "../Entidades/Characters/Enemies/Flying.h"
 #include "../Lista/ListEntity.h"
 #include "../Gerenciadores/Collider.h"
 #include "../Gerenciadores/GraphicManager.h"
@@ -18,12 +21,17 @@
     {
     protected:
         Entities::Player* player;
+
         Entities::Platform* platform; //uso para testes, colocar em lista posteriormente
         Entities::Spikes* spikes;
+        Entities::Elevator* elevator;
+
         Lists::ListEntity enemyList;
-        Lists::ListEntity* structureList;
+        Lists::ListEntity structureList;
+
         sf::Texture backgroundTexture;
         sf::Sprite backgroundBody;
+
         Managers::Collider collider;
         Managers::GraphicManager* pGraphics;
         bool endGame;
@@ -37,11 +45,12 @@
         void resetState();
 
 
-        void windowCollision(Entities::Player* player);
+        void windowCollision(Entities::Entity* player);
+        void updateList(Entities::Entity *pEntity, unsigned int i);
         //void windowCollision(Lists::ListEntity* enemyList);
 
         
-        //void endLevel();
+        void endLevel();
     };
 
 

@@ -11,7 +11,7 @@ namespace Managers {
 	}
 
 
-	bool Collider::checkCollision(Entities::Platform* other, Entities::Player* body, float push)
+	bool Collider::checkCollision(Entities::Entity* other, Entities::Player* body, float push)
 	{
 		sf::Vector2f otherPosition = other->getPosition();
 		sf::Vector2f otherHalfSize = other->getSize() / 2.0f;

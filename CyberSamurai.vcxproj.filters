@@ -23,6 +23,10 @@
     <ClCompile Include="Entidades\Estruturas\Spikes.cpp" />
     <ClCompile Include="Menus\MenuLevel.cpp" />
     <ClCompile Include="Menus\MenuSobreOJogo.cpp" />
+    <ClCompile Include="Entidades\Estruturas\Elevator.cpp" />
+    <ClCompile Include="Entidades\Characters\Enemies\Enemy.cpp" />
+    <ClCompile Include="Entidades\Characters\Enemies\Robot.cpp" />
+    <ClCompile Include="Entidades\Characters\Enemies\Flying.cpp" />
     <ClCompile Include="Menus\MenuGameOver.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -49,6 +53,10 @@
     <ClInclude Include="Menus\MenuSobreOJogo.h" />
     <ClInclude Include="Menus\MenuLevel.h" />
     <ClInclude Include="Entidades\Estruturas\Spikes.h" />
+    <ClInclude Include="Entidades\Estruturas\Elevator.h" />
+    <ClInclude Include="Entidades\Characters\Enemies\Enemy.h" />
+    <ClInclude Include="Entidades\Characters\Enemies\Robot.h" />
+    <ClInclude Include="Entidades\Characters\Enemies\Flying.h" />
     <ClInclude Include="Menus\MenuGameOver.h" />
   </ItemGroup>
   <ItemGroup>

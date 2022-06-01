@@ -3,10 +3,12 @@
 
 namespace Lists{
 
-	ListEntity::ListEntity(){};
+	ListEntity::ListEntity(){
+		lEntity.clear();
+	}
 	ListEntity::~ListEntity()
 	{
-		lEntity.clear();
+		//lEntity.clear();
 	}
 
 	void ListEntity::push_back(Entities::Entity* pEntity)

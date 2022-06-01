@@ -11,17 +11,14 @@ void LevelOne::initLevel()
 	backgroundBody.setTexture(backgroundTexture);
 	backgroundBody.setScale(0.9f, 0.9f);
 
-	spikes = new Entities::Spikes();
-	player = new Entities::Player();
+	spikes = new Entities::Spikes(850, 650);
 	platform = new Entities::Platform(350, 650);
+	elevator = new Entities::Elevator(1000, 50);
 
-	/*for (int i = 0; i < (rand() % 6 + 2); i++)
-	{
+	structureList.push_back(spikes);
+	structureList.push_back(platform);
+	structureList.push_back(elevator);
 
-	}*/
-	//structureList->push_back(platform);
-
-	
 }
 
 LevelOne::LevelOne(StateControl* pSC):

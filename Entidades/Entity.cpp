@@ -1,6 +1,6 @@
 #include "Entity.h"
 
-Entities::Entity::Entity():
+Entities::Entity::Entity(entityID id):
 	pGraphic(Managers::GraphicManager::getGraphics())
 {
 }
@@ -63,6 +63,21 @@ void Entities::Entity::updatePhysics()
 		this->velocity.y = 0.f;
 
 	this->body.move(this->velocity);
+}
+
+void Entities::Entity::setPosition(const float x, const float y)
+{
+	this->body.setPosition(x, y);
+}
+
+void Entities::Entity::resetVelocityY()
+{
+	this->velocity.y = 0.0f;
+}
+
+void Entities::Entity::setCanJump(bool can_jump)
+{
+	canJump = can_jump;
 }
 
 void Entities::Entity::render()
