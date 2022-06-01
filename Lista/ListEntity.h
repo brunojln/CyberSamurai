@@ -24,6 +24,7 @@ namespace Lists {
 
 		Entities::Entity* operator[](int i);
 
+		int getSize() { return lEntity.getSize(); }
 	};
 
 

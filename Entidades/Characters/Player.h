@@ -49,7 +49,7 @@ namespace Entities {
 		void updateAnimations();
 		void updateHearts(sf::RenderWindow* window);
 
-		void update();
+		virtual void update();
 
 	};
 

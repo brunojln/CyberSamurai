@@ -10,7 +10,12 @@ Entities::Enemy::~Enemy()
 {
 }
 
-void Entities::Enemy::followPlayer(Player* pPlayer)
+void Entities::Enemy::setPlayer(Entities::Player* p)
+{
+	pPlayer = p;
+}
+
+void Entities::Enemy::followPlayer()
 {
 	if (this->getPosition().x > pPlayer->getPosition().x)
 	{
@@ -31,7 +36,7 @@ void Entities::Enemy::followPlayer(Player* pPlayer)
 	}
 }
 
-void Entities::Enemy::attackPlayer(Player* pPlayer, bool isNear)
+void Entities::Enemy::attackPlayer()
 {
 	updateCooldown();
 	if (isNear && canAttack)
@@ -42,10 +47,10 @@ void Entities::Enemy::attackPlayer(Player* pPlayer, bool isNear)
 	}
 }
 
-void Entities::Enemy::update(Player* pPlayer, bool isNear)
+void Entities::Enemy::update()
 {
-	this->followPlayer(pPlayer);
-	this->attackPlayer(pPlayer, isNear);
+	this->followPlayer();
+	this->attackPlayer();
 	this->updatePhysics();
 }
 

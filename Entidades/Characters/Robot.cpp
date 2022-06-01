@@ -13,13 +13,13 @@ void Entities::Robot::initRobot()
 	body.setTextureRect(currentFrame);
 	body.setSize(sf::Vector2f(80.f, 80.f));
 
-	lifePoints = 4;
+	lifePoints = 4.f;
 	exp = 20; 
-	atkDamage = 1.0f;
+	atkDamage = 0.1f;
 	atkCooldown = 5.0f;
 	atkDistance = 2.0f;
 
-	velocityMax = 5.f;
+	velocityMax = 2.f;
 	velocityMin = 1.f;
 	acceleration = 1.f;
 	drag = 0.9f;
