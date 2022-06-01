@@ -10,7 +10,7 @@ Entities::Character::~Character()
 {
 }
 
-const int Entities::Character::getLifePoints() const
+const float Entities::Character::getLifePoints() const
 {
 	return lifePoints;
 }
@@ -20,7 +20,12 @@ const int Entities::Character::getExp() const
 	return exp;
 }
 
-void Entities::Character::setLifePoints(int hp)
+void Entities::Character::setIsNear(bool near)
+{
+	isNear = near;
+}
+
+void Entities::Character::setLifePoints(float hp)
 {
 	lifePoints = hp;
 }
@@ -52,7 +57,7 @@ void Entities::Character::attack(Entities::Character* pCharacter, bool isNear)
 		//updateAnimation
 		float newHP = pCharacter->getLifePoints() - this->atkDamage;
 		pCharacter->setLifePoints(newHP);
-		std::cout << pCharacter->getLifePoints() << "\n";
+		//std::cout << pCharacter->getLifePoints() << "\n";
 		canAttack = false;
 		//std::cout << "atk\n";
 	}

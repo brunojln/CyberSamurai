@@ -26,9 +26,9 @@
         Entities::Elevator* elevator;
         Entities::Robot* robot;
 
-        //Lists::ListEntity enemyList;
+        Lists::ListEntity enemyList;
+        Lists::ListEntity structureList;
 
-        Lists::ListEntity* structureList;
         sf::Texture backgroundTexture;
         sf::Sprite backgroundBody;
         Managers::Collider collider;
@@ -45,10 +45,11 @@
 
 
         void windowCollision(Entities::Entity* player);
+        void updateList(Entities::Entity *pEntity, unsigned int i);
         //void windowCollision(Lists::ListEntity* enemyList);
 
         
-        //void endLevel();
+        void endLevel();
     };
 
 

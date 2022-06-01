@@ -9,15 +9,17 @@ namespace Entities {
         public Character
     {
     private:
-       
+        Entities::Player* pPlayer;
+        
     public:
         Enemy(entityID id);
         ~Enemy();
 
-        void followPlayer(Player *pPlayer);
-        void attackPlayer(Player* pPlayer, bool isNear);
+        void setPlayer(Entities::Player* p);
+        void followPlayer();
+        void attackPlayer();
 
-        void update(Player* pPlayer, bool isNear);
+        virtual void update();
     };
 
 

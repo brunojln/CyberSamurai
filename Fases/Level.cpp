@@ -7,7 +7,25 @@
 		pGraphics(Managers::GraphicManager::getGraphics()),
 		endGame(false)
 	{
-		//objetos compartilhados por fases
+
+		player = new Entities::Player();
+
+		for (int i = 0; i < ((rand() % 7) + 3); i++) {
+			Entities::Robot* pRobot = new Entities::Robot((i * 100), (i * 100));
+
+			pRobot->setPlayer(player);
+			enemyList.push_back(pRobot);
+			pRobot = NULL;
+		}
+	}
+
+	void Level::endLevel()
+	{
+		if (player->getLifePoints() <= 0)
+		{
+			updateState(sID::MainMenu);
+		}
+		
 	}
 
 	Level::~Level()
@@ -20,36 +38,47 @@
 		//percorrer pela lista e chamar o método update de todos
 		windowCollision(player);
 		windowCollision(spikes);
-		windowCollision(robot);
-
-		collider.checkCollision(platform, player, 0.0f);
-		collider.checkCollision(spikes, player, 0.6f);
-		collider.checkCollision(elevator, player, 0.0f);
 
 		player->update();
-		platform->update();
-		elevator->update();
-		spikes->update();
 
+		for (int i = 0; i < structureList.getSize(); i++)
+		{
+			collider.checkCollision(structureList[i], player, 0.0f);
+			structureList[i]->update();
+		}
 
-		robot->update(player, collider.checkCollision(robot, player, 1.f));
+		robot->setIsNear(collider.checkCollision(robot, player, 0.0f));//com voador com fica(?)
+
+		for (int i = 0; i < enemyList.getSize(); i++)
+		{
+			enemyList[i]->update();
+			windowCollision(enemyList[i]);
+			updateList(enemyList[i], i);
+		}
 
 		player->attack(robot, collider.checkCollision(robot, player, 1.f));
-		//std::cout << player->getLifePoints() << "\n";
+		std::cout << player->getLifePoints() << "\n";
+		endLevel();
 	}
 
 	void Level::render()
 	{
 		Managers::GraphicManager* pGraphics = Managers::GraphicManager::getGraphics();
+
 		pGraphics->render(&backgroundBody);
-		// 
-		// 		//renderizar os conteudos das listas
-		// 
-		spikes->render();
-		platform->render();
+
 		player->render(); //alterado para chamar pGraphics na Entity.cpp (talvez mudar isso)
-		elevator->render();
-		robot->render();
+
+		for (int i = 0; i < structureList.getSize(); i++)
+		{
+			structureList[i]->render();
+		}
+
+		for (int i = 0; i < enemyList.getSize(); i++)
+		{
+			enemyList[i]->render();
+		}
+	
 		//usado para testes
 		player->updateHearts(pGraphics->getWindow());
 	
@@ -78,6 +107,24 @@
 		{
 			player->resetVelocityY();
 			player->setPosition(player->getPosition().x, 0.f);
+		}
+	}
+
+	void Level::updateList(Entities::Entity* pEntity, unsigned int i)
+	{
+		Entities::Character* pChar = static_cast <Entities::Character*>(pEntity);
+		bool colliding = collider.checkCollision(pChar, player, 1.0f);
+		if (pChar != NULL)
+		{
+			if (pChar->getLifePoints() <= 0)
+			{
+				enemyList.EntityDelete(i);
+			}
+			else
+			{
+				pChar->setIsNear(colliding);
+				player->attack(pChar,colliding);
+			}
 		}
 	}
 
