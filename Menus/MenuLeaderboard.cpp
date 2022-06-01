@@ -81,7 +81,7 @@ void MenuLeaderboard::construct()
 
     if (!arq)
     {
-        std::cout << "ERROR::LEADERBOARDMENU::FILE" << std::endl;
+        std::cout << "ERROR::LEADERBOARDMENU::READINGFILE" << std::endl;
     }
 
     std::string name;

@@ -143,6 +143,7 @@
     <ClInclude Include="Fases\LevelOne.h" />
     <ClInclude Include="Fases\Level.h" />
     <ClInclude Include="Lista\ListEntity.h" />
+    <ClInclude Include="Menus\MenuGameOver.h" />
     <ClInclude Include="Menus\MenuLevel.h" />
     <ClInclude Include="Menus\MenuSobreOJogo.h" />
     <ClInclude Include="Principal\Game.h" />
@@ -168,6 +169,7 @@
     <ClCompile Include="Fases\LevelOne.cpp" />
     <ClCompile Include="Fases\Level.cpp" />
     <ClCompile Include="Lista\ListEntity.cpp" />
+    <ClCompile Include="Menus\MenuGameOver.cpp" />
     <ClCompile Include="Menus\MenuLevel.cpp" />
     <ClCompile Include="Menus\MenuSobreOJogo.cpp" />
     <ClCompile Include="Principal\Game.cpp" />

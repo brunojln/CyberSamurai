@@ -6,6 +6,7 @@
 #include "../Menus/MenuLevel.h"
 #include "../Fases/LevelOne.h"
 #include "../Fases/Level.h"
+#include "../Menus/MenuGameOver.h"
 
 
 Game::Game() :
@@ -20,13 +21,17 @@ Game::Game() :
 	state = static_cast<State*>(new MenuLeaderboard(this));
 	setState(state);
 
+
 	state = static_cast<State*>(new MenuLevel(this));
 	setState(state);
 
 	state = static_cast<State*>(new MenuSobreOJogo(this));
 	setState(state);
 
-	changeRunningState(sID::MainMenu);
+	state = static_cast<State*>(new MenuGameOver(this));
+	setState(state);
+
+	changeRunningState(sID::GameOver);
 }
 
 Game::~Game()
