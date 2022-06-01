@@ -17,6 +17,14 @@
 			enemyList.push_back(pRobot);
 			pRobot = NULL;
 		}
+
+		for (int i = 0; i < ((rand() % 7) + 3); i++) {
+			Entities::Flying* pFlying = new Entities::Flying((i * 100), (i * 100));
+
+			pFlying->setPlayer(player);
+			enemyList.push_back(pFlying);
+			pFlying = NULL;
+		}
 	}
 
 	void Level::endLevel()
@@ -47,7 +55,7 @@
 			structureList[i]->update();
 		}
 
-		robot->setIsNear(collider.checkCollision(robot, player, 0.0f));//com voador com fica(?)
+		//com voador com fica(?)
 
 		for (int i = 0; i < enemyList.getSize(); i++)
 		{
@@ -55,8 +63,6 @@
 			windowCollision(enemyList[i]);
 			updateList(enemyList[i], i);
 		}
-
-		player->attack(robot, collider.checkCollision(robot, player, 1.f));
 		std::cout << player->getLifePoints() << "\n";
 		endLevel();
 	}
