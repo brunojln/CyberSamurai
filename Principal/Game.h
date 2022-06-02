@@ -4,7 +4,9 @@
 #include "../Entidades/Estruturas/Platform.h"
 #include "../States/GerenciadorEstado.h"
 
-class Game : public StateControl
+
+
+class Game : public States::StateControl
 {
 private:
 

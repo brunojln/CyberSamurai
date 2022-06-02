@@ -9,28 +9,28 @@ class Game;
 
 namespace Menus {
 
-class EntranceMenu : public Menu, public State
-{
-private:
-	Game* pG;
-	sf::Text title;
+	class EntranceMenu : public Menu, public States::State
+	{
+	private:
+		Game* pG;
+		sf::Text title;
 
-public:
+	public:
 
-	EntranceMenu(Game* pointerGame = NULL);
-	~EntranceMenu();
+		EntranceMenu(Game* pointerGame = NULL);
+		~EntranceMenu();
 
-	//Funcoes virual void herdadas de State
+		//Funcoes virual void herdadas de State
 
-	void render();
+		void render();
 
-	void resetState();
+		void resetState();
 
-	void exec();
+		void exec();
 
-	void update(float dt);
+		void update(float dt);
 
-};
+	};
 
 
 }

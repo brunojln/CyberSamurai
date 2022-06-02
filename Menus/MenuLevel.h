@@ -3,24 +3,28 @@
 #include "../States/Estado.h"
 #include "Menu.h"
 
-class Game;
 
 
-class MenuLevel : public Menu, public State
-{
+namespace Menus {
+	class Game;
 
-private:
 
-public:
-	MenuLevel(Game* pG);
-	~MenuLevel();
+	class MenuLevel : public Menu, public States::State
+	{
 
-	void render();
+	private:
 
-	void resetState();
+	public:
+		MenuLevel(States::StateControl* pSC);
+		~MenuLevel();
 
-	void exec();
+		void render();
 
-	void update(float dt);
-};
+		void resetState();
 
+		void exec();
+
+		void update(float dt);
+	};
+
+}
