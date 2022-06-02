@@ -27,8 +27,12 @@
     <ClCompile Include="Entidades\Characters\Enemies\Enemy.cpp" />
     <ClCompile Include="Entidades\Characters\Enemies\Robot.cpp" />
     <ClCompile Include="Entidades\Characters\Enemies\Flying.cpp" />
+
     <ClCompile Include="Entidades\Bullet.cpp" />
     <ClCompile Include="Entidades\Characters\Enemies\Boss.cpp" />
+
+    <ClCompile Include="Menus\MenuGameOver.cpp" />
+
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Botao\Botao.h" />
@@ -58,8 +62,12 @@
     <ClInclude Include="Entidades\Characters\Enemies\Enemy.h" />
     <ClInclude Include="Entidades\Characters\Enemies\Robot.h" />
     <ClInclude Include="Entidades\Characters\Enemies\Flying.h" />
+
     <ClInclude Include="Entidades\Bullet.h" />
     <ClInclude Include="Entidades\Characters\Enemies\Boss.h" />
+
+    <ClInclude Include="Menus\MenuGameOver.h" />
+
   </ItemGroup>
   <ItemGroup>
     <Font Include="InclusaoExterna\Fonte\Cyber-BoldRustique.ttf" />
