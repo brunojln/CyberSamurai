@@ -26,6 +26,7 @@ namespace Entities {
 
         const float getLifePoints() const;
         const int getExp() const;
+        bool getIsAttacking();
 
         void setIsNear(bool near);
         void setLifePoints(float hp);

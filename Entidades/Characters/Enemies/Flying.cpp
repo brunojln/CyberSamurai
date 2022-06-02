@@ -12,13 +12,13 @@ void Entities::Flying::initFlying()
 	//core
 	lifePoints = 1.f;
 	exp = 10;
-	atkDamage = 0.4f;
+	atkDamage = 0.2f;
 	atkCooldown = 3.0f;
 	atkDistance = 2.0f; //talvez tirar isso
 	canAttack = true;
-
+	projectileCount = 0;
 	//physics
-	velocityMax = 2.f;
+	velocityMax = 3.f;
 	velocityMin = 1.f;
 	acceleration = 1.f;
 	drag = 0.9f;
@@ -37,3 +37,20 @@ Entities::Flying::Flying(float x, float y) :
 Entities::Flying::~Flying()
 {
 }
+
+/*
+void Entities::Flying::update()
+{
+	if (projectileCount > 0) {
+		projectile->update();
+		projectile->render(); 
+	}
+	else
+	{
+		projectileCount++;
+		projectile = new Entities::Projectile(this->getPosition().x, this->getPosition().y, this->getPlayer());
+		std::cout << "projetil criado\n";
+	}
+	
+} 
+*/

@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Entidades\Characters\Enemies\Boss.h" />
     <ClInclude Include="Botao\Botao.h" />
     <ClInclude Include="Entidades\Characters\Enemies\Enemy.h" />
     <ClInclude Include="Entidades\Estruturas\Elevator.h" />
@@ -165,10 +166,12 @@
     <ClInclude Include="Menus\Menu.h" />
     <ClInclude Include="Entidades\Estruturas\Spikes.h" />
     <ClInclude Include="Entidades\Characters\Enemies\Robot.h" />
+    <ClInclude Include="Entidades\Bullet.h" />
     <ClInclude Include="States\Estado.h" />
     <ClInclude Include="States\GerenciadorEstado.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Entidades\Characters\Enemies\Boss.cpp" />
     <ClCompile Include="Botao\Botao.cpp" />
     <ClCompile Include="Entidades\Characters\Enemies\Enemy.cpp" />
     <ClCompile Include="Entidades\Estruturas\Elevator.cpp" />
@@ -194,6 +197,7 @@
     <ClCompile Include="Main\main.cpp" />
     <ClCompile Include="Entidades\Estruturas\Spikes.cpp" />
     <ClCompile Include="Entidades\Characters\Enemies\Robot.cpp" />
+    <ClCompile Include="Entidades\Bullet.cpp" />
     <ClCompile Include="States\Estado.cpp" />
     <ClCompile Include="States\GerenciadorEstado.cpp" />
   </ItemGroup>
