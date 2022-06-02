@@ -18,7 +18,7 @@
 //namespace Fases {
 
     class Level :
-        public State
+        public 	States::State
     {
     protected:
         Entities::Player* player;
@@ -38,7 +38,7 @@
         bool endGame;
 
     public:
-        Level(sID, StateControl* pSC = nullptr);
+        Level(States::sID, States::StateControl* pSC = nullptr);
         ~Level();
         
         void update(const float dt);

@@ -9,60 +9,60 @@
 #include "../Menus/MenuGameOver.h"
 
 
-Game::Game() :
-	pGraphics(Managers::GraphicManager::getGraphics())
-{
-	State* state = static_cast<State*>(new Menus::EntranceMenu(this));
-	setState(state);
-
-	state = new LevelOne(this);
-	setState(state);
-
-	state = static_cast<State*>(new MenuLeaderboard(this));
-	setState(state);
-
-
-	state = static_cast<State*>(new MenuLevel(this));
-	setState(state);
-
-	state = static_cast<State*>(new MenuSobreOJogo(this));
-	setState(state);
-
-	state = static_cast<State*>(new MenuGameOver(this));
-	setState(state);
-
-	changeRunningState(sID::MainMenu);
-}
-
-Game::~Game()
-{
-}
-
-void Game::run()
-{
-	while (pGraphics->isWindowOpen())
+	Game::Game() :
+		pGraphics(Managers::GraphicManager::getGraphics())
 	{
-		update();
-		render();
+		States::State* state = dynamic_cast<States::State*>(new Menus::EntranceMenu(this));
+		setState(state);
+
+		state = new	LevelOne(this);
+		setState(state);
+
+		state = dynamic_cast<States::State*>(new Menus::MenuLeaderboard(this));
+		setState(state);
+
+		state = dynamic_cast<States::State*>(new Menus::MenuLevel(this));
+		setState(state);
+
+		state = dynamic_cast<States::State*>(new Menus::MenuSobreOJogo(this));
+		setState(state);
+
+		state = dynamic_cast<States::State*>(new Menus::MenuGameOver(this));
+		setState(state);
+
+		changeRunningState(States::sID::MainMenu);
 	}
-}
 
-void Game::update()
-{
-	while (pGraphics->getWindow()->pollEvent(ev))
+	Game::~Game()
 	{
-		if (ev.type == sf::Event::Closed) {
-			pGraphics->close();
+	}
+
+	void Game::run()
+	{
+		while (pGraphics->isWindowOpen())
+		{
+			update();
+			render();
 		}
 	}
-	updateRunningState(0);
-}
 
-void Game::render()
-{
-	pGraphics->clear();
+	void Game::update()
+	{
+		while (pGraphics->getWindow()->pollEvent(ev))
+		{
+			if (ev.type == sf::Event::Closed) {
+				pGraphics->close();
+			}
+		}
+		updateRunningState(0);
+	}
 
-	renderRunningState();
+	void Game::render()
+	{
+		pGraphics->clear();
 
-	pGraphics->display();
-}
+		renderRunningState();
+
+		pGraphics->display();
+	}
+

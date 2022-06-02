@@ -1,35 +1,37 @@
 #pragma once
 #include "../Includes/stdafx.h"
 
+namespace States {
 
-class StateControl;
+	class StateControl;
 
-enum sID
-{
-	null = -1, MainMenu = 0, Level, Level1, Level2, Playing, Pause, SobreJogo, Leaderboard, GameOver
-};
+	enum sID
+	{
+		null = -1, MainMenu = 0, Level, Level1, Level2, Playing, Pause, SobreJogo, Leaderboard, GameOver
+	};
 
-class State
-{
-protected:
-	StateControl* pSC;
-	sID id;	
+	class State
+	{
+	protected:
+		StateControl* pSC;
+		sID id;
 
-public:
-	State(StateControl* pSC, sID id);
-	virtual ~State();
+	public:
+		State(StateControl* pSC, sID id);
+		virtual ~State();
 
-	sID getID() const;
+		sID getID() const;
 
-	void setStateControl(StateControl* aux);
+		void setStateControl(StateControl* aux);
 
-	void updateState(sID id); //<----
+		void updateState(sID id); //<----
 
-	virtual void update(const float dt) = 0;
+		virtual void update(const float dt) = 0;
 
-	virtual void render() = 0;
+		virtual void render() = 0;
 
-	virtual void resetState() = 0;
+		virtual void resetState() = 0;
 
-};
+	};
 
+}

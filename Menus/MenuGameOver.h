@@ -3,28 +3,32 @@
 #include "../States/Estado.h"
 #include "../Includes/stdafx.h"
 
-class MenuGameOver : public Menu, public State
-{
-private:
-	sf::Text title;
-	sf::Text points;
-	sf::Text name;
-	sf::Text playerName;
-	
-	sf::Clock typingClock;
 
-	std::string StringName;
-public:
-	MenuGameOver(StateControl* pSC = NULL);
-	~MenuGameOver();
+namespace Menus {
 
-	std::string getString();
+	class MenuGameOver : public Menu, public States::State
+	{
+	private:
+		sf::Text title;
+		sf::Text points;
+		sf::Text name;
+		sf::Text playerName;
 
-	void update(float dt);
-	void render();
-	void exec();
-	void resetState();
-	void saveLeaderBoard();
+		sf::Clock typingClock;
 
-};
+		std::string StringName;
+	public:
+		MenuGameOver(States::StateControl* pSC = NULL);
+		~MenuGameOver();
 
+		std::string getString();
+
+		void update(float dt);
+		void render();
+		void exec();
+		void resetState();
+		void saveLeaderBoard();
+
+	};
+
+}

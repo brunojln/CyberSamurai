@@ -2,26 +2,28 @@
 #include "Estado.h"
 #include <map>
 
-class StateControl
-{
+namespace States {
+	class StateControl
+	{
 
-protected:
-	sID runningState;
-	sID lastState;
+	protected:
+		sID runningState;
+		sID lastState;
 
-	std::map<sID, State*> StateMap;
-	
-public:
+		std::map<sID, State*> StateMap;
 
-	StateControl();
-	virtual ~StateControl(); //virtual 
+	public:
 
-	void changeRunningState(sID id);
-	void updateRunningState(const float dt);
-	void renderRunningState();
+		StateControl();
+		virtual ~StateControl(); //virtual 
 
-	sID getRunningState() const;
-	void setState(State* pS);
-	sID getLastState() const;
-};
+		void changeRunningState(sID id);
+		void updateRunningState(const float dt);
+		void renderRunningState();
 
+		sID getRunningState() const;
+		void setState(State* pS);
+		sID getLastState() const;
+	};
+
+} 

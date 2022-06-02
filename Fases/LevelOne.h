@@ -7,7 +7,7 @@ class LevelOne :
 private:
     void initLevel();
 public:
-    LevelOne(StateControl* pSC);
+    LevelOne(States::StateControl* pSC);
     ~LevelOne();
 
 };

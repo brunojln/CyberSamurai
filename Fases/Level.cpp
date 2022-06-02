@@ -2,7 +2,7 @@
 
 //namespace Fases {
 
-	Level::Level(sID id, StateControl* pSC) :
+	Level::Level(States::sID id, States::StateControl* pSC) :
 		State(pSC, id),
 		pGraphics(Managers::GraphicManager::getGraphics()),
 		endGame(false)
@@ -35,7 +35,7 @@
 	{
 		if (player->getLifePoints() <= 0)
 		{
-			updateState(sID::MainMenu);
+			updateState(States::sID::MainMenu);
 		}
 		
 	}

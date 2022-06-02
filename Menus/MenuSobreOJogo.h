@@ -3,15 +3,17 @@
 #include "../States/Estado.h"
 #include "Menu.h"
 
+namespace Menus{
+
 class Game;
 
-class MenuSobreOJogo : public Menu, public State
+class MenuSobreOJogo : public Menu, public States::State
 {
 private:
 	sf::Text* text;
 
 public:
-	MenuSobreOJogo(Game* pG);
+	MenuSobreOJogo(States::StateControl* pSC);
 	~MenuSobreOJogo();
 
 	void render();
@@ -23,3 +25,4 @@ public:
 	void update(float dt);
 };
 
+}
