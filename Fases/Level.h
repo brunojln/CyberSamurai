@@ -7,6 +7,7 @@
 #include "../Entidades/Estruturas/Elevator.h"
 #include "../Entidades/Characters/Enemies/Robot.h"
 #include "../Entidades/Characters/Enemies/Flying.h"
+#include "../Entidades/Characters/Enemies/Boss.h"
 #include "../Lista/ListEntity.h"
 #include "../Gerenciadores/Collider.h"
 #include "../Gerenciadores/GraphicManager.h"

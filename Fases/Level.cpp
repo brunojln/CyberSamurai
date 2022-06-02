@@ -18,13 +18,17 @@
 			pRobot = NULL;
 		}
 
-		for (int i = 0; i < ((rand() % 7) + 3); i++) {
+		for (int i = 0; i < ((rand() % 3) + 3); i++) {
 			Entities::Flying* pFlying = new Entities::Flying((i * 100), (i * 100));
 
 			pFlying->setPlayer(player);
 			enemyList.push_back(pFlying);
 			pFlying = NULL;
 		}
+
+		Entities::Boss* boss = new Entities::Boss(300, 0);
+		boss->setPlayer(player);
+		enemyList.push_back(boss);
 	}
 
 	void Level::endLevel()

@@ -19,27 +19,27 @@ void Entities::Enemy::followPlayer()
 {
 	if (this->getPosition().x > pPlayer->getPosition().x)
 	{
-		body.move(-3, 0);
+		body.move(-1, 0);
 	}
 	else
 	{
-		body.move(3, 0);
+		body.move(1, 0);
 	}
 
 	if (this->getPosition().y > pPlayer->getPosition().y)
 	{
-		body.move(0, -3);
+		body.move(0, -1);
 	}
 	else
 	{
-		body.move(0, 3);
+		body.move(0, 1);
 	}
 }
 
 void Entities::Enemy::attackPlayer()
 {
 	updateCooldown();
-	if (isNear && canAttack)
+	if (isNear && canAttack && !pPlayer->getIsAttacking())
 	{
 		//updateAnimation
 		pPlayer->setLifePoints(pPlayer->getLifePoints() - this->atkDamage);
