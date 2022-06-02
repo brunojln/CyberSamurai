@@ -20,6 +20,11 @@ const int Entities::Character::getExp() const
 	return exp;
 }
 
+bool Entities::Character::getIsAttacking()
+{
+	return isAttacking;
+}
+
 void Entities::Character::setIsNear(bool near)
 {
 	isNear = near;

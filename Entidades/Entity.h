@@ -61,7 +61,7 @@ namespace Entities {
 
 		virtual void update() = 0;
 		//virtual void render() = 0;
-		void render();
+		virtual void render();
 		//virtual void run() = 0;
 		
 	};

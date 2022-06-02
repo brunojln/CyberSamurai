@@ -15,6 +15,7 @@ namespace Entities {
         Enemy(entityID id);
         ~Enemy();
 
+        Entities::Player* getPlayer() { return pPlayer;  }
         void setPlayer(Entities::Player* p);
         void followPlayer();
         void attackPlayer();
