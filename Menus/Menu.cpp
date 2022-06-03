@@ -31,7 +31,7 @@ namespace Menus {
 		ButtonVector.clear();
 	}
 
-
+	
 	void Menu::Up()
 	{
 

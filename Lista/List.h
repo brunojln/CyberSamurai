@@ -49,6 +49,7 @@ namespace Lists
 		ListType* getFrist();
 		ListType* getLast();
 	
+		// ListType* operator ++(Node<ListType>* pN);
 		ListType* operator [](const int i);
 	};
 
@@ -171,6 +172,13 @@ namespace Lists
 		return pEnd;
 	}
 
+	/*
+	template<class ListType>
+	ListType* List<ListType>::operator ++(Node<ListType>* pN)
+	{
+		pN->getpNext();
+		return pN->getInfo();
+	}*/
 
 	template<class ListType>
 	ListType* List<ListType>::operator [](const int i)

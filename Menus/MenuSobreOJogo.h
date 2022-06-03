@@ -5,8 +5,6 @@
 
 namespace Menus{
 
-class Game;
-
 class MenuSobreOJogo : public Menu, public States::State
 {
 private:

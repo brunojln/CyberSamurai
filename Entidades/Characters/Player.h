@@ -3,6 +3,7 @@
 #include <iostream>
 #include "Character.h"
 #include "../../States/Estado.h"
+#include "../../States/GerenciadorEstado.h"
 
 
 enum PLAYER_ANIMATION_STATES { IDLE = 0, MOVING_LEFT, MOVING_RIGHT, JUMPING, ATTACK };
