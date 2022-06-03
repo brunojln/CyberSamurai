@@ -18,7 +18,8 @@ namespace Entities {
 
 		lifePoints = 100;
 		atkCooldown = 1.f;
-		atkDamage = 1.f;
+		atkDamage = 2.f;
+		isTakingDamage = false;
 	}
 
 	void Player::initAnimations()
@@ -33,11 +34,7 @@ namespace Entities {
 
 	void Player::initTexture()
 	{
-		textureSheet = new sf::Texture();
-
-		if (!textureSheet->loadFromFile("InclusaoExterna/Imagens/Personagens/BontenmaruSheet.png")) {
-			std::cout << "ERROR::PLAYER::INITTEXTURE::Falha ao carregar textura" << "\n";
-		}
+		texture = pGraphic->loadTexture("InclusaoExterna/Imagens/Personagens/BontenmaruSheet.png");
 
 		heartTexture = new sf::Texture();
 
@@ -48,7 +45,7 @@ namespace Entities {
 
 	void Player::initSprite()
 	{
-		this->body.setTexture(textureSheet);
+		this->body.setTexture(texture);
 		this->currentFrame = sf::IntRect(0, 0, 125, 100);
 		this->body.setTextureRect(this->currentFrame);
 		this->body.setSize(sf::Vector2f(125.f, 100.f));
@@ -107,6 +104,9 @@ namespace Entities {
 
 	void Player::updateAnimations()
 	{
+		body.setFillColor(sf::Color(164, 223, 245, 500));
+		if (isTakingDamage) { body.setFillColor(sf::Color::Red); isTakingDamage = false;  }
+
 		if (this->animationState == IDLE)
 		{
 			if (this->animationTimer.getElapsedTime().asSeconds() >= 0.3f)

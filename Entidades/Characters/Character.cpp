@@ -25,6 +25,11 @@ bool Entities::Character::getIsAttacking()
 	return isAttacking;
 }
 
+void Entities::Character::setisTakingDamage(bool isDmg)
+{
+	isTakingDamage = isDmg;
+}
+
 void Entities::Character::setIsNear(bool near)
 {
 	isNear = near;

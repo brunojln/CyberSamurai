@@ -111,6 +111,7 @@ void Entities::Boss::updateBullets()
 		if (collider.checkCollision(bullet, this->getPlayer(), 1.f, true))
 		{
 			this->getPlayer()->setLifePoints(this->getPlayer()->getLifePoints() - atkDamage);
+			this->getPlayer()->setisTakingDamage(true);
 		}
 		//std::cout << this->bullets.size() << "\n";
 		++counter;

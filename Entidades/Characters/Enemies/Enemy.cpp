@@ -44,6 +44,7 @@ void Entities::Enemy::attackPlayer()
 		//updateAnimation
 		pPlayer->setLifePoints(pPlayer->getLifePoints() - this->atkDamage);
 		canAttack = false;
+		pPlayer->setisTakingDamage(true);
 	}
 }
 
