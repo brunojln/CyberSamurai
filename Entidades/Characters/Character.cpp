@@ -52,10 +52,6 @@ void Entities::Character::updateCooldown()
 
 void Entities::Character::attack(Entities::Character* pCharacter, bool isNear)
 {
-	/*if (pCharacter->getID() == entityID::robot)
-	{
-		Entities::Robot
-	}*/
 	updateCooldown();
 	if (isNear && canAttack && isAttacking)
 	{

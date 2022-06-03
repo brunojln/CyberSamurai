@@ -60,9 +60,8 @@ namespace Entities {
 		void setCanJump(bool can_jump);
 
 		virtual void update() = 0;
-		//virtual void render() = 0;
+
 		virtual void render();
-		//virtual void run() = 0;
 		
 	};
 

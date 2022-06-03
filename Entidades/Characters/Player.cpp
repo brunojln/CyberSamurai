@@ -16,7 +16,7 @@ namespace Entities {
 		velocityMaxY = 60.f;
 		jumpHeight = 1000.f;
 
-		lifePoints = 4;
+		lifePoints = 100;
 		atkCooldown = 1.f;
 		atkDamage = 1.f;
 	}
@@ -80,15 +80,6 @@ namespace Entities {
 		canJump = can_jump;
 	}
 
-	/*void Player::updateCooldown()
-	{
-		if (cooldownClock.getElapsedTime().asSeconds() >= this->atkCooldown)
-		{
-			this->canAttack = true;
-			cooldownClock.restart();
-		}
-	}*/
-
 	void Player::updateMovement()
 	{
 		this->animationState = IDLE;
@@ -107,11 +98,8 @@ namespace Entities {
 			this->animationState = JUMPING;
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::K) && canAttack) {
-			//attack function
-			//reset attack cooldown
 			isAttacking = true;
 			this->animationState = ATTACK;
-			//canAttack = false;
 		}
 
 
@@ -206,7 +194,7 @@ namespace Entities {
 		this->updateMovement();
 		this->updateAnimations();
 		updatePhysics();
-		updateCooldown();
+		//updateCooldown();
 	}
 	
 

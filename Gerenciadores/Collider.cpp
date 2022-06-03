@@ -11,7 +11,7 @@ namespace Managers {
 	}
 
 
-	bool Collider::checkCollision(Entities::Entity* other, Entities::Player* body, float push)
+	bool Collider::checkCollision(Entities::Entity* other, Entities::Player* body, float push, bool cross)
 	{
 		sf::Vector2f otherPosition = other->getPosition();
 		sf::Vector2f otherHalfSize = other->getSize() / 2.0f;
@@ -26,7 +26,7 @@ namespace Managers {
 		float intersectY = abs(deltaY) - (thisHalfSize.y + otherHalfSize.y);
     
 		if (intersectX < 0.0f && intersectY < 0.0f) {
-
+			if (cross) { return true;  }
 			push = std::min(std::max(push, 0.0f), 1.0f);
 
 			if (intersectX > intersectY)

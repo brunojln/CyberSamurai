@@ -2,6 +2,8 @@
 #include "LevelOne.h"
 //#include "../Entidades/Characters/Player.h"
 
+namespace Fases {
+
 void LevelOne::initLevel()
 {
 	if (!backgroundTexture.loadFromFile("InclusaoExterna/Imagens/Background/levelBackground.png"))
@@ -34,4 +36,6 @@ LevelOne::~LevelOne()
 	delete player;
 	delete platform;
 	delete spikes;
+}
+
 }

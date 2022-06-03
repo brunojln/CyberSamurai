@@ -39,7 +39,7 @@ void Entities::Enemy::followPlayer()
 void Entities::Enemy::attackPlayer()
 {
 	updateCooldown();
-	if (isNear && canAttack && !pPlayer->getIsAttacking())
+	if (isNear && canAttack && !(pPlayer->getIsAttacking()))
 	{
 		//updateAnimation
 		pPlayer->setLifePoints(pPlayer->getLifePoints() - this->atkDamage);

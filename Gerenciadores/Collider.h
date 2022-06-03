@@ -18,7 +18,7 @@ namespace Managers {
 		Collider();
 		~Collider();
 
-		bool checkCollision(Entities::Entity* other, Entities::Player *body, float push);
+		bool checkCollision(Entities::Entity* other, Entities::Player *body, float push, bool cross);
 	};
 
 

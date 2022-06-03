@@ -15,7 +15,7 @@
 #include "../States/GerenciadorEstado.h"
 #include <iostream>
 
-//namespace Fases {
+namespace Fases {
 
     class Level :
         public 	States::State
@@ -55,5 +55,5 @@
     };
 
 
-//}
+}
 

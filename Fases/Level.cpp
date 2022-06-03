@@ -1,6 +1,6 @@
 #include "Level.h"
 
-//namespace Fases {
+namespace Fases {
 
 	Level::Level(States::sID id, States::StateControl* pSC) :
 		State(pSC, id),
@@ -11,7 +11,7 @@
 		player = new Entities::Player();
 
 		for (int i = 0; i < ((rand() % 7) + 3); i++) {
-			Entities::Robot* pRobot = new Entities::Robot((i * 100), (i * 100));
+			Entities::Robot* pRobot = new Entities::Robot((i * 100.f), (i * 100.f));
 
 			pRobot->setPlayer(player);
 			enemyList.push_back(pRobot);
@@ -19,7 +19,7 @@
 		}
 
 		for (int i = 0; i < ((rand() % 3) + 3); i++) {
-			Entities::Flying* pFlying = new Entities::Flying((i * 100), (i * 100));
+			Entities::Flying* pFlying = new Entities::Flying((i * 100.f), (i * 100.f));
 
 			pFlying->setPlayer(player);
 			enemyList.push_back(pFlying);
@@ -55,7 +55,7 @@
 
 		for (int i = 0; i < structureList.getSize(); i++)
 		{
-			collider.checkCollision(structureList[i], player, 0.0f);
+			collider.checkCollision(structureList[i], player, 0.0f, false);
 			structureList[i]->update();
 		}
 
@@ -123,7 +123,7 @@
 	void Level::updateList(Entities::Entity* pEntity, unsigned int i)
 	{
 		Entities::Character* pChar = static_cast <Entities::Character*>(pEntity);
-		bool colliding = collider.checkCollision(pChar, player, 1.0f);
+		bool colliding = collider.checkCollision(pChar, player, 1.0f, false);
 		if (pChar != NULL)
 		{
 			if (pChar->getLifePoints() <= 0)
@@ -139,4 +139,4 @@
 	}
 
 
-//}
+} //namespace fases

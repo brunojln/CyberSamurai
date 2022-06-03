@@ -2,20 +2,17 @@
 
 void Entities::Bullet::initBullet()
 {
-	body.setSize(sf::Vector2f(20.f, 20.f));
-	body.setFillColor(sf::Color::Yellow);
+	texture = pGraphic->loadTexture("InclusaoExterna/Imagens/Background/bullet.png");
+	body.setTexture(texture);
+	body.setSize(sf::Vector2f(40.f, 10.f));
+	//body.setFillColor(sf::Color::Yellow);
 	//core
-	lifePoints = 0.1f;
-	exp = 0;
-	atkDamage = 0.2f;
-	atkCooldown = 3.0f;
-	atkDistance = 2.0f; //talvez tirar isso
 	canAttack = true;
 
 	//physics
 	velocityMax = 1.f;
 	velocityMin = 1.f;
-	acceleration = 3.f;
+	acceleration = 5.f;
 	drag = 0.9f;
 	velocityMaxY = 0.f;
 }
@@ -38,24 +35,3 @@ void Entities::Bullet::shoot()
 	body.move(acceleration * direction);
 }	
 
-/*void Entities::Bullet::updateBullets()
-{
-	unsigned counter = 0;
-	for (auto* bullet : this->bullets) {
-		bullet->update();
-
-		//bullet culling (top of the screen)
-		if (bullet->getBounds().top + bullet->getBounds().height < 0.f)
-		{
-			delete this->bullets.at(counter);
-			this->bullets.erase(this->bullets.begin() + counter);
-			--counter;
-
-			//std::cout << this->bullets.size() << "\n";
-		}
-
-		++counter;
-	}
-
-
-}*/

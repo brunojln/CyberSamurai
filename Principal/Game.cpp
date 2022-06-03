@@ -15,7 +15,7 @@
 		States::State* state = dynamic_cast<States::State*>(new Menus::EntranceMenu(this));
 		setState(state);
 
-		state = new	LevelOne(this);
+		state = new	Fases::LevelOne(this);
 		setState(state);
 
 		state = dynamic_cast<States::State*>(new Menus::MenuLeaderboard(this));
