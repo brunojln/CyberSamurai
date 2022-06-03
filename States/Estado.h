@@ -26,6 +26,8 @@ namespace States {
 
 		void updateState(sID id); //<----
 
+		sID getLState();
+
 		virtual void update(const float dt) = 0;
 
 		virtual void render() = 0;

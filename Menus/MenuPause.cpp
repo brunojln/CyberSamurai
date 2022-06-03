@@ -61,7 +61,12 @@ namespace Menus{
 			active = false;
 			switch (sel) {
 			case 0:
+				if(getLState() == States::sID::Level1)
 				updateState(States::sID::Level1); 
+
+				if (getLState() == States::sID::Level2)
+				updateState(States::sID::Level2);
+
 				break;
 			case 1:
 				updateState(States::sID::MainMenu);

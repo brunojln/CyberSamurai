@@ -59,8 +59,25 @@
 				pGraphics->close();
 			}
 
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape) && (getRunningState() == States::sID::Level1 || getRunningState() == States::sID::Level2)) {
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape) && (getRunningState() == States::sID::Level1 || getRunningState() == States::sID::Level2) && typingClock.getElapsedTime().asSeconds() >= 0.2)
+			{
 				changeRunningState(States::sID::Pause);
+				typingClock.restart();
+			}
+			
+			else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape) && (getRunningState() == States::sID::Pause)&& typingClock.getElapsedTime().asSeconds() >= 0.2)
+			{
+				if (getLastState() == States::sID::Level1)
+				{
+					changeRunningState(States::sID::Level1);
+					typingClock.restart();
+				}
+				if (getLastState() == States::sID::Level2)
+				{
+					changeRunningState(States::sID::Level2);
+					typingClock.restart();
+				}
+				
 			}
 			
 		}
