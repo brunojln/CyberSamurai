@@ -2,7 +2,7 @@
 
 
 namespace Menus {
-	MenuSobreOJogo::MenuSobreOJogo(States::StateControl* pSC) : Menu(), State((States::StateControl*)(pSC), States::sID::SobreJogo)
+	MenuSobreOJogo::MenuSobreOJogo(States::StateControl* pSC) : Menu(), State(pSC, States::sID::SobreJogo)
 	{
 		Managers::GraphicManager* pGM = Managers::GraphicManager::getGraphics();
 		Button* button = NULL;

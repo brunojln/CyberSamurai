@@ -41,6 +41,7 @@ namespace Menus {
 		title.setFont(*pGM->loadFont("InclusaoExterna/Fonte/Cyber.ttf"));
 
 		delay.restart();
+
 		max = 3;
 	}
 	EntranceMenu::~EntranceMenu()

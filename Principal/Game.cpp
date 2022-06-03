@@ -7,6 +7,7 @@
 #include "../Fases/LevelOne.h"
 #include "../Fases/Level.h"
 #include "../Menus/MenuGameOver.h"
+#include "../Menus/MenuPause.h"
 
 
 	Game::Game() :
@@ -30,6 +31,9 @@
 		state = dynamic_cast<States::State*>(new Menus::MenuGameOver(this));
 		setState(state);
 
+		state = dynamic_cast<States::State*>(new Menus::MenuPause(this));
+		setState(state);
+
 		changeRunningState(States::sID::MainMenu);
 	}
 
@@ -44,6 +48,7 @@
 			update();
 			render();
 		}
+		
 	}
 
 	void Game::update()
@@ -53,6 +58,11 @@
 			if (ev.type == sf::Event::Closed) {
 				pGraphics->close();
 			}
+
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape) && (getRunningState() == States::sID::Level1 || getRunningState() == States::sID::Level2)) {
+				changeRunningState(States::sID::Pause);
+			}
+			
 		}
 		updateRunningState(0);
 	}

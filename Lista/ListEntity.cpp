@@ -31,6 +31,7 @@ namespace Lists{
 		delete(aux);
 	}
 
+
 	Entities::Entity* ListEntity::operator [](int i)
 	{
 		return lEntity[i];

@@ -29,7 +29,7 @@ namespace Entities {
 
 	void Player::initPhysics()
 	{
-		
+
 	}
 
 	void Player::initTexture()
@@ -58,7 +58,7 @@ namespace Entities {
 		this->heartSprite.setScale(0.5f, 0.5f);
 	}
 
-	Player::Player():
+	Player::Player() :
 		Character(entityID::player)
 	{
 		this->initVariables();

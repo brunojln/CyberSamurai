@@ -3,6 +3,7 @@
 #include <map>
 
 namespace States {
+
 	class StateControl
 	{
 
