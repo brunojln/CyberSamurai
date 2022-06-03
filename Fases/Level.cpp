@@ -40,6 +40,17 @@ namespace Fases {
 		
 	}
 
+	const int Level::getPlayerPoints()
+	{
+		if (player != nullptr) {
+			return player->getExp();
+		}
+		else {
+			return 0;
+		}
+		
+	}
+
 	Level::~Level()
 	{
 		//pSC = nullptr;
@@ -98,7 +109,7 @@ namespace Fases {
 	{
 		if (endGame) {
 			std::cout << "Resetar tudo aqui";
-		}
+		}	
 	}
 
 	void Level::windowCollision(Entities::Entity* player)
@@ -128,6 +139,7 @@ namespace Fases {
 		{
 			if (pChar->getLifePoints() <= 0)
 			{
+				player->setExp(player->getExp() + pChar->getExp());
 				enemyList.EntityDelete(i);
 			}
 			else

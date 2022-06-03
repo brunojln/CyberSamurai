@@ -50,7 +50,7 @@ namespace Fases {
         void updateList(Entities::Entity *pEntity, unsigned int i);
         //void windowCollision(Lists::ListEntity* enemyList);
 
-        
+        const int getPlayerPoints();
         void endLevel();
     };
 
