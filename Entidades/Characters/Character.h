@@ -19,6 +19,7 @@ namespace Entities {
         bool canAttack;
         bool isAttacking;
         bool isNear;
+        bool isTakingDamage;
 
     public:
         Character(entityID id);
@@ -28,6 +29,7 @@ namespace Entities {
         const int getExp() const;
         bool getIsAttacking();
 
+        void setisTakingDamage(bool isDmg);
         void setIsNear(bool near);
         void setLifePoints(float hp);
         void setExp(int xp);

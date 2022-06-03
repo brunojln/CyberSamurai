@@ -14,7 +14,6 @@ namespace Entities {
 	class Player: public Character
 	{
 	private:
-		sf::Texture* textureSheet;
 		sf::Texture* heartTexture;
 		sf::Sprite heartSprite;
 		//Animation

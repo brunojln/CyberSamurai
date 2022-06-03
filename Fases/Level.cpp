@@ -35,7 +35,7 @@ namespace Fases {
 	{
 		if (player->getLifePoints() <= 0)
 		{
-			updateState(States::sID::MainMenu);
+			updateState(States::sID::GameOver);
 		}
 		
 	}
