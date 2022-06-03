@@ -190,7 +190,18 @@ namespace Menus {
 		//SIMBOLOS -----------------------------------------------------------------------------------
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::BackSpace) && typingClock.getElapsedTime().asSeconds() >= 0.2)
 		{
-			StringName.pop_back(); typingClock.restart();
+			try 
+			{
+				if (StringName.size() > 0)
+					StringName.pop_back();
+				else
+					throw(1);
+			}
+			catch (int erro)
+			{
+				std::cout << "ERROR:OUT OF RANGE::ERRROR:" << erro << std::endl;
+			}
+			typingClock.restart();
 		}
 
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && typingClock.getElapsedTime().asSeconds() >= 0.2)

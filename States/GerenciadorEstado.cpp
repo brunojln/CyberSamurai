@@ -27,6 +27,7 @@ namespace States {
 	void StateControl::updateRunningState(const float dt)
 	{
 		StateMap[runningState]->update(dt);
+
 	}
 	void StateControl::renderRunningState()
 	{
