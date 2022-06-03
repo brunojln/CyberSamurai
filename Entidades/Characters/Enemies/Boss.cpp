@@ -12,9 +12,8 @@ void Entities::Boss::initBoss()
 
 	lifePoints = 10.f;
 	exp = 100;
-	atkDamage = 0.1f;
+	atkDamage = 0.5f;
 	atkCooldown = 1.2f;
-	atkDistance = 2.0f;
 
 	velocityMax = 2.f;
 	velocityMin = 1.f;
@@ -23,6 +22,7 @@ void Entities::Boss::initBoss()
 	velocityMaxY = 50.f;
 	canAttack = false;
 
+	direction = 1.f;
 	std::cout << "Boss criado\n";
 }
 
@@ -39,10 +39,18 @@ Entities::Boss::~Boss()
 
 void Entities::Boss::update()
 {
+	updateMovement();
 	updateCooldown();
 	if (canAttack)
 	{
-		bullets.push_back(new Bullet(this->getPosition().x + 50.f, (this->getPosition().y + 50.f), 1.f, 0.f));
+		if (direction > 0) {
+			bullets.push_back(new Bullet(this->body.getPosition().x + 50.f, (this->body.getPosition().y + 50.f), direction, 0.f));
+		}
+		else
+		{
+			bullets.push_back(new Bullet(this->body.getPosition().x - 50.f, (this->body.getPosition().y + 50.f), direction, 0.f));
+		}
+		
 		//std::cout << bullets.size() << "\n";
 	}
 	updateBullets();
@@ -57,6 +65,33 @@ void Entities::Boss::render()
 	}
 }
 
+void Entities::Boss::updateMovement()
+{
+	if (this->getPosition().x > this->getPlayer()->getPosition().x)
+	{
+		body.move(-1, 0);
+		body.setScale(-1.f, 1.f);
+		this->body.setOrigin(this->body.getGlobalBounds().width / 2.5f, 0.f);
+		direction = -1.f;
+	}
+	else
+	{
+		body.move(1, 0);
+		body.setScale(1.f, 1.f);
+		this->body.setOrigin(0.f, 0.f);
+		direction = 1.f;
+	}
+
+	if (this->getPosition().y > this->getPlayer()->getPosition().y)
+	{
+		body.move(0, -1);
+	}
+	else
+	{
+		body.move(0, 1);
+	}
+}
+
 
 void Entities::Boss::updateBullets()
 {
@@ -65,11 +100,17 @@ void Entities::Boss::updateBullets()
 		bullet->shoot();
 		canAttack = false;
 		/*bullet culling(left-side of the screen)*/
-		if (bullet->getGlobalBounds().left + bullet->getGlobalBounds().width < 0.f)
+		if (bullet->getGlobalBounds().left + bullet->getGlobalBounds().width < 0.f
+			|| bullet->getGlobalBounds().left + bullet->getGlobalBounds().width > 1720.f)
 		{
 			delete this->bullets.at(counter);
 			this->bullets.erase(this->bullets.begin() + counter);
 			--counter;
+		}
+		
+		if (collider.checkCollision(bullet, this->getPlayer(), 1.f, true))
+		{
+			this->getPlayer()->setLifePoints(this->getPlayer()->getLifePoints() - atkDamage);
 		}
 		//std::cout << this->bullets.size() << "\n";
 		++counter;
