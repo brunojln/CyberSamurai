@@ -31,6 +31,7 @@
     <ClCompile Include="Entidades\Characters\Enemies\Boss.cpp" />
     <ClCompile Include="Menus\MenuGameOver.cpp" />
     <ClCompile Include="Menus\MenuPause.cpp" />
+    <ClCompile Include="Menus\MenuNumPlayers.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Botao\Botao.h" />
@@ -64,6 +65,7 @@
     <ClInclude Include="Entidades\Characters\Enemies\Boss.h" />
     <ClInclude Include="Menus\MenuGameOver.h" />
     <ClInclude Include="Menus\MenuPause.h" />
+    <ClInclude Include="Menus\MenuNumPlayers.h" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="InclusaoExterna\Fonte\Cyber-BoldRustique.ttf" />

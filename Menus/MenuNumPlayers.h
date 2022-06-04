@@ -3,18 +3,17 @@
 #include "../States/Estado.h"
 #include "Menu.h"
 
-
-
 namespace Menus {
 
-	class MenuLevel : public Menu, public States::State
+
+	class MenuNumPlayers : public Menu, public States::State
 	{
 
 	private:
 
 	public:
-		MenuLevel(States::StateControl* pSC=NULL);
-		~MenuLevel();
+		MenuNumPlayers(States::StateControl* pSC=NULL);
+		~MenuNumPlayers();
 
 		void render();
 
@@ -24,5 +23,6 @@ namespace Menus {
 
 		void update(float dt);
 	};
+
 
 }

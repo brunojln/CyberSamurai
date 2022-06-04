@@ -1,33 +1,33 @@
-#include "MenuLevel.h"
-
+#include "MenuNumPlayers.h"
 
 namespace Menus {
 
-	MenuLevel::MenuLevel(States::StateControl* pSC) : Menu(), State((pSC), States::sID::Level)
-	{
+	MenuNumPlayers::MenuNumPlayers(States::StateControl* pSC): Menu(), State((pSC), States::sID::NumPlayers)
+	{ 
 		Managers::GraphicManager* pGM = Managers::GraphicManager::getGraphics();
 		Button* button = NULL;
 
 		//Botoes
-		button = new Button(sf::Vector2f(550, 200), "Level I");
+		button = new Button(sf::Vector2f(550, 200), "I Player");
 		button->selected(true); //Play como primeiro selecionado
 		ButtonVector.push_back(button);
 
-		button = new Button(sf::Vector2f(550, 250), "Level II");
+		button = new Button(sf::Vector2f(550, 250), "II Players");
 		ButtonVector.push_back(button);
 
 		button = new Button(sf::Vector2f(550, 600), "Voltar");
 		ButtonVector.push_back(button);
 
 		max = 2;
-	}
-	MenuLevel::~MenuLevel()
-	{
+	} 
 
-	}
-
-	void MenuLevel::render()
+	MenuNumPlayers::~MenuNumPlayers()
 	{
+		
+	} 
+
+	void MenuNumPlayers::render()
+	{ 
 		Managers::GraphicManager* pGM = Managers::GraphicManager::getGraphics();
 
 		pGM->render(background);
@@ -36,16 +36,16 @@ namespace Menus {
 		{
 			(*iB)->render();
 		}
-	}
+	} 
 
-	void MenuLevel::resetState()
-	{
+	void MenuNumPlayers::resetState()
+	{ 
 		ButtonVector[sel]->selected(false);
 		sel = 0;
 		ButtonVector[sel]->selected(true);
-	}
+	} 
 
-	void MenuLevel::exec()
+	void MenuNumPlayers::exec()
 	{
 		if (active) //Se o botao estiver ativo
 		{
@@ -53,17 +53,15 @@ namespace Menus {
 
 			switch (sel) {
 			case 0:
-				/*
-				Primeira fase*/
-				updateState(States::sID::Level1);
+				//1 player instanciado
+				updateState(States::sID::Level);
 				break;
 			case 1:
-				/*
-				Segunda Fase
-				updateState(sID::);
-				break;*/
+				//2 players instanciados
+				updateState(States::sID::Level);
+				break;
 			case 2:
-				updateState(States::sID::NumPlayers);
+				updateState(States::sID::MainMenu);
 				break;
 
 			default:
@@ -73,8 +71,8 @@ namespace Menus {
 		}
 	}
 
-	void MenuLevel::update(float dt)
-	{
+	void MenuNumPlayers::update(float dt)
+	{ 
 		if (active == false)
 		{
 			delay.restart();
@@ -93,6 +91,6 @@ namespace Menus {
 			exec();
 			delay.restart();
 		}
-	}
+	} 
 
 }

@@ -12,7 +12,7 @@ namespace Menus {
 		std::vector<sf::Text*>::iterator iP;
 
 	public:
-		MenuLeaderboard(States::StateControl* pSC);
+		MenuLeaderboard(States::StateControl* pSC=NULL);
 		~MenuLeaderboard();
 
 		void render();
