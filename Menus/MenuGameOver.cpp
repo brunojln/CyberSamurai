@@ -260,7 +260,7 @@ namespace Menus {
 			active = false;
 			switch (sel) {
 			case 0:
-				updateState(States::sID::Level); //Adaptar para lvl2
+				updateState(States::sID::NumPlayers); //Adaptar para lvl2
 				break;
 			case 1:
 				updateState(States::sID::MainMenu);

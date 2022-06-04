@@ -11,7 +11,7 @@ private:
 	sf::Text* text;
 
 public:
-	MenuSobreOJogo(States::StateControl* pSC);
+	MenuSobreOJogo(States::StateControl* pSC = NULL);
 	~MenuSobreOJogo();
 
 	void render();

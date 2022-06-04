@@ -84,7 +84,7 @@ namespace Menus {
 
 			switch (sel) {
 			case 0:
-				updateState(States::sID::Level);
+				updateState(States::sID::NumPlayers);
 				break;
 			case 1:
 				updateState(States::sID::Leaderboard);

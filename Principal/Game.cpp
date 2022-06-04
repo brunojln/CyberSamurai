@@ -9,6 +9,7 @@
 #include "../Fases/Level.h"
 #include "../Menus/MenuGameOver.h"
 #include "../Menus/MenuPause.h"
+#include "../Menus/MenuNumPlayers.h"
 
 
 	Game::Game() :
@@ -24,6 +25,9 @@
 		setState(state);
 
 		state = dynamic_cast<States::State*>(new Menus::MenuLeaderboard(this));
+		setState(state);
+
+		state = dynamic_cast<States::State*>(new Menus::MenuNumPlayers(this));
 		setState(state);
 
 		state = dynamic_cast<States::State*>(new Menus::MenuLevel(this));
