@@ -9,3 +9,13 @@ Entities::Structures::Structures(entityID id) :
 Entities::Structures::~Structures()
 {
 }
+
+float Entities::Structures::getStructureDamage()
+{
+	return structureDamage;
+}
+
+bool Entities::Structures::isDamaging()
+{
+	return damaging;
+}

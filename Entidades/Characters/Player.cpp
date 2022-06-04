@@ -35,12 +35,6 @@ namespace Entities {
 	void Player::initTexture()
 	{
 		texture = pGraphic->loadTexture("InclusaoExterna/Imagens/Personagens/BontenmaruSheet.png");
-
-		heartTexture = new sf::Texture();
-
-		if (!heartTexture->loadFromFile("InclusaoExterna/Imagens/Background/heartSprite.png")) {
-			std::cout << "ERROR::PLAYER::initTexture::Fallha ao carregar textura" << "\n";
-		}
 	}
 
 	void Player::initSprite()
@@ -50,15 +44,9 @@ namespace Entities {
 		this->body.setTextureRect(this->currentFrame);
 		this->body.setSize(sf::Vector2f(125.f, 100.f));
 		this->body.setPosition(860.f, 440.f);
-
-		this->heartSprite.setTexture(*heartTexture);
-		this->heartFrame = sf::IntRect(0, 0, 92, 110);
-		this->heartSprite.setTextureRect(this->heartFrame);
-		this->heartSprite.setPosition(20, 20);
-		this->heartSprite.setScale(0.5f, 0.5f);
 	}
 
-	Player::Player() :
+	Player::Player(bool player2) :
 		Character(entityID::player)
 	{
 		this->initVariables();
@@ -66,6 +54,23 @@ namespace Entities {
 		this->initPhysics();
 		this->initTexture();
 		this->initSprite();
+
+		if (player2) {
+			left = sf::Keyboard::Left;
+			right = sf::Keyboard::Right;
+			jump = sf::Keyboard::RControl;
+			atk = sf::Keyboard::K;
+
+			defaultColor = sf::Color(250, 0, 252, 500);
+		}
+		else {
+			left = sf::Keyboard::A;
+			right = sf::Keyboard::D;
+			jump = sf::Keyboard::Space;
+			atk = sf::Keyboard::G;
+
+			defaultColor = sf::Color(164, 223, 245, 500);
+		}
 	}
 
 	Player::~Player()
@@ -81,20 +86,20 @@ namespace Entities {
 	{
 		this->animationState = IDLE;
 
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
+		if (sf::Keyboard::isKeyPressed(left)) {
 			this->move(-3.f, 0.f);
 			this->animationState = MOVING_LEFT;
 		}
-		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
+		else if (sf::Keyboard::isKeyPressed(right)) {
 			this->move(3.f, 0.f);
 			this->animationState = MOVING_RIGHT;
 		}
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && canJump) {
+		if (sf::Keyboard::isKeyPressed(jump) && canJump) {
 			canJump = false;
 			this->velocity.y = -sqrtf(2.0f * GRAVITY * this->jumpHeight);
 			this->animationState = JUMPING;
 		}
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::K) && canAttack) {
+		if (sf::Keyboard::isKeyPressed(atk) && canAttack) {
 			isAttacking = true;
 			this->animationState = ATTACK;
 		}
@@ -104,7 +109,7 @@ namespace Entities {
 
 	void Player::updateAnimations()
 	{
-		body.setFillColor(sf::Color(164, 223, 245, 500));
+		body.setFillColor(sf::Color(defaultColor));
 		if (isTakingDamage) { body.setFillColor(sf::Color::Red); isTakingDamage = false;  }
 
 		if (this->animationState == IDLE)
@@ -181,12 +186,6 @@ namespace Entities {
 		}
 
 
-	}
-
-	void Player::updateHearts(sf::RenderWindow* window)
-	{
-		//chamar função para alterar vida do jogador
-		window->draw(heartSprite);
 	}
 
 	void Player::update()

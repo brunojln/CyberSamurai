@@ -3,6 +3,7 @@
 void Entities::Spikes::initSpikes()
 {
 	damaging = true;
+	structureDamage = 0.01f;
 
 	texture = new sf::Texture();
 	if (!texture->loadFromFile("InclusaoExterna/Imagens/Background/moonstone.jpg"))

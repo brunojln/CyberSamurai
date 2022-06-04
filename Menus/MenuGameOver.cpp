@@ -21,7 +21,7 @@ namespace Menus {
 		title.setCharacterSize(120);
 
 		points.setPosition(500, 300);
-		points.setString("Points: ""\nName: " + std::to_string(pLevel->getPlayerPoints() ));
+		points.setString("Points: " + std::to_string(pLevel->getPlayerPoints()) + "\nName: ");
 		points.setFont(*pGM->loadFont("InclusaoExterna/Fonte/NEONLEDLight.otf"));
 		points.setCharacterSize(60);
 
