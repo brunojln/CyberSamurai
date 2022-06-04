@@ -5,9 +5,6 @@ void Entities::Bullet::initBullet()
 	texture = pGraphic->loadTexture("InclusaoExterna/Imagens/Background/bullet.png");
 	body.setTexture(texture);
 	body.setSize(sf::Vector2f(40.f, 10.f));
-	//body.setFillColor(sf::Color::Yellow);
-	//core
-	canAttack = true;
 
 	//physics
 	velocityMax = 1.f;
@@ -18,7 +15,7 @@ void Entities::Bullet::initBullet()
 }
 
 Entities::Bullet::Bullet(float pos_x, float pos_y, float dir_x, float dir_y):
-	Enemy(entityID::unknown)
+	Entity(0)
 {
 	this->initBullet();
 	body.setPosition(pos_x, pos_y);
@@ -33,5 +30,10 @@ Entities::Bullet::~Bullet()
 void Entities::Bullet::shoot()
 {
 	body.move(acceleration * direction);
-}	
+}
+void Entities::Bullet::update()
+{
+	this->shoot();
+}
+
 
