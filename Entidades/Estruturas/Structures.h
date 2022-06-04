@@ -8,7 +8,6 @@ namespace Entities {
         public Entity
     {
     protected:
-        //coordenadas de Entity
         bool damaging;
         float structureDamage;
 

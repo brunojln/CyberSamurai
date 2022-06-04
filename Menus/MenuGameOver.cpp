@@ -213,7 +213,7 @@ namespace Menus {
 		return StringName;
 	}
 
-	void MenuGameOver::update(float dt)
+	void MenuGameOver::update()
 	{
 		name.setString(getString());
 		points.setString("Points: " + std::to_string(pLevel->getPlayerPoints()) + "\nName: ");

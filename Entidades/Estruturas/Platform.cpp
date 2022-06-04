@@ -4,12 +4,7 @@ void Entities::Platform::initPlatform()
 {
 	damaging = false;
 
-	texture = new sf::Texture();
-
-	if (!texture->loadFromFile("InclusaoExterna/Imagens/Background/moonstone.jpg"))
-	{
-		std::cout << "ERROR::Platform::initPlatform::unable to open texture file\n";
-	}
+	texture = pGraphic->loadTexture("InclusaoExterna/Imagens/Background/moonstone.jpg");
 
 	body.setTexture(texture);
 	body.setFillColor(sf::Color(50, 50, 300));
@@ -21,7 +16,8 @@ void Entities::Platform::initPlatform()
 	acceleration = 1.f;
 	drag = 0.9f;
 	velocityMax = 6.f;
-	std::cout << "Plataforma criada\n";
+
+	///std::cout << "Plataforma criada\n";
 }
 
 Entities::Platform::Platform(float x, float y) :
@@ -33,15 +29,8 @@ Entities::Platform::Platform(float x, float y) :
 
 Entities::Platform::~Platform()
 {
-	delete texture;
 }
 void Entities::Platform::update()
 {
 	this->updatePhysics();
 }
-/*
-void Entities::Platform::render(sf::RenderTarget& target)
-{
-	target.draw(body);
-}
-*/

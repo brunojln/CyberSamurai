@@ -28,7 +28,7 @@ namespace Menus {
 
 		void exec();
 
-		void update(float dt);
+		void update();
 
 	};
 

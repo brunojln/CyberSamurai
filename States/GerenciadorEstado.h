@@ -19,7 +19,7 @@ namespace States {
 		virtual ~StateControl(); //virtual 
 
 		void changeRunningState(sID id);
-		void updateRunningState(const float dt);
+		void updateRunningState();
 		void renderRunningState();
 
 		sID getRunningState() const;

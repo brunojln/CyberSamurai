@@ -23,7 +23,7 @@ namespace Menus {
 
 		void construct();
 
-		void update(float dt);
+		void update();
 
 	};
 

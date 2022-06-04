@@ -56,7 +56,7 @@ namespace Menus {
 		}
 	}
 
-	void MenuSobreOJogo::update(float dt)
+	void MenuSobreOJogo::update()
 	{
 		if (active == false)
 		{

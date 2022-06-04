@@ -14,9 +14,8 @@ void Entities::Flying::initFlying()
 	exp = 10;
 	atkDamage = 0.2f;
 	atkCooldown = 3.0f;
-	atkDistance = 2.0f; //talvez tirar isso
 	canAttack = true;
-	projectileCount = 0;
+
 	//physics
 	velocityMax = 3.f;
 	velocityMin = 1.f;
