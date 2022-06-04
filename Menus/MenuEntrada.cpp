@@ -104,7 +104,7 @@ namespace Menus {
 
 	}
 
-	void EntranceMenu::update(float dt)
+	void EntranceMenu::update()
 	{
 		if (active == false)
 		{

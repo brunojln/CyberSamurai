@@ -20,7 +20,7 @@ const int Entities::Character::getExp() const
 	return exp;
 }
 
-bool Entities::Character::getIsAttacking()
+const bool Entities::Character::getIsAttacking() const
 {
 	return isAttacking;
 }

@@ -4,8 +4,7 @@ namespace Fases {
 
 	Level::Level(States::sID id, States::StateControl* pSC) :
 		State(pSC, id),
-		pGraphics(Managers::GraphicManager::getGraphics()),
-		endGame(false)
+		pGraphics(Managers::GraphicManager::getGraphics())
 	{
 		srand(time(NULL));
 		//if (jogo com dois players){
@@ -59,7 +58,7 @@ namespace Fases {
 		
 	}
 
-	const int Level::getPlayerPoints()
+	const int Level::getPlayerPoints() const
 	{
 		int playerPoints = 0;
 		for (int i = 0; i < playerList.size(); i++)
@@ -74,9 +73,8 @@ namespace Fases {
 		//pSC = nullptr;
 	}
 
-	void Level::update(const float dt)
+	void Level::update()
 	{
-		windowCollision(spikes);
 
 		for (int i = 0; i < playerList.size(); i++)
 		{
@@ -128,9 +126,7 @@ namespace Fases {
 
 	void Level::resetState()
 	{
-		if (endGame) {
-			std::cout << "Resetar tudo aqui";
-		}	
+		//resetar level
 	}
 
 	void Level::windowCollision(Entities::Entity* player)

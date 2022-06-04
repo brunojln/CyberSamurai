@@ -18,6 +18,7 @@ namespace Entities {
     public:
         Boss(float x, float y);
         ~Boss();
+
         void updateBullets();
         virtual void update();
         virtual void render();

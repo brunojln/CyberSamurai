@@ -79,7 +79,7 @@ namespace Menus{
 
 	}
 
-	void MenuPause::update(float dt)
+	void MenuPause::update()
 	{
 
 		if (active == false)

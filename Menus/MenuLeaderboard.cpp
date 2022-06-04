@@ -60,7 +60,7 @@ namespace Menus {
         }
     }
 
-    void MenuLeaderboard::update(float dt)
+    void MenuLeaderboard::update()
     {
         if (active == false)
         {
