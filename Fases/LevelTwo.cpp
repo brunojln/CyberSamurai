@@ -3,12 +3,12 @@
 void Fases::LevelTwo::initLevelTwo()
 {
 	//alterar isso
-	if (!backgroundTexture.loadFromFile("InclusaoExterna/Imagens/Background/levelBackground.png"))
+	if (!backgroundTexture.loadFromFile("InclusaoExterna/Imagens/Background/2lvlbg.png"))
 	{
 		std::cout << "ERROR::INITLEVEL::Erro ao carregar textura" << "\n";
 	}
 	backgroundBody.setTexture(backgroundTexture);
-	backgroundBody.setScale(0.9f, 0.9f);
+	//backgroundBody.setScale(0.9f, 0.9f);
 	
 	spikes = new Entities::Spikes(850, 650);
 	platform = new Entities::Platform(350, 650);
