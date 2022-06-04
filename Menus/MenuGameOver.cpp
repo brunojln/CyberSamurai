@@ -216,6 +216,7 @@ namespace Menus {
 	void MenuGameOver::update(float dt)
 	{
 		name.setString(getString());
+		points.setString("Points: " + std::to_string(pLevel->getPlayerPoints()) + "\nName: ");
 
 		if (active == false)
 		{
@@ -282,7 +283,7 @@ namespace Menus {
 	}
 	void MenuGameOver::saveLeaderBoard()
 	{
-		int playerPoints = 0; //= plvl->getPlayerPoints();
+		int playerPoints = pLevel->getPlayerPoints(); //= plvl->getPlayerPoints();
 
 		std::ifstream readFile;
 

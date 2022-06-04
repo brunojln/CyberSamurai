@@ -34,7 +34,6 @@ namespace Entities {
 		//initialization
 		void initVariables();
 		void initAnimations();
-		void initPhysics();
 		void initTexture();
 		void initSprite();
 

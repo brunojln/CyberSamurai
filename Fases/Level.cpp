@@ -9,13 +9,14 @@ namespace Fases {
 	{
 		srand(time(NULL));
 		//if (jogo com dois players){
-		player = new Entities::Player(false);
 
-		playerList.push_back(new Entities::Player(true));
-		playerList.push_back(player);
 
-		int randPlayer = rand() % playerList.size();
+		//playerList.push_back(new Entities::Player(true));
+		playerList.push_back(new Entities::Player(false));
 
+		int randPlayer = 0;
+
+		//criação aleatória de Robot e Flying
 		for (int i = 0; i < ((rand() % 7) + 3); i++) {
 			Entities::Robot* pRobot = new Entities::Robot((i * 100.f), (i * 100.f));
 
@@ -36,15 +37,23 @@ namespace Fases {
 			pFlying = NULL;
 		}
 
-		Entities::Boss* boss = new Entities::Boss(300, 0);
-		boss->setPlayer(playerList[randPlayer]);
-		enemyList.push_back(boss);
+		for (int i = 0; i < ((rand() % 1) + 3); i++)
+		{
+			structureList.push_back(new Entities::Spikes((rand() % 1100), (rand() % 600)));
+			structureList.push_back(new Entities::Elevator((rand() % 1100), (rand() % 600)));
+		}
 	}
 
 	void Level::endLevel()
 	{
-		if (playerList[0]->getLifePoints() <= 0 || playerList[1]->getLifePoints() <= 0)
+		for (int i = 0; i < playerList.size(); i++)
 		{
+			if (playerList[i]->getLifePoints() <= 0)
+			{
+				updateState(States::sID::GameOver);
+			}
+		}
+		if (enemyList.getSize() == 0){
 			updateState(States::sID::GameOver);
 		}
 		
@@ -52,14 +61,12 @@ namespace Fases {
 
 	const int Level::getPlayerPoints()
 	{
-		//playerPoints = player->getExp();
-		if (player != nullptr) {
-			return player->getExp();
+		int playerPoints = 0;
+		for (int i = 0; i < playerList.size(); i++)
+		{
+			playerPoints += playerList[i]->getExp();
 		}
-		else {
-			return 0;
-		}
-		
+		return playerPoints;
 	}
 
 	Level::~Level()
@@ -69,8 +76,6 @@ namespace Fases {
 
 	void Level::update(const float dt)
 	{
-		//percorrer pela lista e chamar o método update de todos
-		//windowCollision(player);
 		windowCollision(spikes);
 
 		for (int i = 0; i < playerList.size(); i++)
