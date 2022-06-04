@@ -54,7 +54,7 @@ namespace Entities {
 		if (player2) {
 			left = sf::Keyboard::Left;
 			right = sf::Keyboard::Right;
-			jump = sf::Keyboard::RControl;
+			jump = sf::Keyboard::Up;
 			atk = sf::Keyboard::K;
 
 			defaultColor = sf::Color(250, 0, 252, 500);

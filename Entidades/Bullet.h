@@ -6,7 +6,7 @@ namespace Entities{
 
 
     class Bullet :
-        public Enemy
+        public Entity
     {
     private:
         void initBullet();
@@ -17,6 +17,8 @@ namespace Entities{
         Bullet(float pos_x, float pos_y, float dir_x, float dir_y);
         ~Bullet();
         void shoot();
+
+        void update();
     };
 
 }
