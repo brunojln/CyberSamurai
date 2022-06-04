@@ -10,11 +10,14 @@ namespace Entities {
     protected:
         //coordenadas de Entity
         bool damaging;
+        float structureDamage;
 
     public:
         Structures(entityID id);
         ~Structures();
 
+        float getStructureDamage();
+        bool isDamaging();
         virtual void update() = 0;
     };
 }

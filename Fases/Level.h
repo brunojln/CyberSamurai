@@ -13,6 +13,7 @@
 #include "../Gerenciadores/GraphicManager.h"
 #include "../States/Estado.h"
 #include "../States/GerenciadorEstado.h"
+#include <vector>
 #include <iostream>
 
 namespace Fases {
@@ -29,12 +30,14 @@ namespace Fases {
 
         Lists::ListEntity enemyList;
         Lists::ListEntity structureList;
+        std::vector<Entities::Player*> playerList;
 
         sf::Texture backgroundTexture;
         sf::Sprite backgroundBody;
 
         Managers::Collider collider;
         Managers::GraphicManager* pGraphics;
+
         bool endGame;
 
     public:
@@ -47,13 +50,17 @@ namespace Fases {
 
 
         void windowCollision(Entities::Entity* player);
-        void updateList(Entities::Entity *pEntity, unsigned int i);
+        void updateEnemyList(Entities::Entity *pEntity, unsigned int i);
+        void updateStructureList(Entities::Entity* pEntity, unsigned int i);
         //void windowCollision(Lists::ListEntity* enemyList);
 
-        
+        const int getPlayerPoints();
         void endLevel();
+
+        //static int playerPoints;
     };
 
+    //int Level::playerPoints(0);
 
 }
 

@@ -7,13 +7,21 @@ namespace Fases {
 		pGraphics(Managers::GraphicManager::getGraphics()),
 		endGame(false)
 	{
+		srand(time(NULL));
+		//if (jogo com dois players){
+		player = new Entities::Player(false);
 
-		player = new Entities::Player();
+		playerList.push_back(new Entities::Player(true));
+		playerList.push_back(player);
+
+		int randPlayer = rand() % playerList.size();
 
 		for (int i = 0; i < ((rand() % 7) + 3); i++) {
 			Entities::Robot* pRobot = new Entities::Robot((i * 100.f), (i * 100.f));
 
-			pRobot->setPlayer(player);
+			randPlayer = rand() % playerList.size();
+			std::cout << randPlayer << "\n";
+			pRobot->setPlayer(playerList[randPlayer]);
 			enemyList.push_back(pRobot);
 			pRobot = NULL;
 		}
@@ -21,21 +29,35 @@ namespace Fases {
 		for (int i = 0; i < ((rand() % 3) + 3); i++) {
 			Entities::Flying* pFlying = new Entities::Flying((i * 100.f), (i * 100.f));
 
-			pFlying->setPlayer(player);
+			randPlayer = rand() % playerList.size();
+			std::cout << randPlayer << "\n";
+			pFlying->setPlayer(playerList[randPlayer]);
 			enemyList.push_back(pFlying);
 			pFlying = NULL;
 		}
 
 		Entities::Boss* boss = new Entities::Boss(300, 0);
-		boss->setPlayer(player);
+		boss->setPlayer(playerList[randPlayer]);
 		enemyList.push_back(boss);
 	}
 
 	void Level::endLevel()
 	{
-		if (player->getLifePoints() <= 0)
+		if (playerList[0]->getLifePoints() <= 0 || playerList[1]->getLifePoints() <= 0)
 		{
 			updateState(States::sID::GameOver);
+		}
+		
+	}
+
+	const int Level::getPlayerPoints()
+	{
+		//playerPoints = player->getExp();
+		if (player != nullptr) {
+			return player->getExp();
+		}
+		else {
+			return 0;
 		}
 		
 	}
@@ -48,26 +70,29 @@ namespace Fases {
 	void Level::update(const float dt)
 	{
 		//percorrer pela lista e chamar o método update de todos
-		windowCollision(player);
+		//windowCollision(player);
 		windowCollision(spikes);
 
-		player->update();
+		for (int i = 0; i < playerList.size(); i++)
+		{
+			playerList[i]->update();
+			windowCollision(playerList[i]);
+		}
 
 		for (int i = 0; i < structureList.getSize(); i++)
 		{
-			collider.checkCollision(structureList[i], player, 0.0f, false);
 			structureList[i]->update();
+			updateStructureList(structureList[i], i);
 		}
 
-		//com voador com fica(?)
 
 		for (int i = 0; i < enemyList.getSize(); i++)
 		{
 			enemyList[i]->update();
 			windowCollision(enemyList[i]);
-			updateList(enemyList[i], i);
+			updateEnemyList(enemyList[i], i);
 		}
-		std::cout << player->getLifePoints() << "\n";
+		//std::cout << player->getLifePoints() << "\n";
 		endLevel();
 	}
 
@@ -77,7 +102,11 @@ namespace Fases {
 
 		pGraphics->render(&backgroundBody);
 
-		player->render(); //alterado para chamar pGraphics na Entity.cpp (talvez mudar isso)
+		//player->render(); //alterado para chamar pGraphics na Entity.cpp (talvez mudar isso)
+		for (int i = 0; i < playerList.size(); i++) {
+
+			playerList[i]->render();
+		}
 
 		for (int i = 0; i < structureList.getSize(); i++)
 		{
@@ -89,8 +118,6 @@ namespace Fases {
 			enemyList[i]->render();
 		}
 	
-		//usado para testes
-		player->updateHearts(pGraphics->getWindow());
 	
 	}
 
@@ -98,7 +125,7 @@ namespace Fases {
 	{
 		if (endGame) {
 			std::cout << "Resetar tudo aqui";
-		}
+		}	
 	}
 
 	void Level::windowCollision(Entities::Entity* player)
@@ -120,23 +147,44 @@ namespace Fases {
 		}
 	}
 
-	void Level::updateList(Entities::Entity* pEntity, unsigned int i)
+	void Level::updateEnemyList(Entities::Entity* pEntity, unsigned int i)
 	{
-		Entities::Character* pChar = static_cast <Entities::Character*>(pEntity);
-		bool colliding = collider.checkCollision(pChar, player, 1.0f, false);
-		if (pChar != NULL)
-		{
-			if (pChar->getLifePoints() <= 0)
+		for (int i = 0; i < playerList.size(); i++) {
+
+			Entities::Character* pChar = static_cast <Entities::Character*>(pEntity);
+			bool colliding = collider.checkCollision(pChar, playerList[i], 1.0f, false);
+			if (pChar != NULL)
 			{
-				enemyList.EntityDelete(i);
-			}
-			else
-			{
-				pChar->setIsNear(colliding);
-				player->attack(pChar,colliding);
+				if (pChar->getLifePoints() <= 0)
+				{
+					playerList[i]->setExp(playerList[i]->getExp() + pChar->getExp());
+					//std::cout << player->getExp() + pChar->getExp() << "\n";
+					enemyList.EntityDelete(i);
+				}
+				else
+				{
+					pChar->setIsNear(colliding);
+					playerList[i]->attack(pChar, colliding);
+				}
 			}
 		}
 	}
 
+	void Level::updateStructureList(Entities::Entity* pEntity, unsigned int i)
+	{
+		for (int i = 0; i < playerList.size(); i++) {
 
+			Entities::Structures* pStruct = static_cast <Entities::Structures*>(pEntity);
+			bool colliding = collider.checkCollision(pStruct, playerList[i], 0.0f, false);
+
+			if (pStruct != NULL)
+			{
+				if (pStruct->isDamaging() && colliding)
+				{
+					playerList[i]->setisTakingDamage(true);
+					playerList[i]->setLifePoints(playerList[i]->getLifePoints() - pStruct->getStructureDamage());
+				}
+			}
+		}
+	}
 } //namespace fases

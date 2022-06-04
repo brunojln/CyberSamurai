@@ -28,7 +28,7 @@
 		state = dynamic_cast<States::State*>(new Menus::MenuSobreOJogo(this));
 		setState(state);
 
-		state = dynamic_cast<States::State*>(new Menus::MenuGameOver(this));
+		state = dynamic_cast<States::State*>(new Menus::MenuGameOver(this, dynamic_cast<Fases::Level*>(StateMap[States::sID::Level1])));
 		setState(state);
 
 		state = dynamic_cast<States::State*>(new Menus::MenuPause(this));
@@ -82,6 +82,7 @@
 			
 		}
 		updateRunningState(0);
+		
 	}
 
 	void Game::render()
