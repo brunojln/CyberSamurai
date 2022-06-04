@@ -59,9 +59,9 @@ namespace Menus {
 				break;
 			case 1:
 				/*
-				Segunda Fase
-				updateState(sID::);
-				break;*/
+				Segunda Fase*/
+				updateState(States::sID::Level2);
+				break;
 			case 2:
 				updateState(States::sID::MainMenu);
 				break;

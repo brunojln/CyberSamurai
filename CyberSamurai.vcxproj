@@ -146,6 +146,7 @@
     <ClInclude Include="Fases\LevelOne.h" />
     <ClInclude Include="Fases\Level.h" />
     <ClInclude Include="Entidades\Characters\Enemies\Flying.h" />
+    <ClInclude Include="Fases\LevelTwo.h" />
     <ClInclude Include="Lista\ListEntity.h" />
     <ClInclude Include="Menus\MenuPause.h" />
     <ClInclude Include="Menus\MenuGameOver.h" />
@@ -179,6 +180,7 @@
     <ClCompile Include="Fases\LevelOne.cpp" />
     <ClCompile Include="Fases\Level.cpp" />
     <ClCompile Include="Entidades\Characters\Enemies\Flying.cpp" />
+    <ClCompile Include="Fases\LevelTwo.cpp" />
     <ClCompile Include="Lista\ListEntity.cpp" />
     <ClCompile Include="Menus\MenuPause.cpp" />
     <ClCompile Include="Menus\MenuGameOver.cpp" />

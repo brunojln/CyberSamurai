@@ -6,12 +6,11 @@ void Entities::Spikes::initSpikes()
 	structureDamage = 0.01f;
 
 	texture = new sf::Texture();
-	if (!texture->loadFromFile("InclusaoExterna/Imagens/Background/moonstone.jpg"))
+	if (!texture->loadFromFile("InclusaoExterna/Imagens/Background/spikes.png"))
 	{
 		std::cout << "ERROR::SPIKES::initSpikes::Failed to load texture image\n";
 	}
 	body.setTexture(texture);
-	body.setFillColor(sf::Color(100, 250, 50));
 	body.setSize(sf::Vector2f(100.f, 100.f));
 
 	velocityMin = 1.f;

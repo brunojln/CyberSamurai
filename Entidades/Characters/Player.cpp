@@ -9,6 +9,7 @@ namespace Entities {
 		canJump = true;
 		canAttack = true;
 		isAttacking = false;
+
 		velocityMax = 5.f;
 		velocityMin = 1.f;
 		acceleration = 1.f;
@@ -19,17 +20,13 @@ namespace Entities {
 		lifePoints = 100;
 		atkCooldown = 1.f;
 		atkDamage = 2.f;
+		exp = 0;
 		isTakingDamage = false;
 	}
 
 	void Player::initAnimations()
 	{
 		this->animationTimer.restart();
-	}
-
-	void Player::initPhysics()
-	{
-
 	}
 
 	void Player::initTexture()
@@ -51,7 +48,6 @@ namespace Entities {
 	{
 		this->initVariables();
 		this->initAnimations();
-		this->initPhysics();
 		this->initTexture();
 		this->initSprite();
 
@@ -193,7 +189,6 @@ namespace Entities {
 		this->updateMovement();
 		this->updateAnimations();
 		updatePhysics();
-		//updateCooldown();
 	}
 	
 
