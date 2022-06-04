@@ -32,6 +32,7 @@
     <ClCompile Include="Menus\MenuGameOver.cpp" />
     <ClCompile Include="Menus\MenuPause.cpp" />
     <ClCompile Include="Menus\MenuNumPlayers.cpp" />
+    <ClCompile Include="Fases\LevelTwo.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Botao\Botao.h" />
@@ -66,6 +67,7 @@
     <ClInclude Include="Menus\MenuGameOver.h" />
     <ClInclude Include="Menus\MenuPause.h" />
     <ClInclude Include="Menus\MenuNumPlayers.h" />
+    <ClInclude Include="Fases\LevelTwo.h" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="InclusaoExterna\Fonte\Cyber-BoldRustique.ttf" />

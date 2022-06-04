@@ -1,7 +1,8 @@
 #include "MenuGameOver.h"
 
 namespace Menus {
-	MenuGameOver::MenuGameOver(States::StateControl* pSC) : Menu(), State(pSC, States::sID::GameOver), StringName("")
+	MenuGameOver::MenuGameOver(States::StateControl* pSC, Fases::Level* pLevel) :
+		Menu(), State(pSC, States::sID::GameOver), StringName(""), pLevel(pLevel)
 	{
 		Managers::GraphicManager* pGM = Managers::GraphicManager::getGraphics();
 		Button* button = NULL;
@@ -20,7 +21,7 @@ namespace Menus {
 		title.setCharacterSize(120);
 
 		points.setPosition(500, 300);
-		points.setString("Points: ""\nName: " /* + getPlayerPoints */);
+		points.setString("Points: " + std::to_string(pLevel->getPlayerPoints()) + "\nName: ");
 		points.setFont(*pGM->loadFont("InclusaoExterna/Fonte/NEONLEDLight.otf"));
 		points.setCharacterSize(60);
 
@@ -215,6 +216,7 @@ namespace Menus {
 	void MenuGameOver::update(float dt)
 	{
 		name.setString(getString());
+		points.setString("Points: " + std::to_string(pLevel->getPlayerPoints()) + "\nName: ");
 
 		if (active == false)
 		{
@@ -281,7 +283,7 @@ namespace Menus {
 	}
 	void MenuGameOver::saveLeaderBoard()
 	{
-		int playerPoints = 0; //= plvl->getPlayerPoints();
+		int playerPoints = pLevel->getPlayerPoints(); //= plvl->getPlayerPoints();
 
 		std::ifstream readFile;
 

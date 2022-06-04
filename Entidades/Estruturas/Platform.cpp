@@ -13,8 +13,8 @@ void Entities::Platform::initPlatform()
 
 	body.setTexture(texture);
 	body.setFillColor(sf::Color(50, 50, 300));
-	//body.setPosition(350, 600);
 	body.setSize(sf::Vector2f(100.f, 100.f));
+	body.setScale(1.f, 0.2f);
 
 	velocityMin = 1.f;
 	velocityMaxY = 1.f;

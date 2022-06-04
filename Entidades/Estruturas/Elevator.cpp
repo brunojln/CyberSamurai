@@ -4,14 +4,12 @@ void Entities::Elevator::initElevator()
 {
 	damaging = false;
 
-	texture = new sf::Texture();
-	if (!texture->loadFromFile("InclusaoExterna/Imagens/Background/moonstone.jpg"))
-	{
-		std::cout << "ERROR::Elevator::initElevator::Failed to load texture image\n";
-	}
+	texture = pGraphic->loadTexture("InclusaoExterna/Imagens/Background/moonstone.jpg");
+
 	body.setTexture(texture);
 	body.setFillColor(sf::Color::Cyan);
-	body.setSize(sf::Vector2f(150.f, 100.f));
+	body.setSize(sf::Vector2f(100.f, 100.f));
+	body.setScale(1.f, 0.15f);
 
 	velocityMin = 1.f;
 	velocityMaxY = 70.f;
@@ -31,7 +29,6 @@ Entities::Elevator::Elevator(float x, float y) :
 
 Entities::Elevator::~Elevator()
 {
-	delete texture;
 }
 
 void Entities::Elevator::updateMovement()
@@ -40,7 +37,7 @@ void Entities::Elevator::updateMovement()
 
 	//collision bottom screen
 	if (std::abs(this->velocity.y) > velocityMaxY) {
-		this->velocity.y = velocityMaxY; //* ((this->velocity.y < 0.f) ? -1.f : 1.f);
+		this->velocity.y = velocityMaxY; 
 	}
 	if (this->getPosition().y + this->getGlobalBounds().height >= pGraphic->getWindow()->getSize().y)
 	{

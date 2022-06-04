@@ -15,39 +15,37 @@ namespace Entities {
 	class Player: public Character
 	{
 	private:
-		sf::Texture* heartTexture;
-		sf::Sprite heartSprite;
 		//Animation
 		sf::Clock animationTimer;
 		short animationState;
 		sf::IntRect currentFrame;
-		sf::IntRect heartFrame;
-		//movement
-		bool moving;
+
 		sf::Clock cooldownClock;
-		//bool canJump;
+
 		float jumpHeight;
 	
 		//core
+		sf::Keyboard::Key left;
+		sf::Keyboard::Key right;
+		sf::Keyboard::Key jump;
+		sf::Keyboard::Key atk;
+		sf::Color defaultColor;
 
 		//initialization
 		void initVariables();
 		void initAnimations();
-		void initPhysics();
 		void initTexture();
 		void initSprite();
 
 	public:
-		Player();
+		//Player();
+		Player(bool player2);
 		~Player();
 
 		void setCanJump(bool can_jump);
 
-		//void attack(Entities::Enemy* pEnemy, bool isNear);
-		//void updateCooldown();
 		void updateMovement();
 		void updateAnimations();
-		void updateHearts(sf::RenderWindow* window);
 
 		virtual void update();
 

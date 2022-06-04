@@ -5,6 +5,7 @@
 #include "../Menus/MenuSobreOJogo.h"
 #include "../Menus/MenuLevel.h"
 #include "../Fases/LevelOne.h"
+#include "../Fases/LevelTwo.h"
 #include "../Fases/Level.h"
 #include "../Menus/MenuGameOver.h"
 #include "../Menus/MenuPause.h"
@@ -20,6 +21,9 @@
 		state = new	Fases::LevelOne(this);
 		setState(state);
 
+		state = new Fases::LevelTwo(this);
+		setState(state);
+
 		state = dynamic_cast<States::State*>(new Menus::MenuLeaderboard(this));
 		setState(state);
 
@@ -32,7 +36,7 @@
 		state = dynamic_cast<States::State*>(new Menus::MenuSobreOJogo(this));
 		setState(state);
 
-		state = dynamic_cast<States::State*>(new Menus::MenuGameOver(this));
+		state = dynamic_cast<States::State*>(new Menus::MenuGameOver(this, dynamic_cast<Fases::Level*>(StateMap[States::sID::Level1])));
 		setState(state);
 
 		state = dynamic_cast<States::State*>(new Menus::MenuPause(this));
@@ -86,6 +90,7 @@
 			
 		}
 		updateRunningState(0);
+		
 	}
 
 	void Game::render()
