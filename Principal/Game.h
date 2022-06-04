@@ -14,6 +14,7 @@ private:
 	Managers::Collider collider;
 
 	sf::Event ev;
+	sf::Clock typingClock;
 
 public:
 	Game();

@@ -26,4 +26,9 @@ namespace States {
 		pSC->changeRunningState(id);
 	}
 
+	sID State::getLState()
+	{
+		return pSC->getLastState();
+	}
+
 }
