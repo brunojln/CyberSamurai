@@ -20,7 +20,7 @@ public:
 
 	void exec();
 
-	void update(float dt);
+	void update();
 };
 
 }

@@ -90,7 +90,7 @@ namespace Menus {
 		}
 	}
 
-	void MenuNumPlayers::update(float dt)
+	void MenuNumPlayers::update()
 	{ 
 		if (active == false)
 		{

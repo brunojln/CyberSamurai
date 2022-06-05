@@ -17,7 +17,6 @@ void Entities::Robot::initRobot()
 	exp = 20; 
 	atkDamage = 0.1f;
 	atkCooldown = 5.0f;
-	atkDistance = 2.0f;
 
 	velocityMax = 2.f;
 	velocityMin = 1.f;

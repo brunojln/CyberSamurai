@@ -39,7 +39,6 @@ namespace Entities {
 
 		Managers::GraphicManager* pGraphic;
 	
-		unsigned int damage;
 	public:
 		Entity(entityID id);
 		Entity(int id);

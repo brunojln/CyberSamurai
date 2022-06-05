@@ -74,7 +74,7 @@ namespace Menus {
 		}
 	}
 
-	void MenuLevel::update(float dt)
+	void MenuLevel::update()
 	{
 		if (active == false)
 		{

@@ -22,11 +22,6 @@ namespace Fases {
         public 	States::State
     {
     protected:
-        Entities::Player* player;
-
-        Entities::Platform* platform; //uso para testes, colocar em lista posteriormente
-        Entities::Spikes* spikes;
-        Entities::Elevator* elevator;
 
         Lists::ListEntity enemyList;
         Lists::ListEntity structureList;
@@ -38,29 +33,22 @@ namespace Fases {
         Managers::Collider collider;
         Managers::GraphicManager* pGraphics;
 
-        bool endGame;
-
     public:
         Level(States::sID, States::StateControl* pSC = nullptr);
         ~Level();
         
-        void update(const float dt);
+        void update();
         void render();
         void resetState();
-
 
         void windowCollision(Entities::Entity* player);
         void updateEnemyList(Entities::Entity *pEntity, unsigned int i);
         void updateStructureList(Entities::Entity* pEntity, unsigned int i);
-        //void windowCollision(Lists::ListEntity* enemyList);
 
-        const int getPlayerPoints();
+        const int getPlayerPoints() const;
         void endLevel();
 
-        //static int playerPoints;
     };
-
-    //int Level::playerPoints(0);
 
 }
 

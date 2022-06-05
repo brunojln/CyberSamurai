@@ -97,7 +97,7 @@ void Entities::Boss::updateBullets()
 {
 	unsigned counter = 0;
 	for (auto* bullet : this->bullets) {
-		bullet->shoot();
+		bullet->update();
 		canAttack = false;
 		/*bullet culling(left-side of the screen)*/
 		if (bullet->getGlobalBounds().left + bullet->getGlobalBounds().width < 0.f

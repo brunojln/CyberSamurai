@@ -8,7 +8,6 @@ namespace Entities {
     {
     private:
         void initFlying();
-        int projectileCount;
 
     public:
         Flying(float x, float y);

@@ -24,9 +24,9 @@ namespace States {
 		StateMap[runningState]->resetState();
 
 	}
-	void StateControl::updateRunningState(const float dt)
+	void StateControl::updateRunningState()
 	{
-		StateMap[runningState]->update(dt);
+		StateMap[runningState]->update();
 
 	}
 	void StateControl::renderRunningState()

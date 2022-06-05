@@ -25,7 +25,7 @@ namespace Menus {
 
 		std::string getString();
 
-		void update(float dt);
+		void update();
 		void render();
 		void exec();
 		void resetState();

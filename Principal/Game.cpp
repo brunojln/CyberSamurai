@@ -89,7 +89,7 @@
 			}
 			
 		}
-		updateRunningState(0);
+		updateRunningState();
 		
 	}
 
