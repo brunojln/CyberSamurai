@@ -19,11 +19,10 @@ namespace Menus {
 		button = new Button(sf::Vector2f(550, 600), "Voltar");
 		ButtonVector.push_back(button);
 
-		max = 2;
+		
 	}
 	MenuLevel::~MenuLevel()
 	{
-
 	}
 
 	void MenuLevel::render()
@@ -36,6 +35,8 @@ namespace Menus {
 		{
 			(*iB)->render();
 		}
+
+		
 	}
 
 	void MenuLevel::resetState()

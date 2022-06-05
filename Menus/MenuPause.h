@@ -11,6 +11,9 @@ namespace Menus{
 	private:
 		sf::Text* text;
 
+		sf::Text* comands;
+		sf::Text* comands2;
+
 	public:
 
 		MenuPause(States::StateControl* pSC = NULL);
