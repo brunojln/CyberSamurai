@@ -21,6 +21,21 @@ namespace Menus{
 		text->setFont(*pGM->loadFont("InclusaoExterna/Fonte/Cyber.ttf"));
 		text->setCharacterSize(120);
 
+		comands = new sf::Text;
+		comands->setString("Controles Player 1:\nD: Direita\nA: Esquerda\nBarra de Espaco: Pular\nG: Atacar");
+		comands->setCharacterSize(30);
+		comands->setPosition(100, 500);
+		comands->setLineSpacing(1.3);
+		comands->setFont(*pGM->loadFont("InclusaoExterna/Fonte/NEONLEDLight.otf"));
+
+		comands2 = new sf::Text;
+		comands2->setString("Controles Player 2:\nSeta Direita: Direita\nSeta Esquerda: Esquerda\nSeta Cima: Pular\nK: Atacar");
+		comands2->setCharacterSize(30);
+		comands2->setPosition(850, 500);
+		comands2->setLineSpacing(1.3);
+		comands2->setFont(*pGM->loadFont("InclusaoExterna/Fonte/NEONLEDLight.otf"));
+
+
 		sel = 0;
 		max = 1;
 	}
@@ -28,6 +43,8 @@ namespace Menus{
 	MenuPause::~MenuPause()
 	{
 		delete text;
+		delete comands;
+		delete comands2;
 	} 
 
 	void MenuPause::render()
@@ -42,6 +59,8 @@ namespace Menus{
 		}
 
 		pGM->render(text);
+		pGM->render(comands);
+		pGM->render(comands2);
 
 	}
 

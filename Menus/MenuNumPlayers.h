@@ -10,7 +10,8 @@ namespace Menus {
 	{
 
 	private:
-
+		sf::Text* text;
+		sf::Text* text2;
 	public:
 		MenuNumPlayers(States::StateControl* pSC=NULL);
 		~MenuNumPlayers();
