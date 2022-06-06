@@ -7,12 +7,14 @@ namespace Fases {
         public Level
     {
     private:
-        void initLevel();
+        void initLevelOne();
+
     public:
         LevelOne(States::StateControl* pSC);
         LevelOne();
         ~LevelOne();
 
+        void resetState();
     };
 }
 
