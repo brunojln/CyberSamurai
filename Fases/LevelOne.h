@@ -10,6 +10,7 @@ namespace Fases {
         void initLevel();
     public:
         LevelOne(States::StateControl* pSC);
+        LevelOne();
         ~LevelOne();
 
     };
