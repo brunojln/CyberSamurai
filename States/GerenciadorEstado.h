@@ -17,7 +17,7 @@ namespace States {
 	public:
 
 		StateControl();
-		virtual ~StateControl(); //virtual 
+		virtual ~StateControl(); 
 
 		void changeRunningState(sID id);
 		void updateRunningState();

@@ -10,8 +10,10 @@ namespace Fases {
         void initLevelIndustry();
 
     public:
+
         LevelIndustry(States::StateControl* pSC);
         ~LevelIndustry();
+
 
         void resetState();
     };

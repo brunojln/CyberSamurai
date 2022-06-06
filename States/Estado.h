@@ -19,6 +19,7 @@ namespace States {
 
 	public:
 		State(StateControl* pSC, sID id);
+		State() { pSC = NULL; id = null; };
 		virtual ~State();
 
 		sID getID() const;

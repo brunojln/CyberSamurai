@@ -18,6 +18,7 @@ namespace Menus {
 	public:
 
 		EntranceMenu(Game* pointerGame = NULL);
+		EntranceMenu() { pG = NULL; };
 		~EntranceMenu();
 
 		//Funcoes virual void herdadas de State
