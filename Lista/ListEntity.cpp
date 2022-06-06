@@ -6,6 +6,7 @@ namespace Lists{
 	ListEntity::ListEntity(){
 		lEntity.clear();
 	}
+
 	ListEntity::~ListEntity()
 	{
 		//lEntity.clear();

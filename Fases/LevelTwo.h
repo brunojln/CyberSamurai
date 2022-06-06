@@ -12,6 +12,8 @@ namespace Fases {
     public:
         LevelTwo(States::StateControl* pSC);
         ~LevelTwo();
+
+        void resetState();
     };
 
 }
