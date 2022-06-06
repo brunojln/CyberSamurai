@@ -4,7 +4,7 @@
 
 namespace Fases {
 
-void LevelOne::initLevel()
+void LevelOne::initLevelOne()
 {
 	if (!backgroundTexture.loadFromFile("InclusaoExterna/Imagens/Background/1lvlbg.png"))
 	{
@@ -17,11 +17,19 @@ void LevelOne::initLevel()
 LevelOne::LevelOne(States::StateControl* pSC):
 	Level(States::sID::Level1, pSC)
 {
-	initLevel();
 }
 
 LevelOne::~LevelOne()
 {
+}
+
+void LevelOne::resetState()
+{
+	playerList.clear();
+	structureList.clear();
+	enemyList.clear();
+	initLevel();
+	initLevelOne();
 }
 
 }

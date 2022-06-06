@@ -4,58 +4,24 @@ namespace Fases {
 
 	Level::Level(States::sID id, States::StateControl* pSC) :
 		State(pSC, id),
-		pGraphics(Managers::GraphicManager::getGraphics())
+		pGraphics(Managers::GraphicManager::getGraphics()), twoPlayers(false)
 	{
-		srand(time(NULL));
-		//if (jogo com dois players){
-
-
-		//playerList.push_back(new Entities::Player(true));
-		playerList.push_back(new Entities::Player(false));
-
-		int randPlayer = 0;
-
-		//criação aleatória de Robot e Flying
-		for (int i = 0; i < ((rand() % 7) + 3); i++) {
-			Entities::Robot* pRobot = new Entities::Robot((i * 100.f), (i * 100.f));
-
-			randPlayer = rand() % playerList.size();
-			std::cout << randPlayer << "\n";
-			pRobot->setPlayer(playerList[randPlayer]);
-			enemyList.push_back(pRobot);
-			pRobot = NULL;
-		}
-
-		for (int i = 0; i < ((rand() % 3) + 3); i++) {
-			Entities::Flying* pFlying = new Entities::Flying((i * 100.f), (i * 100.f));
-
-			randPlayer = rand() % playerList.size();
-			std::cout << randPlayer << "\n";
-			pFlying->setPlayer(playerList[randPlayer]);
-			enemyList.push_back(pFlying);
-			pFlying = NULL;
-		}
-
-		for (int i = 0; i < ((rand() % 1) + 3); i++)
-		{
-			structureList.push_back(new Entities::Spikes((rand() % 1100), (rand() % 600)));
-			structureList.push_back(new Entities::Elevator((rand() % 1100), (rand() % 600)));
-		}
 	}
 
 	void Level::endLevel()
 	{
 		for (int i = 0; i < playerList.size(); i++)
 		{
-			if (playerList[i]->getLifePoints() <= 0)
+			if (playerList[i]->getLifePoints() <= 0 || enemyList.getSize() == 0)
 			{
 				updateState(States::sID::GameOver);
 			}
 		}
-		if (enemyList.getSize() == 0){
-			updateState(States::sID::GameOver);
-		}
-		
+	}
+
+	void Level::setTwoPlayers(bool two_players)
+	{
+		twoPlayers = two_players;
 	}
 
 	const int Level::getPlayerPoints() const
@@ -124,9 +90,46 @@ namespace Fases {
 	
 	}
 
-	void Level::resetState()
+	void Level::initLevel()
 	{
-		//resetar level
+		srand(time(NULL));
+
+		if (twoPlayers) {
+			std::cout << "Dois jogadores\n";
+			playerList.push_back(new Entities::Player(true));
+		}
+
+		playerList.push_back(new Entities::Player(false));
+
+		int randPlayer = 0;
+
+		//criação aleatória de Robot e Flying
+		for (int i = 0; i < ((rand() % 7) + 3); i++) {
+			Entities::Robot* pRobot = new Entities::Robot((i * 100.f), (i * 100.f));
+
+			randPlayer = rand() % playerList.size();
+
+			pRobot->setPlayer(playerList[randPlayer]);
+			enemyList.push_back(pRobot);
+			pRobot = NULL;
+		}
+
+		for (int i = 0; i < ((rand() % 3) + 3); i++) {
+			Entities::Flying* pFlying = new Entities::Flying((i * 100.f), (i * 100.f));
+
+			randPlayer = rand() % playerList.size();
+
+			pFlying->setPlayer(playerList[randPlayer]);
+			enemyList.push_back(pFlying);
+			pFlying = NULL;
+		}
+
+		//criação aleatória de obstáculos
+		for (int i = 0; i < ((rand() % 1) + 3); i++)
+		{
+			structureList.push_back(new Entities::Spikes((rand() % 1100), (rand() % 600)));
+			structureList.push_back(new Entities::Elevator((rand() % 1100), (rand() % 600)));
+		}
 	}
 
 	void Level::windowCollision(Entities::Entity* player)

@@ -18,9 +18,18 @@ void Fases::LevelTwo::initLevelTwo()
 Fases::LevelTwo::LevelTwo(States::StateControl* pSC) :
 	Level(States::sID::Level2, pSC)
 {
-	initLevelTwo();
+	
 }
 
 Fases::LevelTwo::~LevelTwo()
 {
+}
+
+void Fases::LevelTwo::resetState()
+{
+	playerList.clear();
+	structureList.clear();
+	enemyList.clear();
+	initLevel();
+	initLevelTwo();
 }

@@ -27,7 +27,7 @@
 		state = dynamic_cast<States::State*>(new Menus::MenuLeaderboard(this));
 		setState(state);
 
-		state = dynamic_cast<States::State*>(new Menus::MenuNumPlayers(this));
+		state = dynamic_cast<States::State*>(new Menus::MenuNumPlayers(this, dynamic_cast<Fases::Level*>(StateMap[States::sID::Level1])));
 		setState(state);
 
 		state = dynamic_cast<States::State*>(new Menus::MenuLevel(this));
