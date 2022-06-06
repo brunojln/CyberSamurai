@@ -1,10 +1,10 @@
 #pragma once
-#include "LevelOne.h"
+#include "LevelIndustry.h"
 //#include "../Entidades/Characters/Player.h"
 
 namespace Fases {
 
-void LevelOne::initLevelOne()
+void LevelIndustry::initLevelIndustry()
 {
 	if (!backgroundTexture.loadFromFile("InclusaoExterna/Imagens/Background/1lvlbg.png"))
 	{
@@ -14,22 +14,22 @@ void LevelOne::initLevelOne()
 
 }
 
-LevelOne::LevelOne(States::StateControl* pSC):
+LevelIndustry::LevelIndustry(States::StateControl* pSC):
 	Level(States::sID::Level1, pSC)
 {
 }
 
-LevelOne::~LevelOne()
+LevelIndustry::~LevelIndustry()
 {
 }
 
-void LevelOne::resetState()
+void LevelIndustry::resetState()
 {
 	playerList.clear();
 	structureList.clear();
 	enemyList.clear();
 	initLevel();
-	initLevelOne();
+	initLevelIndustry();
 }
 
 }

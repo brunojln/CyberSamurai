@@ -11,13 +11,12 @@ void Entities::Platform::initPlatform()
 	body.setSize(sf::Vector2f(100.f, 100.f));
 	body.setScale(1.f, 0.2f);
 
-	velocityMin = 1.f;
-	velocityMaxY = 1.f;
-	acceleration = 1.f;
-	drag = 0.9f;
-	velocityMax = 6.f;
+	velocityMin = 0.f;
+	velocityMaxY = 0.f;
+	acceleration = 0.f;
+	drag = 0.f;
+	velocityMax = 0.f;
 
-	///std::cout << "Plataforma criada\n";
 }
 
 Entities::Platform::Platform(float x, float y) :

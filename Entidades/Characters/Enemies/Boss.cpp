@@ -23,7 +23,7 @@ void Entities::Boss::initBoss()
 	canAttack = false;
 
 	direction = 1.f;
-	std::cout << "Boss criado\n";
+	//std::cout << "Boss criado\n";
 }
 
 Entities::Boss::Boss(float x, float y) :
@@ -107,7 +107,7 @@ void Entities::Boss::updateBullets()
 			this->bullets.erase(this->bullets.begin() + counter);
 			--counter;
 		}
-		
+		/*bullet culling(right-side of the screen)*/
 		if (collider.checkCollision(bullet, this->getPlayer(), 1.f, true))
 		{
 			this->getPlayer()->setLifePoints(this->getPlayer()->getLifePoints() - atkDamage);

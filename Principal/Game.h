@@ -4,7 +4,7 @@
 #include "../Entidades/Estruturas/Platform.h"
 #include "../States/GerenciadorEstado.h"
 
-
+//Referência [3]
 
 class Game : public States::StateControl
 {

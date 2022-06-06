@@ -1,6 +1,7 @@
 #pragma once
 #include "../Includes/stdafx.h"
 
+//Referência [4]
 namespace States {
 
 	class StateControl;

@@ -9,14 +9,13 @@ void Entities::Spikes::initSpikes()
 
 	body.setTexture(texture);
 	body.setSize(sf::Vector2f(100.f, 100.f));
+	body.setFillColor(sf::Color::Yellow);
 
-	velocityMin = 1.f;
-	velocityMaxY = 1.f;
-	acceleration = 1.f;
-	drag = 0.9f;
-	velocityMax = 6.f;
-
-	//std::cout << "Spikes criado\n";
+	velocityMin = 0.f;
+	velocityMaxY = 0.f;
+	acceleration = 0.f;
+	drag = 0.f;
+	velocityMax = 0.f;
 }
 
 Entities::Spikes::Spikes(float x, float y):
@@ -32,4 +31,5 @@ Entities::Spikes::~Spikes()
 
 void Entities::Spikes::update()
 {
+	updatePhysics();
 }

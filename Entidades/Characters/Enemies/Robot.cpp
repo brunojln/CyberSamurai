@@ -2,14 +2,11 @@
 
 void Entities::Robot::initRobot()
 {
-	texture = new sf::Texture();
-	if (!texture->loadFromFile("InclusaoExterna/Imagens/Personagens/robot.png"))
-	{
-		std::cout << "ERROR::Robot::initRobot::Failed to load texture image\n";
-	}
+	texture = pGraphic->loadTexture("InclusaoExterna/Imagens/Personagens/robot.png");
+
 	body.setTexture(texture);
 	currentFrame = sf::IntRect(0, 0, 125, 100);
-	//body.setFillColor(sf::Color::Yellow);
+
 	body.setTextureRect(currentFrame);
 	body.setSize(sf::Vector2f(80.f, 80.f));
 
@@ -25,7 +22,7 @@ void Entities::Robot::initRobot()
 	velocityMaxY = 50.f;
 	canAttack = false;
 
-	std::cout << "Robot criado\n";
+	//std::cout << "Robot criado\n";
 }
 
 Entities::Robot::Robot(float x, float y):
@@ -37,5 +34,4 @@ Entities::Robot::Robot(float x, float y):
 
 Entities::Robot::~Robot()
 {
-	delete texture;
 }

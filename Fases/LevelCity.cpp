@@ -1,6 +1,6 @@
-#include "LevelTwo.h"
+#include "LevelCity.h"
 
-void Fases::LevelTwo::initLevelTwo()
+void Fases::LevelCity::initLevelCity()
 {
 	if (!backgroundTexture.loadFromFile("InclusaoExterna/Imagens/Background/2lvlbg.png"))
 	{
@@ -15,21 +15,21 @@ void Fases::LevelTwo::initLevelTwo()
 	enemyList.push_back(boss);
 }
 
-Fases::LevelTwo::LevelTwo(States::StateControl* pSC) :
+Fases::LevelCity::LevelCity(States::StateControl* pSC) :
 	Level(States::sID::Level2, pSC)
 {
 	
 }
 
-Fases::LevelTwo::~LevelTwo()
+Fases::LevelCity::~LevelCity()
 {
 }
 
-void Fases::LevelTwo::resetState()
+void Fases::LevelCity::resetState()
 {
 	playerList.clear();
 	structureList.clear();
 	enemyList.clear();
 	initLevel();
-	initLevelTwo();
+	initLevelCity();
 }
