@@ -23,7 +23,7 @@ void Entities::Flying::initFlying()
 	drag = 0.9f;
 	velocityMaxY = 0.f;
 	
-	std::cout << "flying criado\n";
+	//std::cout << "flying criado\n";
 }
 
 Entities::Flying::Flying(float x, float y) :
@@ -37,19 +37,3 @@ Entities::Flying::~Flying()
 {
 }
 
-/*
-void Entities::Flying::update()
-{
-	if (projectileCount > 0) {
-		projectile->update();
-		projectile->render(); 
-	}
-	else
-	{
-		projectileCount++;
-		projectile = new Entities::Projectile(this->getPosition().x, this->getPosition().y, this->getPlayer());
-		std::cout << "projetil criado\n";
-	}
-	
-} 
-*/

@@ -2,7 +2,7 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="Botao\Botao.cpp" />
-    <ClCompile Include="Fases\LevelOne.cpp" />
+    <ClCompile Include="Fases\LevelIndustry.cpp" />
     <ClCompile Include="Fases\Level.cpp" />
     <ClCompile Include="Lista\ListEntity.cpp" />
     <ClCompile Include="Principal\Game.cpp" />
@@ -32,11 +32,11 @@
     <ClCompile Include="Menus\MenuGameOver.cpp" />
     <ClCompile Include="Menus\MenuPause.cpp" />
     <ClCompile Include="Menus\MenuNumPlayers.cpp" />
-    <ClCompile Include="Fases\LevelTwo.cpp" />
+    <ClCompile Include="Fases\LevelCity.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Botao\Botao.h" />
-    <ClInclude Include="Fases\LevelOne.h" />
+    <ClInclude Include="Fases\LevelIndustry.h" />
     <ClInclude Include="Fases\Level.h" />
     <ClInclude Include="Lista\ListEntity.h" />
     <ClInclude Include="Principal\Game.h" />
@@ -67,7 +67,7 @@
     <ClInclude Include="Menus\MenuGameOver.h" />
     <ClInclude Include="Menus\MenuPause.h" />
     <ClInclude Include="Menus\MenuNumPlayers.h" />
-    <ClInclude Include="Fases\LevelTwo.h" />
+    <ClInclude Include="Fases\LevelCity.h" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="InclusaoExterna\Fonte\Cyber-BoldRustique.ttf" />

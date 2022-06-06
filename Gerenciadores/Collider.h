@@ -7,6 +7,8 @@
 #include <list>
 #include <vector>
 
+
+//Referência [1]
 namespace Managers {
 
 	class Collider

@@ -48,7 +48,7 @@ void Entities::Entity::move(float dirX, float dirY)
 
 void Entities::Entity::updatePhysics()
 {
-	this->velocity.y += 1.0 * GRAVITY;
+	this->velocity.y += GRAVITY;
 
 	if (std::abs(this->velocity.y) > velocityMaxY) {
 		this->velocity.y = velocityMaxY * ((this->velocity.y < 0.f) ? -1.f : 1.f);

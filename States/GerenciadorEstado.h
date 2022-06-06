@@ -2,6 +2,7 @@
 #include "Estado.h"
 #include <map>
 
+//Referência [4]
 namespace States {
 
 	class StateControl

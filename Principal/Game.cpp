@@ -4,8 +4,8 @@
 #include "../Menus/MenuLeaderboard.h"
 #include "../Menus/MenuSobreOJogo.h"
 #include "../Menus/MenuLevel.h"
-#include "../Fases/LevelOne.h"
-#include "../Fases/LevelTwo.h"
+#include "../Fases/LevelIndustry.h"
+#include "../Fases/LevelCity.h"
 #include "../Fases/Level.h"
 #include "../Menus/MenuGameOver.h"
 #include "../Menus/MenuPause.h"
@@ -18,10 +18,10 @@
 		States::State* state = dynamic_cast<States::State*>(new Menus::EntranceMenu(this));
 		setState(state);
 
-		state = new	Fases::LevelOne(this);
+		state = new	Fases::LevelIndustry(this);
 		setState(state);
 
-		state = new Fases::LevelTwo(this);
+		state = new Fases::LevelCity(this);
 		setState(state);
 
 		state = dynamic_cast<States::State*>(new Menus::MenuLeaderboard(this));
