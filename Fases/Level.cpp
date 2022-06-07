@@ -95,7 +95,6 @@ namespace Fases {
 		srand(time(NULL));
 
 		if (twoPlayers) {
-			std::cout << "Dois jogadores\n";
 			playerList.push_back(new Entities::Player(true));
 		}
 

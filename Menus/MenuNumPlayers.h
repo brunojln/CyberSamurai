@@ -15,8 +15,10 @@ namespace Menus {
 		sf::Text* text2;
 
 		Fases::Level* pLevel;
+		Fases::Level* pLevel2;
+
 	public:
-		MenuNumPlayers(States::StateControl* pSC = NULL, Fases::Level* pLevel = nullptr);
+		MenuNumPlayers(States::StateControl* pSC = NULL, Fases::Level* pLevel = nullptr, Fases::Level* pLevel2 = nullptr);
 		~MenuNumPlayers();
 
 		void render();
