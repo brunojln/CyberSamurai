@@ -2,8 +2,9 @@
 
 namespace Menus {
 
-	MenuNumPlayers::MenuNumPlayers(States::StateControl* pSC, Fases::Level* pLevel): Menu(), State((pSC), States::sID::NumPlayers),
-		pLevel(pLevel)
+	MenuNumPlayers::MenuNumPlayers(States::StateControl* pSC, Fases::Level* pLevel, Fases::Level* pLevel2): 
+		Menu(), State((pSC), States::sID::NumPlayers),
+		pLevel(pLevel), pLevel2(pLevel2)
 	{ 
 		Managers::GraphicManager* pGM = Managers::GraphicManager::getGraphics();
 		Button* button = NULL;
@@ -75,11 +76,13 @@ namespace Menus {
 			case 0:
 				//1 player instanciado
 				pLevel->setTwoPlayers(false);
+				pLevel2->setTwoPlayers(false);
 				updateState(States::sID::Level);
 				break;
 			case 1:
 				//2 players instanciados
 				pLevel->setTwoPlayers(true);
+				pLevel2->setTwoPlayers(true);
 				updateState(States::sID::Level);
 				break;
 			case 2:

@@ -17,7 +17,7 @@ void Entities::Elevator::initElevator()
 	drag = 0.7f;
 	velocityMax = 6.f;
 
-	std::cout << "Elevator criado\n";
+	//std::cout << "Elevator criado\n";
 }
 
 Entities::Elevator::Elevator(float x, float y) :
