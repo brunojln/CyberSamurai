@@ -14,6 +14,7 @@ namespace Entities {
 		~Platform();
 
 		virtual void update();
+		virtual void save();
 	};
 
 }

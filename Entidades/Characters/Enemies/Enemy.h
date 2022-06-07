@@ -21,6 +21,8 @@ namespace Entities {
         void attackPlayer();
 
         virtual void update();
+
+        virtual void save() = 0;
     };
 
 

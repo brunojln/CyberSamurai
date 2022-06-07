@@ -11,7 +11,7 @@ void LevelIndustry::initLevelIndustry()
 		std::cout << "ERROR::INITLEVEL::Erro ao carregar textura" << "\n";
 	}
 	backgroundBody.setTexture(backgroundTexture);
-
+	isLevel1 = true;
 }
 
 LevelIndustry::LevelIndustry(States::StateControl* pSC):

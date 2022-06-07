@@ -24,6 +24,43 @@ namespace Fases {
 		twoPlayers = two_players;
 	}
 
+	void Level::saveLevel()
+	{
+		std::ofstream clear;
+
+		clear.open("InclusaoExterna/Saves/Player.txt", std::ios::trunc);
+		clear.close();
+		clear.open("InclusaoExterna/Saves/Player2.txt", std::ios::trunc);
+		clear.close();
+		clear.open("InclusaoExterna/Saves/Flying.txt", std::ios::trunc);
+		clear.close();
+		clear.open("InclusaoExterna/Saves/Robot.txt", std::ios::trunc);
+		clear.close();
+		clear.open("InclusaoExterna/Saves/Boss.txt", std::ios::trunc);
+		clear.close();
+		clear.open("InclusaoExterna/Saves/Platform.txt", std::ios::trunc);
+		clear.close();
+		clear.open("InclusaoExterna/Saves/Spikes.txt", std::ios::trunc);
+		clear.close();
+		clear.open("InclusaoExterna/Saves/Elevator.txt", std::ios::trunc);
+		clear.close();
+
+		for (auto* player : this->playerList)
+		{
+			player->save();
+		}
+
+		for (int i = 0; i < enemyList.getSize(); i++)
+		{
+			enemyList[i]->save();
+		}
+
+		for (int i = 0; i < structureList.getSize(); i++)
+		{
+			structureList[i]->save();
+		}
+	}
+
 	const int Level::getPlayerPoints() const
 	{
 		int playerPoints = 0;
@@ -126,8 +163,8 @@ namespace Fases {
 		//criação aleatória de obstáculos
 		for (int i = 0; i < ((rand() % 1) + 3); i++)
 		{
-			structureList.push_back(new Entities::Spikes((rand() % 1100), (rand() % 600)));
-			structureList.push_back(new Entities::Elevator((rand() % 1100), (rand() % 600)));
+			structureList.push_back(new Entities::Spikes((rand() % 1100) * 1.f, (rand() % 600) * 1.f));
+			structureList.push_back(new Entities::Elevator((rand() % 1100) * 1.f, (rand() % 600) * 1.f));
 		}
 	}
 

@@ -37,4 +37,8 @@ void Entities::Bullet::update()
 	updatePhysics();
 }
 
+void Entities::Bullet::save()
+{
+}
+
 

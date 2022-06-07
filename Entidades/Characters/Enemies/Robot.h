@@ -12,6 +12,8 @@ namespace Entities {
     public:
         Robot(float x, float y);
         ~Robot();
+
+        virtual void save();
     };
 
 }

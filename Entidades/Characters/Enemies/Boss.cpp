@@ -92,6 +92,18 @@ void Entities::Boss::updateMovement()
 	}
 }
 
+void Entities::Boss::save()
+{
+	std::ofstream bossFile;
+
+	bossFile.open("InclusaoExterna/Saves/Boss.txt", std::ios::app);
+
+	if (!bossFile) { std::cout << "ERROR::BOSS::SAVE::Erro ao abrir arquivo"; exit(1); }
+
+	bossFile << getPosition().x << ' ' << getPosition().y << ' ' << getLifePoints() << ' ' << std::endl;
+	bossFile.close();
+}
+
 
 void Entities::Boss::updateBullets()
 {

@@ -34,6 +34,7 @@ namespace Fases {
         Managers::GraphicManager* pGraphics;
 
         bool twoPlayers;
+        bool isLevel1;
 
         void initLevel();
     public:
@@ -50,6 +51,8 @@ namespace Fases {
         const int getPlayerPoints() const;
         void endLevel();
         void setTwoPlayers(bool two_players);
+
+        void saveLevel();
     };
 
 }

@@ -8,6 +8,7 @@ void Fases::LevelCity::initLevelCity()
 	}
 	backgroundBody.setTexture(backgroundTexture);
 
+	isLevel1 = false;
 
 	int randPlayer = rand() % playerList.size();
 	Entities::Boss* boss = new Entities::Boss(300, 0);

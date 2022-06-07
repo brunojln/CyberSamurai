@@ -39,7 +39,7 @@
 		state = dynamic_cast<States::State*>(new Menus::MenuGameOver(this, dynamic_cast<Fases::Level*>(StateMap[States::sID::Level1])));
 		setState(state);
 
-		state = dynamic_cast<States::State*>(new Menus::MenuPause(this));
+		state = dynamic_cast<States::State*>(new Menus::MenuPause(this, dynamic_cast<Fases::Level*>(StateMap[States::sID::Level1]), dynamic_cast<Fases::Level*>(StateMap[States::sID::Level2])));
 		setState(state);
 
 		changeRunningState(States::sID::MainMenu);
