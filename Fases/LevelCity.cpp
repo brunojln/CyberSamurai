@@ -32,9 +32,13 @@ Fases::LevelCity::~LevelCity()
 
 void Fases::LevelCity::resetState()
 {
-	playerList.clear();
-	structureList.clear();
-	enemyList.clear();
-	initLevel();
-	initLevelCity();
+	if (getLState() != States::sID::Pause)
+	{
+		playerList.clear();
+		structureList.clear();
+		enemyList.clear();
+		initLevel();
+		initLevelCity();
+	}
+	
 }
