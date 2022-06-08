@@ -44,8 +44,7 @@ void Entities::Robot::save()
 
 	if (!robotFile) { std::cout << "ERROR::ROBOT::SAVE::Erro ao abrir arquivo"; exit(1); }
 
-	robotFile << getPosition().x << ' ' << getPosition().y << ' ' << getLifePoints() << ' ' << std::endl;
+	robotFile << getPosition().x << ' ' << getPosition().y << ' ' << getLifePoints() << ' ' << getPlayerIndex() << std::endl;
 	robotFile.close();
-	
 
 }

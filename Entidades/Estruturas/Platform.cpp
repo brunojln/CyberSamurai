@@ -42,6 +42,6 @@ void Entities::Platform::save()
 
 	if (!platformFile) { std::cout << "ERROR::PLATFORM::SAVE::Erro ao abrir arquivo"; exit(1); }
 
-	platformFile << getPosition().x << ' ' << getPosition().y << ' ' << isDamaging() << ' ' << std::endl;
+	platformFile << getPosition().x << ' ' << getPosition().y <<  ' ' << std::endl;
 	platformFile.close();
 }

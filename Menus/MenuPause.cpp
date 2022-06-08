@@ -89,10 +89,14 @@ namespace Menus{
 
 				break;
 			case 1:
-				if (getLState() == States::sID::Level1)
+
+				if (getLState() == States::sID::Level1) {
 					pLevel->saveLevel();
-				else
+				}
+				else if (getLState() == States::sID::Level2) {
 					pLevel2->saveLevel();
+				}
+					
 				updateState(States::sID::MainMenu);
 				break;
 			default:

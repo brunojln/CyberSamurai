@@ -67,6 +67,6 @@ void Entities::Elevator::save()
 
 	if (!elevatorFile) { std::cout << "ERROR::ELEVATOR::SAVE::Erro ao abrir arquivo"; exit(1); }
 
-	elevatorFile << getPosition().x << ' ' << getPosition().y << ' ' << isDamaging() << ' ' << std::endl;
+	elevatorFile << getPosition().x << ' ' << getPosition().y << ' ' << std::endl;
 	elevatorFile.close();
 }

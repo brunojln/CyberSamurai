@@ -35,6 +35,7 @@ namespace Fases {
 
         bool twoPlayers;
         bool isLevel1;
+        bool isNewLevel;
 
         void initLevel();
     public:

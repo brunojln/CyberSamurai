@@ -45,7 +45,7 @@ void Entities::Flying::save()
 
 	if (!flyingFile) { std::cout << "ERROR::FLYING::SAVE::Erro ao abrir arquivo"; exit(1); }
 
-	flyingFile << getPosition().x << ' ' << getPosition().y << ' ' << getLifePoints() << ' ' << std::endl;
+	flyingFile << getPosition().x << ' ' << getPosition().y << ' ' << getLifePoints() << ' ' << getPlayerIndex() << std::endl;
 	flyingFile.close();
 }
 

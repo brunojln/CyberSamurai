@@ -100,7 +100,7 @@ void Entities::Boss::save()
 
 	if (!bossFile) { std::cout << "ERROR::BOSS::SAVE::Erro ao abrir arquivo"; exit(1); }
 
-	bossFile << getPosition().x << ' ' << getPosition().y << ' ' << getLifePoints() << ' ' << std::endl;
+	bossFile << getPosition().x << ' ' << getPosition().y << ' ' << getLifePoints() << ' ' << getPlayerIndex() << ' ' << std::endl;
 	bossFile.close();
 }
 

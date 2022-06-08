@@ -42,6 +42,6 @@ void Entities::Spikes::save()
 
 	if (!spikesFile) { std::cout << "ERROR::BOSS::SAVE::Erro ao abrir arquivo"; exit(1); }
 
-	spikesFile << getPosition().x << ' ' << getPosition().y << ' ' << isDamaging() << ' ' << std::endl;
+	spikesFile << getPosition().x << ' ' << getPosition().y  << ' ' << std::endl;
 	spikesFile.close();
 }
