@@ -58,3 +58,15 @@ void Entities::Elevator::update()
 {
 	this->updateMovement();
 }
+
+void Entities::Elevator::save()
+{
+	std::ofstream elevatorFile;
+
+	elevatorFile.open("InclusaoExterna/Saves/Elevator.txt", std::ios::app);
+
+	if (!elevatorFile) { std::cout << "ERROR::ELEVATOR::SAVE::Erro ao abrir arquivo"; exit(1); }
+
+	elevatorFile << getPosition().x << ' ' << getPosition().y << ' ' << std::endl;
+	elevatorFile.close();
+}

@@ -10,8 +10,6 @@ enum PLAYER_ANIMATION_STATES { IDLE = 0, MOVING_LEFT, MOVING_RIGHT, JUMPING, ATT
 
 namespace Entities {
 
-	class Enemy;
-
 	class Player: public Character
 	{
 	private:
@@ -30,6 +28,7 @@ namespace Entities {
 		sf::Keyboard::Key jump;
 		sf::Keyboard::Key atk;
 		sf::Color defaultColor;
+		bool isP1;
 
 		//initialization
 		void initVariables();
@@ -49,6 +48,7 @@ namespace Entities {
 
 		virtual void update();
 
+		virtual void save();
 	};
 
 

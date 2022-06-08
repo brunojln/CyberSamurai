@@ -33,3 +33,15 @@ void Entities::Spikes::update()
 {
 	updatePhysics();
 }
+
+void Entities::Spikes::save()
+{
+	std::ofstream spikesFile;
+
+	spikesFile.open("InclusaoExterna/Saves/Spikes.txt", std::ios::app);
+
+	if (!spikesFile) { std::cout << "ERROR::BOSS::SAVE::Erro ao abrir arquivo"; exit(1); }
+
+	spikesFile << getPosition().x << ' ' << getPosition().y  << ' ' << std::endl;
+	spikesFile.close();
+}

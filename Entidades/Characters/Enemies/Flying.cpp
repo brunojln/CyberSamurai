@@ -37,3 +37,15 @@ Entities::Flying::~Flying()
 {
 }
 
+void Entities::Flying::save()
+{
+	std::ofstream flyingFile;
+
+	flyingFile.open("InclusaoExterna/Saves/flying.txt", std::ios::app);
+
+	if (!flyingFile) { std::cout << "ERROR::FLYING::SAVE::Erro ao abrir arquivo"; exit(1); }
+
+	flyingFile << getPosition().x << ' ' << getPosition().y << ' ' << getLifePoints() << ' ' << getPlayerIndex() << std::endl;
+	flyingFile.close();
+}
+

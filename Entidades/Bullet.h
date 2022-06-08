@@ -19,6 +19,8 @@ namespace Entities{
         void shoot();
 
         void update();
+
+        virtual void save();
     };
 
 }

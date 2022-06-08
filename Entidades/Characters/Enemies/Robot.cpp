@@ -35,3 +35,16 @@ Entities::Robot::Robot(float x, float y):
 Entities::Robot::~Robot()
 {
 }
+
+void Entities::Robot::save()
+{
+	std::ofstream robotFile;
+	
+	robotFile.open("InclusaoExterna/Saves/Robot.txt", std::ios::app);
+
+	if (!robotFile) { std::cout << "ERROR::ROBOT::SAVE::Erro ao abrir arquivo"; exit(1); }
+
+	robotFile << getPosition().x << ' ' << getPosition().y << ' ' << getLifePoints() << ' ' << getPlayerIndex() << std::endl;
+	robotFile.close();
+
+}

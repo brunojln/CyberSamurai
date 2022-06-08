@@ -36,6 +36,8 @@ namespace Entities {
 
         void updateCooldown();
         void attack(Entities::Character *pCharacter, bool isNear);
+
+        virtual void save() = 0;
     };
 
 }

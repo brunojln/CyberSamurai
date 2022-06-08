@@ -13,7 +13,7 @@ namespace Entities {
         Flying(float x, float y);
         ~Flying();
 
-        //virtual void update();
+        virtual void save();
     };
 
 

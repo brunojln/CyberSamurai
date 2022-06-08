@@ -2,6 +2,7 @@
 #include "../Includes/stdafx.h"
 #include "../States/Estado.h"
 #include "Menu.h"
+#include "../Fases/Level.h"
 
 namespace Menus{
 
@@ -14,9 +15,11 @@ namespace Menus{
 		sf::Text* comands;
 		sf::Text* comands2;
 
+		Fases::Level* pLevel;
+		Fases::Level* pLevel2;
 	public:
 
-		MenuPause(States::StateControl* pSC = NULL);
+		MenuPause(States::StateControl* pSC = NULL, Fases::Level* pLevel = nullptr, Fases::Level* pLevel2 = nullptr);
 
 		~MenuPause();
 

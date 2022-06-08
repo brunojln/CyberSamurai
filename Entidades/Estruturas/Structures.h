@@ -1,6 +1,7 @@
 #pragma once
 #include "../Entity.h"
 #include "SFML/Graphics.hpp"
+#include <fstream>
 
 namespace Entities {
 
@@ -18,6 +19,7 @@ namespace Entities {
         float getStructureDamage();
         bool isDamaging();
         virtual void update() = 0;
+        virtual void save() = 0;
     };
 }
 

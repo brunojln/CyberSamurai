@@ -63,6 +63,7 @@ namespace Entities {
 
 		virtual void render();
 		
+		virtual void save() = 0;
 	};
 
 }

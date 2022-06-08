@@ -23,6 +23,8 @@ namespace Entities {
         virtual void update();
         virtual void render();
         void updateMovement();
+
+        virtual void save();
     };
 }
 

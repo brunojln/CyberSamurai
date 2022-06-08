@@ -14,6 +14,7 @@ namespace Entities {
         ~Spikes();
 
         virtual void update();
+        virtual void save();
     };
 
 }

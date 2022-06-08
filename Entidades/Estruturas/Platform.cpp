@@ -33,3 +33,15 @@ void Entities::Platform::update()
 {
 	this->updatePhysics();
 }
+
+void Entities::Platform::save()
+{
+	std::ofstream platformFile;
+
+	platformFile.open("InclusaoExterna/Saves/Platform.txt", std::ios::app);
+
+	if (!platformFile) { std::cout << "ERROR::PLATFORM::SAVE::Erro ao abrir arquivo"; exit(1); }
+
+	platformFile << getPosition().x << ' ' << getPosition().y <<  ' ' << std::endl;
+	platformFile.close();
+}
