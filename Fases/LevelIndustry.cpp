@@ -25,11 +25,14 @@ LevelIndustry::~LevelIndustry()
 
 void LevelIndustry::resetState()
 {
-	playerList.clear();
-	structureList.clear();
-	enemyList.clear();
-	initLevel();
-	initLevelIndustry();
+	if (getLState() != States::sID::Pause)
+	{
+		playerList.clear();
+		structureList.clear();
+		enemyList.clear();
+		initLevel();
+		initLevelIndustry();
+	}
 }
 
 }
