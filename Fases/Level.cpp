@@ -189,7 +189,6 @@ namespace Fases {
 			isNewLevel = false;
 			sf::Vector2f position;
 			int lifePoints, expPoints, playerIndex;
-			bool player2;
 			//--------------------------------------------------------------------------------
 			//colocar teste p/ player 2
 			std::ifstream playerFile("InclusaoExterna/Saves/Player.txt", std::ios::in);
@@ -205,19 +204,22 @@ namespace Fases {
 			
 			playerFile.close();
 			//------------------------------------------------------------------------------
-			std::ifstream player2File("InclusaoExterna/Saves/Player2.txt", std::ios::in);
-			if (!player2File) { std::cout << "ERROR::carregar jogo salvo"; exit(1); }
+			if (twoPlayers)
+			{
+				std::ifstream player2File("InclusaoExterna/Saves/Player2.txt", std::ios::in);
+				if (!player2File) { std::cout << "ERROR::carregar jogo salvo"; exit(1); }
 
-			player2File >> position.x >> position.y >> lifePoints >> expPoints >> player2;
-			if (player2) {
+				player2File >> position.x >> position.y >> lifePoints >> expPoints;
+		
 				Entities::Player* player2 = new Entities::Player(true);
 				player2->setLifePoints(lifePoints);
 				player2->setPosition(position.x, position.y);
 				player2->setExp(expPoints);
 
 				playerList.push_back(player2);
+			
+				playerFile.close();
 			}
-			playerFile.close();
 			//------------------------------------------------------------------------------
 			std::ifstream spikesFile("InclusaoExterna/Saves/Spikes.txt", std::ios::in);
 			if (!spikesFile) { std::cout << "ERROR::carregar jogo salvo"; exit(1); }
