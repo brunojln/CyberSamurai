@@ -212,7 +212,7 @@ namespace Entities {
 
 			if (!playerFile) { std::cout << "ERROR::PLAYER::SAVE::Erro ao abrir arquivo"; exit(1); }
 
-			playerFile << getPosition().x << ' ' << getPosition().y << ' ' << getLifePoints() << ' ' << getExp() << ' ' << 1 << ' ' << std::endl;
+			playerFile << getPosition().x << ' ' << getPosition().y << ' ' << getLifePoints() << ' ' << getExp() << ' ' << std::endl;
 			playerFile.close();
 		}
 	}
