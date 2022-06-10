@@ -19,8 +19,9 @@ namespace Menus {
 		std::string StringName;
 
 		Fases::Level* pLevel;
+		Fases::Level* pLevel2;
 	public:
-		MenuGameOver(States::StateControl* pSC = NULL, Fases::Level* pLevel = nullptr);
+		MenuGameOver(States::StateControl* pSC = NULL, Fases::Level* pLevel = nullptr, Fases::Level* pLevel2 = nullptr);
 		~MenuGameOver();
 
 		std::string getString();

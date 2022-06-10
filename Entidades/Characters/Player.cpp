@@ -19,7 +19,7 @@ namespace Entities {
 
 		lifePoints = 100;
 		atkCooldown = 1.f;
-		atkDamage = 2.f;
+		atkDamage = 10.f; //usado para testes, alterar depois
 		exp = 0;
 		isTakingDamage = false;
 	}

@@ -12,8 +12,9 @@ namespace Fases {
 	{
 		for (int i = 0; i < playerList.size(); i++)
 		{
-			if (playerList[i]->getLifePoints() <= 0 || enemyList.getSize() == 0)
+			if (playerList[i]->getLifePoints() <= 0 || enemyList.getSize() <= 0)
 			{
+				std::cout << "endLevel\n";
 				updateState(States::sID::GameOver);
 			}
 		}
@@ -53,7 +54,7 @@ namespace Fases {
 
 		if (!levelFile) { std::cout << "ERROR::LEVEL::SAVE::Erro ao abrir arquivo"; exit(1); }
 
-		levelFile << isLevel1 << ' ' << std::endl;
+		levelFile << twoPlayers << ' ' << isLevel1 << ' ' << std::endl;
 		levelFile.close();
 
 		for (auto* player : this->playerList)
@@ -79,7 +80,9 @@ namespace Fases {
 		for (int i = 0; i < playerList.size(); i++)
 		{
 			playerPoints += playerList[i]->getExp();
+			std::cout << "Somando pontos " << playerPoints << std::endl;
 		}
+		std::cout << "\n";
 		return playerPoints;
 	}
 
@@ -90,11 +93,13 @@ namespace Fases {
 
 	void Level::update()
 	{
+		endLevel();
 
 		for (int i = 0; i < playerList.size(); i++)
 		{
 			playerList[i]->update();
 			windowCollision(playerList[i]);
+			//std::cout << playerList[i]->getExp() << "\n";
 		}
 
 		for (int i = 0; i < structureList.getSize(); i++)
@@ -103,15 +108,15 @@ namespace Fases {
 			updateStructureList(structureList[i], i);
 		}
 
-
 		for (int i = 0; i < enemyList.getSize(); i++)
 		{
 			enemyList[i]->update();
 			windowCollision(enemyList[i]);
 			updateEnemyList(enemyList[i], i);
 		}
-		//std::cout << player->getLifePoints() << "\n";
+
 		endLevel();
+		//std::cout << player->getLifePoints() << "\n";
 	}
 
 	void Level::render()
@@ -120,7 +125,6 @@ namespace Fases {
 
 		pGraphics->render(&backgroundBody);
 
-		//player->render(); //alterado para chamar pGraphics na Entity.cpp (talvez mudar isso)
 		for (int i = 0; i < playerList.size(); i++) {
 
 			playerList[i]->render();
@@ -190,7 +194,13 @@ namespace Fases {
 			sf::Vector2f position;
 			int lifePoints, expPoints, playerIndex;
 			//--------------------------------------------------------------------------------
-			//colocar teste p/ player 2
+			std::ifstream levelFile("InclusaoExterna/Saves/Level.txt", std::ios::in);
+			if (!levelFile) { std::cout << "ERROR::carregar jogo salvo"; exit(1); }
+
+			levelFile >> twoPlayers;
+
+			levelFile.close();
+			//--------------------------------------------------------------------------------
 			std::ifstream playerFile("InclusaoExterna/Saves/Player.txt", std::ios::in);
 			if (!playerFile) { std::cout << "ERROR::carregar jogo salvo"; exit(1); }
 		
@@ -305,17 +315,18 @@ namespace Fases {
 
 	void Level::updateEnemyList(Entities::Entity* pEntity, unsigned int i)
 	{
+		Entities::Character* pChar = static_cast <Entities::Character*>(pEntity);
+
 		for (int i = 0; i < playerList.size(); i++) {
 
-			Entities::Character* pChar = static_cast <Entities::Character*>(pEntity);
-			bool colliding = collider.checkCollision(pChar, playerList[i], 1.0f, false);
 			if (pChar != NULL)
 			{
+				bool colliding = collider.checkCollision(pChar, playerList[i], 1.0f, false);
 				if (pChar->getLifePoints() <= 0)
 				{
 					playerList[i]->setExp(playerList[i]->getExp() + pChar->getExp());
-					//std::cout << player->getExp() + pChar->getExp() << "\n";
 					enemyList.EntityDelete(i);
+					pChar = NULL;
 				}
 				else
 				{

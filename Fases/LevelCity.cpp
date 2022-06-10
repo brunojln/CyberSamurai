@@ -39,6 +39,7 @@ void Fases::LevelCity::resetState()
 		enemyList.clear();
 		initLevel();
 		initLevelCity();
+		
 	}
 	
 }

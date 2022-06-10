@@ -28,7 +28,7 @@ namespace Lists
 			NodeType* getInfo() { return pInfo; }
 			void setInfo(NodeType* info) { pInfo = info;  }
 
-			Node<NodeType>* getpNext() { return pNext; }
+			Node<NodeType>* getpNext() { if (pNext != NULL) { return pNext; } else { return nullptr; } }
 			void setpNext(Node<NodeType>* Next) { pNext = Next; }
 		};
 		
