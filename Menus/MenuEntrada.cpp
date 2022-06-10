@@ -20,10 +20,13 @@ namespace Menus {
 		button = new Button(sf::Vector2f(100, 250), "LeaderBoard");
 		ButtonVector.push_back(button);
 
-		button = new Button(sf::Vector2f(100, 300), "Sobre o jogo");
+		button = new Button(sf::Vector2f(100, 300), "Load Save");
 		ButtonVector.push_back(button);
 
-		button = new Button(sf::Vector2f(100, 350), "Quit");
+		button = new Button(sf::Vector2f(100, 350), "Sobre o jogo");
+		ButtonVector.push_back(button);
+
+		button = new Button(sf::Vector2f(100, 400), "Quit");
 		ButtonVector.push_back(button);
 
 
@@ -36,7 +39,7 @@ namespace Menus {
 
 		delay.restart();
 
-		max = 3;
+		max = 4;
 	}
 	EntranceMenu::~EntranceMenu()
 	{
@@ -83,7 +86,8 @@ namespace Menus {
 				updateState(States::sID::NumPlayers);
 				break;
 			case 1:
-				//temporario até criar botao de Load Game
+				updateState(States::sID::Leaderboard);
+			case 2:
 				if (!levelFile) { std::cout << "ERROR::carregar jogo salvo"; exit(1); }
 
 				while (!levelFile.eof()) {
@@ -96,12 +100,11 @@ namespace Menus {
 				else {
 					updateState(States::sID::Level2);
 				}
-				//updateState(States::sID::Leaderboard);
 				break;
-			case 2:
+			case 3: 
 				updateState(States::sID::SobreJogo);
 				break;
-			case 3:
+			case 4:
 				pGM->close();
 				break;
 

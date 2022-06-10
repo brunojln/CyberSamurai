@@ -13,7 +13,12 @@ namespace Menus{
 		button->selected(true);
 		ButtonVector.push_back(button);
 
-		button = new Button(sf::Vector2f(400, 350), "Voltar ao Menu");
+
+		button = new Button(sf::Vector2f(400, 350), "Salvar Partida");
+		button->selected(true);
+		ButtonVector.push_back(button);
+
+		button = new Button(sf::Vector2f(400, 400), "Voltar ao Menu");
 		ButtonVector.push_back(button);
 
 		text = new sf::Text;
@@ -38,7 +43,7 @@ namespace Menus{
 
 
 		sel = 0;
-		max = 1;
+		max = 2;
 	}
 
 	MenuPause::~MenuPause()
@@ -97,6 +102,10 @@ namespace Menus{
 					pLevel2->saveLevel();
 				}
 					
+				updateState(States::sID::MainMenu);
+				break;
+
+			case 2:
 				updateState(States::sID::MainMenu);
 				break;
 			default:
