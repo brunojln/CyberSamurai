@@ -145,7 +145,7 @@ namespace Fases {
 
 	void Level::initLevel()
 	{
-		if (getLState() != States::sID::MainMenu) 
+		if (getLState() != States::sID::MainMenu) //significa que entrou no MenuNumPlayers ou MenuLevel
 		{
 			//cria jogo novo
 			isNewLevel = true;
@@ -182,14 +182,16 @@ namespace Fases {
 				pFlying = NULL;
 			}
 
-			//criação aleatória de obstáculos
+			//criação aleatória de obstáculos Spikes, Elevator, Platform
 			for (int i = 0; i < ((rand() % 1) + 3); i++)
 			{
+				// * 1.f para tirar warning de conversão int p/ float.
 				structureList.push_back(new Entities::Spikes((rand() % 1100) * 1.f, (rand() % 600) * 1.f));
 				structureList.push_back(new Entities::Elevator((rand() % 1100) * 1.f, (rand() % 600) * 1.f));
+				structureList.push_back(new Entities::Platform((rand() % 11) * 100.f, 300.f));
 			}
 		}
-		else
+		else //saiu direto de EntranceMenu (clicou carregar save)
 		{
 			//carregar jogo previamente salvo
 			isNewLevel = false;

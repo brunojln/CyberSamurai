@@ -7,7 +7,7 @@ void Entities::Platform::initPlatform()
 	texture = pGraphic->loadTexture("InclusaoExterna/Imagens/Background/moonstone.jpg");
 
 	body.setTexture(texture);
-	body.setFillColor(sf::Color(50, 50, 300));
+	body.setFillColor(sf::Color::Green);
 	body.setSize(sf::Vector2f(100.f, 100.f));
 	body.setScale(1.f, 0.2f);
 
