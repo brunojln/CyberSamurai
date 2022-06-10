@@ -5,6 +5,7 @@
 
 #define GRAVITY 4.f
 
+//Referência [2]
 namespace Entities {
 
 	enum entityID {
@@ -62,6 +63,7 @@ namespace Entities {
 
 		virtual void render();
 		
+		virtual void save() = 0;
 	};
 
 }

@@ -32,12 +32,6 @@ namespace Menus {
 		title.setPosition(100, 50);
 		title.setCharacterSize(75);
 
-		/*
-		sf::Font* fontAux; //Inicializar com parametro
-		fontAux->loadFromFile("InclusaoExterna/Fonte/Cyber-BoldRustique.ttf");
-		title.setFont(*fontAux);
-		*/
-
 		title.setFont(*pGM->loadFont("InclusaoExterna/Fonte/Cyber.ttf"));
 
 		delay.restart();
@@ -77,6 +71,8 @@ namespace Menus {
 	{
 
 		Managers::GraphicManager* pGM = Managers::GraphicManager::getGraphics();
+		std::ifstream levelFile("InclusaoExterna/Saves/Level.txt", std::ios::in);
+		bool level1;
 
 		if (active) //Se o botao estiver ativo
 		{
@@ -87,7 +83,20 @@ namespace Menus {
 				updateState(States::sID::NumPlayers);
 				break;
 			case 1:
-				updateState(States::sID::Leaderboard);
+				//temporario até criar botao de Load Game
+				if (!levelFile) { std::cout << "ERROR::carregar jogo salvo"; exit(1); }
+
+				while (!levelFile.eof()) {
+					levelFile >> level1;
+				}
+
+				if (level1) {
+					updateState(States::sID::Level1);
+				}
+				else {
+					updateState(States::sID::Level2);
+				}
+				//updateState(States::sID::Leaderboard);
 				break;
 			case 2:
 				updateState(States::sID::SobreJogo);

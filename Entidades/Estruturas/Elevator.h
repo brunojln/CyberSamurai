@@ -1,5 +1,6 @@
 #pragma once
 #include "Structures.h"
+#include <iostream>
 
 namespace Entities {
 
@@ -16,6 +17,7 @@ namespace Entities {
         void updateMovement();
 
         virtual void update();
+        virtual void save();
     };
 
 }

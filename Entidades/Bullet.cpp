@@ -1,4 +1,4 @@
-#include "Bullet.h"
+#	include "Bullet.h"
 
 void Entities::Bullet::initBullet()
 {
@@ -7,11 +7,11 @@ void Entities::Bullet::initBullet()
 	body.setSize(sf::Vector2f(40.f, 10.f));
 
 	//physics
-	velocityMax = 1.f;
+	velocityMax = 10.f;
 	velocityMin = 1.f;
-	acceleration = 5.f;
+	acceleration = 20.f;
 	drag = 0.9f;
-	velocityMaxY = 0.f;
+	velocityMaxY = 1.2f;
 }
 
 Entities::Bullet::Bullet(float pos_x, float pos_y, float dir_x, float dir_y):
@@ -34,6 +34,11 @@ void Entities::Bullet::shoot()
 void Entities::Bullet::update()
 {
 	this->shoot();
+	updatePhysics();
+}
+
+void Entities::Bullet::save()
+{
 }
 
 

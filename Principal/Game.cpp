@@ -4,8 +4,8 @@
 #include "../Menus/MenuLeaderboard.h"
 #include "../Menus/MenuSobreOJogo.h"
 #include "../Menus/MenuLevel.h"
-#include "../Fases/LevelOne.h"
-#include "../Fases/LevelTwo.h"
+#include "../Fases/LevelIndustry.h"
+#include "../Fases/LevelCity.h"
 #include "../Fases/Level.h"
 #include "../Menus/MenuGameOver.h"
 #include "../Menus/MenuPause.h"
@@ -18,16 +18,16 @@
 		States::State* state = dynamic_cast<States::State*>(new Menus::EntranceMenu(this));
 		setState(state);
 
-		state = new	Fases::LevelOne(this);
+		state = new	Fases::LevelIndustry(this);
 		setState(state);
 
-		state = new Fases::LevelTwo(this);
+		state = new Fases::LevelCity(this);
 		setState(state);
 
 		state = dynamic_cast<States::State*>(new Menus::MenuLeaderboard(this));
 		setState(state);
 
-		state = dynamic_cast<States::State*>(new Menus::MenuNumPlayers(this, dynamic_cast<Fases::Level*>(StateMap[States::sID::Level1])));
+		state = dynamic_cast<States::State*>(new Menus::MenuNumPlayers(this, dynamic_cast<Fases::Level*>(StateMap[States::sID::Level1]), dynamic_cast<Fases::Level*>(StateMap[States::sID::Level2])));
 		setState(state);
 
 		state = dynamic_cast<States::State*>(new Menus::MenuLevel(this));
@@ -39,7 +39,7 @@
 		state = dynamic_cast<States::State*>(new Menus::MenuGameOver(this, dynamic_cast<Fases::Level*>(StateMap[States::sID::Level1])));
 		setState(state);
 
-		state = dynamic_cast<States::State*>(new Menus::MenuPause(this));
+		state = dynamic_cast<States::State*>(new Menus::MenuPause(this, dynamic_cast<Fases::Level*>(StateMap[States::sID::Level1]), dynamic_cast<Fases::Level*>(StateMap[States::sID::Level2])));
 		setState(state);
 
 		changeRunningState(States::sID::MainMenu);

@@ -3,19 +3,21 @@
 
 namespace Fases {
 
-    class LevelTwo :
+    class LevelIndustry :
         public Level
     {
     private:
-        void initLevelTwo();
+        void initLevelIndustry();
 
     public:
-        LevelTwo(States::StateControl* pSC);
-        ~LevelTwo();
+
+        LevelIndustry(States::StateControl* pSC);
+        ~LevelIndustry();
+
 
         void resetState();
     };
-
 }
+
 
 

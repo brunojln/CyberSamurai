@@ -143,10 +143,10 @@
     <ClInclude Include="Botao\Botao.h" />
     <ClInclude Include="Entidades\Characters\Enemies\Enemy.h" />
     <ClInclude Include="Entidades\Estruturas\Elevator.h" />
-    <ClInclude Include="Fases\LevelOne.h" />
+    <ClInclude Include="Fases\LevelIndustry.h" />
     <ClInclude Include="Fases\Level.h" />
     <ClInclude Include="Entidades\Characters\Enemies\Flying.h" />
-    <ClInclude Include="Fases\LevelTwo.h" />
+    <ClInclude Include="Fases\LevelCity.h" />
     <ClInclude Include="Lista\ListEntity.h" />
     <ClInclude Include="Menus\MenuNumPlayers.h" />
     <ClInclude Include="Menus\MenuPause.h" />
@@ -178,10 +178,10 @@
     <ClCompile Include="Botao\Botao.cpp" />
     <ClCompile Include="Entidades\Characters\Enemies\Enemy.cpp" />
     <ClCompile Include="Entidades\Estruturas\Elevator.cpp" />
-    <ClCompile Include="Fases\LevelOne.cpp" />
+    <ClCompile Include="Fases\LevelIndustry.cpp" />
     <ClCompile Include="Fases\Level.cpp" />
     <ClCompile Include="Entidades\Characters\Enemies\Flying.cpp" />
-    <ClCompile Include="Fases\LevelTwo.cpp" />
+    <ClCompile Include="Fases\LevelCity.cpp" />
     <ClCompile Include="Lista\ListEntity.cpp" />
     <ClCompile Include="Menus\MenuNumPlayers.cpp" />
     <ClCompile Include="Menus\MenuPause.cpp" />

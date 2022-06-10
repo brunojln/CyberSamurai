@@ -23,7 +23,7 @@ void Entities::Boss::initBoss()
 	canAttack = false;
 
 	direction = 1.f;
-	std::cout << "Boss criado\n";
+	//std::cout << "Boss criado\n";
 }
 
 Entities::Boss::Boss(float x, float y) :
@@ -92,6 +92,18 @@ void Entities::Boss::updateMovement()
 	}
 }
 
+void Entities::Boss::save()
+{
+	std::ofstream bossFile;
+
+	bossFile.open("InclusaoExterna/Saves/Boss.txt", std::ios::app);
+
+	if (!bossFile) { std::cout << "ERROR::BOSS::SAVE::Erro ao abrir arquivo"; exit(1); }
+
+	bossFile << getPosition().x << ' ' << getPosition().y << ' ' << getLifePoints() << ' ' << getPlayerIndex() << ' ' << std::endl;
+	bossFile.close();
+}
+
 
 void Entities::Boss::updateBullets()
 {
@@ -107,7 +119,7 @@ void Entities::Boss::updateBullets()
 			this->bullets.erase(this->bullets.begin() + counter);
 			--counter;
 		}
-		
+		/*bullet culling(right-side of the screen)*/
 		if (collider.checkCollision(bullet, this->getPlayer(), 1.f, true))
 		{
 			this->getPlayer()->setLifePoints(this->getPlayer()->getLifePoints() - atkDamage);

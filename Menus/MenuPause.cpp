@@ -3,7 +3,8 @@
 
 namespace Menus{
 
-	MenuPause::MenuPause(States::StateControl* pSC): Menu(), State((States::StateControl*)(pSC), States::sID::Pause)
+	MenuPause::MenuPause(States::StateControl* pSC, Fases::Level* pLevel, Fases::Level* pLevel2):
+		Menu(), State((States::StateControl*)(pSC), States::sID::Pause), pLevel(pLevel), pLevel2(pLevel2)
 	{
 		Managers::GraphicManager* pGM = Managers::GraphicManager::getGraphics();
 		Button* button = NULL;
@@ -88,6 +89,14 @@ namespace Menus{
 
 				break;
 			case 1:
+
+				if (getLState() == States::sID::Level1) {
+					pLevel->saveLevel();
+				}
+				else if (getLState() == States::sID::Level2) {
+					pLevel2->saveLevel();
+				}
+					
 				updateState(States::sID::MainMenu);
 				break;
 			default:

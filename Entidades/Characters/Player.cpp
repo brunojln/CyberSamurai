@@ -58,6 +58,7 @@ namespace Entities {
 			atk = sf::Keyboard::K;
 
 			defaultColor = sf::Color(250, 0, 252, 500);
+			isP1 = false;
 		}
 		else {
 			left = sf::Keyboard::A;
@@ -66,6 +67,7 @@ namespace Entities {
 			atk = sf::Keyboard::G;
 
 			defaultColor = sf::Color(164, 223, 245, 500);
+			isP1 = true;
 		}
 	}
 
@@ -190,7 +192,32 @@ namespace Entities {
 		this->updateAnimations();
 		updatePhysics();
 	}
+
+	void Player::save()
+	{
+		std::ofstream playerFile;
+
+		if (isP1)
+		{
+			playerFile.open("InclusaoExterna/Saves/Player.txt", std::ios::app);
+
+			if (!playerFile) { std::cout << "ERROR::PLAYER::SAVE::Erro ao abrir arquivo"; exit(1); }
+
+			playerFile << getPosition().x << ' ' << getPosition().y << ' ' << getLifePoints() << ' ' << getExp() << ' ' << std::endl;
+			playerFile.close();
+		}
+		else
+		{
+			playerFile.open("InclusaoExterna/Saves/Player2.txt", std::ios::app);
+
+			if (!playerFile) { std::cout << "ERROR::PLAYER::SAVE::Erro ao abrir arquivo"; exit(1); }
+
+			playerFile << getPosition().x << ' ' << getPosition().y << ' ' << getLifePoints() << ' ' << getExp() << ' ' << std::endl;
+			playerFile.close();
+		}
+	}
 	
 
 }
 
+	

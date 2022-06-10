@@ -17,7 +17,7 @@ void Entities::Elevator::initElevator()
 	drag = 0.7f;
 	velocityMax = 6.f;
 
-	std::cout << "Elevator criado\n";
+	//std::cout << "Elevator criado\n";
 }
 
 Entities::Elevator::Elevator(float x, float y) :
@@ -57,4 +57,16 @@ void Entities::Elevator::updateMovement()
 void Entities::Elevator::update()
 {
 	this->updateMovement();
+}
+
+void Entities::Elevator::save()
+{
+	std::ofstream elevatorFile;
+
+	elevatorFile.open("InclusaoExterna/Saves/Elevator.txt", std::ios::app);
+
+	if (!elevatorFile) { std::cout << "ERROR::ELEVATOR::SAVE::Erro ao abrir arquivo"; exit(1); }
+
+	elevatorFile << getPosition().x << ' ' << getPosition().y << ' ' << std::endl;
+	elevatorFile.close();
 }

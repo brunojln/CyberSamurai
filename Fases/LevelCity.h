@@ -3,20 +3,19 @@
 
 namespace Fases {
 
-    class LevelOne :
+    class LevelCity :
         public Level
     {
     private:
-        void initLevelOne();
+        void initLevelCity();
 
     public:
-        LevelOne(States::StateControl* pSC);
-        LevelOne();
-        ~LevelOne();
+        LevelCity(States::StateControl* pSC);
+        ~LevelCity();
 
         void resetState();
     };
-}
 
+}
 
 
