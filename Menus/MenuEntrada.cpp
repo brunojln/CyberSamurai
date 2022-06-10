@@ -87,6 +87,7 @@ namespace Menus {
 				break;
 			case 1:
 				updateState(States::sID::Leaderboard);
+				break;
 			case 2:
 				if (!levelFile) { std::cout << "ERROR::carregar jogo salvo"; exit(1); }
 
