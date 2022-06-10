@@ -1,8 +1,8 @@
 #include "MenuGameOver.h"
 
 namespace Menus {
-	MenuGameOver::MenuGameOver(States::StateControl* pSC, Fases::Level* pLevel) :
-		Menu(), State(pSC, States::sID::GameOver), StringName(""), pLevel(pLevel)
+	MenuGameOver::MenuGameOver(States::StateControl* pSC, Fases::Level* pLevel, Fases::Level* pLevel2) :
+		Menu(), State(pSC, States::sID::GameOver), StringName(""), pLevel(pLevel), pLevel2(pLevel2)
 	{
 		Managers::GraphicManager* pGM = Managers::GraphicManager::getGraphics();
 		Button* button = NULL;
@@ -216,7 +216,6 @@ namespace Menus {
 	void MenuGameOver::update()
 	{
 		name.setString(getString());
-		points.setString("Points: " + std::to_string(pLevel->getPlayerPoints()) + "\nName: ");
 
 		if (active == false)
 		{
@@ -280,6 +279,16 @@ namespace Menus {
 		ButtonVector[sel]->selected(true);
 		active = true;
 
+		if (getLState() == States::sID::Level1)
+		{
+			points.setString("Points: " + std::to_string(pLevel->getPlayerPoints()) + "\nName: ");
+			std::cout << "menuGameOver, resetState, level1\n";
+		}
+		else if (getLState() == States::sID::Level2)
+		{
+			points.setString("Points: " + std::to_string(pLevel2->getPlayerPoints()) + "\nName: ");
+			std::cout << "menuGameOver, resetState, level2\n";
+		}
 	}
 	void MenuGameOver::saveLeaderBoard()
 	{
