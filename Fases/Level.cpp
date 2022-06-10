@@ -147,6 +147,7 @@ namespace Fases {
 	{
 		if (getLState() != States::sID::MainMenu) 
 		{
+			//cria jogo novo
 			isNewLevel = true;
 			srand(time(NULL));
 
@@ -190,6 +191,7 @@ namespace Fases {
 		}
 		else
 		{
+			//carregar jogo previamente salvo
 			isNewLevel = false;
 			sf::Vector2f position;
 			int lifePoints, expPoints, playerIndex;
