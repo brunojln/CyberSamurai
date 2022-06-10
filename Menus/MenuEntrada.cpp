@@ -20,7 +20,7 @@ namespace Menus {
 		button = new Button(sf::Vector2f(100, 250), "LeaderBoard");
 		ButtonVector.push_back(button);
 
-		button = new Button(sf::Vector2f(100, 300), "Load Save");
+		button = new Button(sf::Vector2f(100, 300), "Carregar save");
 		ButtonVector.push_back(button);
 
 		button = new Button(sf::Vector2f(100, 350), "Sobre o jogo");
