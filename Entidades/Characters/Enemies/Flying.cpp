@@ -12,7 +12,7 @@ void Entities::Flying::initFlying()
 	//core
 	lifePoints = 1.f;
 	exp = 10;
-	atkDamage = 0.2f;
+	atkDamage = flyingDamage;
 	atkCooldown = 3.0f;
 	canAttack = true;
 
@@ -27,7 +27,7 @@ void Entities::Flying::initFlying()
 }
 
 Entities::Flying::Flying(float x, float y) :
-	Enemy(entityID::flying)
+	Enemy(entityID::flying), flyingDamage(0.2f)
 {
 	this->initFlying();
 	body.setPosition(x, y);

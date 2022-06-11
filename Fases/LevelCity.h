@@ -7,6 +7,7 @@ namespace Fases {
         public Level
     {
     private:
+        Entities::Boss* pBoss;
         void initLevelCity();
 
     public:

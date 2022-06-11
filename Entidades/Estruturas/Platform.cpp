@@ -12,7 +12,7 @@ void Entities::Platform::initPlatform()
 	body.setScale(1.f, 0.2f);
 
 	velocityMin = 0.f;
-	velocityMaxY = 0.f;
+	velocityMaxY = velocityY;
 	acceleration = 0.f;
 	drag = 0.f;
 	velocityMax = 0.f;
@@ -20,7 +20,7 @@ void Entities::Platform::initPlatform()
 }
 
 Entities::Platform::Platform(float x, float y) :
-	Structures(entityID::platform)
+	Structures(entityID::platform), velocityY(0.f)
 {
 	this->initPlatform();
 	body.setPosition(x, y);

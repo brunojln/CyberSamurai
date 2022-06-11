@@ -7,6 +7,7 @@ namespace Entities {
         public Enemy
     {
     private:
+        const float robotDamage;
         void initRobot();
 
     public:

@@ -3,7 +3,7 @@
 void Entities::Spikes::initSpikes()
 {
 	damaging = true;
-	structureDamage = 0.01f;
+	structureDamage = spikeDamage;
 
 	texture = pGraphic->loadTexture("InclusaoExterna/Imagens/Background/spikes.png");
 
@@ -19,7 +19,7 @@ void Entities::Spikes::initSpikes()
 }
 
 Entities::Spikes::Spikes(float x, float y):
-	Structures(entityID::spikes)
+	Structures(entityID::spikes), spikeDamage(0.1f)
 {
 	this->initSpikes();
 	body.setPosition(x, y);
