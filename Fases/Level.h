@@ -1,5 +1,5 @@
 #pragma once
-#include "../Ente.h"
+#include "../Ent.h"
 #include "../States/Estado.h"
 #include "../Entidades/Characters/Player.h"
 #include "../Entidades/Estruturas/Platform.h"

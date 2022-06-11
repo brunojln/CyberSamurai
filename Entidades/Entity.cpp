@@ -6,7 +6,7 @@ Entities::Entity::Entity(entityID id):
 }
 
 Entities::Entity::Entity(int id):
-	Ente(id), pGraphic(Managers::GraphicManager::getGraphics())
+	Ent(id), pGraphic(Managers::GraphicManager::getGraphics())
 {
 }
 

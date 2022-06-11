@@ -1,5 +1,5 @@
 #pragma once
-#include "../Ente.h"
+#include "../Ent.h"
 #include "SFML/Graphics.hpp"
 #include "../Gerenciadores/GraphicManager.h"
 
@@ -19,7 +19,7 @@ namespace Entities {
 		elevator
 	};
 
-	class Entity : public Ente
+	class Entity : public Ent
 	{
 	protected:
 		entityID ID;

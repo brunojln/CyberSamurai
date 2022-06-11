@@ -155,7 +155,7 @@
     <ClInclude Include="Menus\MenuSobreOJogo.h" />
     <ClInclude Include="Principal\Game.h" />
     <ClInclude Include="Gerenciadores\Collider.h" />
-    <ClInclude Include="Ente.h" />
+    <ClInclude Include="Ent.h" />
     <ClInclude Include="Entidades\Characters\Character.h" />
     <ClInclude Include="Entidades\Characters\Player.h" />
     <ClInclude Include="Entidades\Entity.h" />
