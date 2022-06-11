@@ -14,8 +14,8 @@ namespace Managers {
 	class Collider
 	{
 	private:
-		//vector<Enemy> enemyList;
-		//std::list <Entities::Structures*> structureList;
+		bool isColliding;
+
 	public:
 		Collider();
 		~Collider();

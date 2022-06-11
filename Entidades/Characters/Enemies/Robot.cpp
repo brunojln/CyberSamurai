@@ -12,7 +12,7 @@ void Entities::Robot::initRobot()
 
 	lifePoints = 4.f;
 	exp = 20; 
-	atkDamage = 0.1f;
+	atkDamage = robotDamage;
 	atkCooldown = 5.0f;
 
 	velocityMax = 2.f;
@@ -26,7 +26,7 @@ void Entities::Robot::initRobot()
 }
 
 Entities::Robot::Robot(float x, float y):
-	Enemy(entityID::robot)
+	Enemy(entityID::robot), robotDamage(0.1f)
 {
 	this->initRobot();
 	body.setPosition(x, y);

@@ -8,6 +8,7 @@ namespace Entities {
     {
     private:
         void initSpikes();
+        const float spikeDamage;
 
     public:
         Spikes(float x, float y);

@@ -6,8 +6,10 @@ void Entities::Elevator::initElevator()
 
 	texture = pGraphic->loadTexture("InclusaoExterna/Imagens/Background/moonstone.jpg");
 
+	defaultColor = sf::Color::Cyan;
+
 	body.setTexture(texture);
-	body.setFillColor(sf::Color::Cyan);
+	body.setFillColor(defaultColor);
 	body.setSize(sf::Vector2f(100.f, 100.f));
 	body.setScale(1.f, 0.15f);
 
@@ -16,6 +18,7 @@ void Entities::Elevator::initElevator()
 	acceleration = 0.5f;
 	drag = 0.7f;
 	velocityMax = 6.f;
+
 
 	//std::cout << "Elevator criado\n";
 }
@@ -35,20 +38,23 @@ void Entities::Elevator::updateMovement()
 {
 	this->velocity.y += 0.02 * GRAVITY;
 
-	//collision bottom screen
+	
 	if (std::abs(this->velocity.y) > velocityMaxY) {
 		this->velocity.y = velocityMaxY; 
 	}
+
+	//collision bottom screen
 	if (this->getPosition().y + this->getGlobalBounds().height >= pGraphic->getWindow()->getSize().y)
 	{
 		velocity.y *= -1;
-
+		body.setFillColor(defaultColor);
 	}
 	//collision top screen
 	if (this->getPosition().y <= 0.f)
 	{
 		velocity.y *= 1;
 		this->setPosition(this->getPosition().x, 0.f);
+		body.setFillColor(sf::Color::Magenta);
 	}
 	
 	this->body.move(this->velocity);

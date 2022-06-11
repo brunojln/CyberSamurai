@@ -7,6 +7,7 @@ namespace Entities {
 		public Structures
 	{
 	private:
+		const float velocityY;
 		void initPlatform();
 
 	public:
