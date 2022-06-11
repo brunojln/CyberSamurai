@@ -2453,12 +2453,32 @@
 									"model": {
 										"$ref": "AAAAAAGA8twDuZ1q1KQ="
 									},
+									"subViews": [
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAGBU5g1BHGip6E=",
+											"_parent": {
+												"$ref": "AAAAAAGA8twDup1yaXo="
+											},
+											"model": {
+												"$ref": "AAAAAAGBU5g08XGfZuM="
+											},
+											"fillColor": "#8feb9b",
+											"font": "Arial;13;0",
+											"left": 1541,
+											"top": 998,
+											"width": 147.7734375,
+											"height": 13,
+											"text": "-defaultColor: Color",
+											"horizontalAlignment": 0
+										}
+									],
 									"fillColor": "#8feb9b",
 									"font": "Arial;13;0",
 									"left": 1536,
 									"top": 993,
 									"width": 157.7734375,
-									"height": 10
+									"height": 23
 								},
 								{
 									"_type": "UMLOperationCompartmentView",
@@ -2482,7 +2502,7 @@
 											"fillColor": "#8feb9b",
 											"font": "Arial;13;0",
 											"left": 1541,
-											"top": 1008,
+											"top": 1021,
 											"width": 147.7734375,
 											"height": 13,
 											"text": "«create»+Elevator()",
@@ -2500,7 +2520,7 @@
 											"fillColor": "#8feb9b",
 											"font": "Arial;13;0",
 											"left": 1541,
-											"top": 1023,
+											"top": 1036,
 											"width": 147.7734375,
 											"height": 13,
 											"text": "«destroy»+~Elevator()",
@@ -2518,7 +2538,7 @@
 											"fillColor": "#8feb9b",
 											"font": "Arial;13;0",
 											"left": 1541,
-											"top": 1038,
+											"top": 1051,
 											"width": 147.7734375,
 											"height": 13,
 											"text": "-initElevator(): void",
@@ -2536,7 +2556,7 @@
 											"fillColor": "#8feb9b",
 											"font": "Arial;13;0",
 											"left": 1541,
-											"top": 1053,
+											"top": 1066,
 											"width": 147.7734375,
 											"height": 13,
 											"text": "+update(): virtual void",
@@ -2554,7 +2574,7 @@
 											"fillColor": "#8feb9b",
 											"font": "Arial;13;0",
 											"left": 1541,
-											"top": 1068,
+											"top": 1081,
 											"width": 147.7734375,
 											"height": 13,
 											"text": "+updateMovement(): void",
@@ -2564,7 +2584,7 @@
 									"fillColor": "#8feb9b",
 									"font": "Arial;13;0",
 									"left": 1536,
-									"top": 1003,
+									"top": 1016,
 									"width": 157.7734375,
 									"height": 83
 								},
@@ -2612,7 +2632,7 @@
 							"left": 1536,
 							"top": 968,
 							"width": 157.7734375,
-							"height": 118,
+							"height": 131,
 							"nameCompartment": {
 								"$ref": "AAAAAAGA8twDup1ttcY="
 							},
@@ -24310,7 +24330,7 @@
 									},
 									"font": "Arial;13;0",
 									"left": 1623,
-									"top": 1096,
+									"top": 1109,
 									"width": 55.28173828125,
 									"height": 13,
 									"alpha": 1.1401033916257488,
@@ -24333,7 +24353,7 @@
 									"visible": false,
 									"font": "Arial;13;0",
 									"left": 1642,
-									"top": 1107,
+									"top": 1120,
 									"height": 13,
 									"alpha": 0.7853981633974483,
 									"distance": 40,
@@ -24353,7 +24373,7 @@
 									},
 									"font": "Arial;13;0",
 									"left": 1583,
-									"top": 1094,
+									"top": 1107,
 									"width": 19.5126953125,
 									"height": 13,
 									"alpha": -0.9197199021109002,
@@ -24468,7 +24488,7 @@
 							"tail": {
 								"$ref": "AAAAAAGA8twDuZ1spBE="
 							},
-							"points": "1614:1085;1614:1144;912:1144;912:824;560:824",
+							"points": "1614:1098;1614:1144;912:1144;912:824;560:824",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAGBOmfjw73l2cI="
@@ -31338,6 +31358,18 @@
 										"aggregation": "composite",
 										"multiplicity": "1"
 									}
+								}
+							],
+							"attributes": [
+								{
+									"_type": "UMLAttribute",
+									"_id": "AAAAAAGBU5g08XGfZuM=",
+									"_parent": {
+										"$ref": "AAAAAAGA8twDuZ1q1KQ="
+									},
+									"name": "defaultColor",
+									"visibility": "private",
+									"type": "Color"
 								}
 							],
 							"operations": [
