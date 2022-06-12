@@ -11,6 +11,16 @@ void LevelIndustry::initLevelIndustry()
 	}
 	backgroundBody.setTexture(backgroundTexture);
 	isLevel1 = true;
+
+	if (isNewLevel){
+		int randPlayer = rand() % playerList.size();
+		pGoldenRobot = new Entities::Robot(0, 0, true);
+		pGoldenRobot->setExp(100);
+		pGoldenRobot->setPlayerIndex(randPlayer);
+		pGoldenRobot->setPlayer(playerList[randPlayer]);
+
+		enemyList.push_back(pGoldenRobot);
+	}
 }
 
 LevelIndustry::LevelIndustry(States::StateControl* pSC):

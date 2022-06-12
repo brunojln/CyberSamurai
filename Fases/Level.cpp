@@ -161,7 +161,7 @@ namespace Fases {
 
 			//criação aleatória de Robot e Flying
 			for (int i = 0; i < ((rand() % 7) + 3); i++) {
-				Entities::Robot* pRobot = new Entities::Robot((i * 100.f), (i * 100.f));
+				Entities::Robot* pRobot = new Entities::Robot((i * 100.f), (i * 100.f), false);
 
 				randPlayer = rand() % playerList.size();
 
@@ -275,8 +275,10 @@ namespace Fases {
 			std::ifstream robotFile("InclusaoExterna/Saves/Robot.txt", std::ios::in);
 			if (!robotFile) { std::cout << "ERROR::carregar jogo salvo"; exit(1); }
 
-			while (robotFile >> position.x >> position.y >> lifePoints >> playerIndex) {
-				Entities::Robot* robot = new Entities::Robot(position.x, position.y);
+			bool isGolden;
+
+			while (robotFile >> position.x >> position.y >> lifePoints >> playerIndex >> isGolden) {
+				Entities::Robot* robot = new Entities::Robot(position.x, position.y, isGolden);
 				robot->setLifePoints(lifePoints);
 				robot->setPlayer(playerList[playerIndex]);
 				enemyList.push_back(robot);
