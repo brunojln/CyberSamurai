@@ -52,10 +52,12 @@ namespace Managers {
 				}
 			}
 			//std::cout << "true\n";
-			return true;
+			isColliding = true;
+			return isColliding;
 		}
 		//std::cout << "false\n";
-		return false;
+		isColliding = false;
+		return isColliding;
 	}
 }
 

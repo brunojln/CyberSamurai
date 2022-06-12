@@ -1,6 +1,5 @@
 #pragma once
 #include "LevelIndustry.h"
-//#include "../Entidades/Characters/Player.h"
 
 namespace Fases {
 

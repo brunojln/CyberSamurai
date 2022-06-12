@@ -7,12 +7,12 @@ void Entities::Platform::initPlatform()
 	texture = pGraphic->loadTexture("InclusaoExterna/Imagens/Background/moonstone.jpg");
 
 	body.setTexture(texture);
-	body.setFillColor(sf::Color(50, 50, 300));
+	body.setFillColor(sf::Color::Green);
 	body.setSize(sf::Vector2f(100.f, 100.f));
 	body.setScale(1.f, 0.2f);
 
 	velocityMin = 0.f;
-	velocityMaxY = 0.f;
+	velocityMaxY = velocityY;
 	acceleration = 0.f;
 	drag = 0.f;
 	velocityMax = 0.f;
@@ -20,7 +20,7 @@ void Entities::Platform::initPlatform()
 }
 
 Entities::Platform::Platform(float x, float y) :
-	Structures(entityID::platform)
+	Structures(entityID::platform), velocityY(0.f)
 {
 	this->initPlatform();
 	body.setPosition(x, y);

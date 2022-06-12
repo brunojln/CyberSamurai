@@ -8,6 +8,7 @@ namespace Entities {
         public Structures
     {
     private:
+        sf::Color defaultColor;
         void initElevator();
 
     public:

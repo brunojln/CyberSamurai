@@ -12,11 +12,11 @@ void Fases::LevelCity::initLevelCity()
 
 	if (isNewLevel){
 		int randPlayer = rand() % playerList.size();
-		Entities::Boss* boss = new Entities::Boss(300, 0);
+		pBoss = new Entities::Boss(300, 0);
 
-		boss->setPlayerIndex(randPlayer);
-		boss->setPlayer(playerList[randPlayer]);
-		enemyList.push_back(boss);
+		pBoss->setPlayerIndex(randPlayer);
+		pBoss->setPlayer(playerList[randPlayer]);
+		enemyList.push_back(pBoss);
 	}
 }
 
@@ -28,6 +28,8 @@ Fases::LevelCity::LevelCity(States::StateControl* pSC) :
 
 Fases::LevelCity::~LevelCity()
 {
+	delete pBoss;
+	pBoss = NULL;
 }
 
 void Fases::LevelCity::resetState()
