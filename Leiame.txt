@@ -1,0 +1,6 @@
+/*
+
+O programa foi desenvolvido no Sistema Operacional Windows, com Depurador do Window x86.
+Utilizada biblioteca gráfica SFML 2.5.1 - 2017
+
+*/
