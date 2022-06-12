@@ -331,6 +331,7 @@ namespace Fases {
 				if (pChar->getLifePoints() <= 0)
 				{
 					playerList[i]->setExp(playerList[i]->getExp() + pChar->getExp());
+					std::cout << (*playerList[i]);
 					enemyList.EntityDelete(i);
 					pChar = NULL;
 				}

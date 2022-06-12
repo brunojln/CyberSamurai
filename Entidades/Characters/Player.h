@@ -43,6 +43,8 @@ namespace Entities {
 
 		void setCanJump(bool can_jump);
 
+		friend std::ostream& operator<<(std::ostream& output, Entities::Player &P);
+
 		void updateMovement();
 		void updateAnimations();
 
