@@ -8,10 +8,11 @@ namespace Entities {
     {
     private:
         const float robotDamage;
+        bool isGolden;
         void initRobot();
 
     public:
-        Robot(float x, float y);
+        Robot(float x, float y, bool isGolden);
         ~Robot();
 
         virtual void save();

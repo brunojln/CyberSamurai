@@ -7,6 +7,7 @@ namespace Fases {
         public Level
     {
     private:
+        Entities::Robot* pGoldenRobot;
         void initLevelIndustry();
 
     public:
