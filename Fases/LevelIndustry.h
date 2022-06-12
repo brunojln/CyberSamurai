@@ -15,7 +15,6 @@ namespace Fases {
         LevelIndustry(States::StateControl* pSC);
         ~LevelIndustry();
 
-
         void resetState();
     };
 }
