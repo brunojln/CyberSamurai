@@ -80,6 +80,7 @@ namespace Entities {
 		canJump = can_jump;
 	}
 
+
 	void Player::updateMovement()
 	{
 		this->animationState = IDLE;
@@ -217,6 +218,18 @@ namespace Entities {
 		}
 	}
 	
+	std::ostream& operator<<(std::ostream& output, Entities::Player& P)
+	{
+		int playerIndex;
+		if (P.isP1 == 0) {
+			playerIndex = 1;
+		}
+		else {
+			playerIndex = 2;
+		}
+		output << "Player [" << playerIndex << "]" << " Hp: " << P.getLifePoints() << "|" << " Exp: " << P.getExp() << "\n";
+		return output;
+	}
 
 }
 
