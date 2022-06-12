@@ -1,7 +1,7 @@
 /*
 
 Ambiente de desenvolvimento: Microsoft Visual Studio 2022.
-O programa foi desenvolvido no Sistema Operacional Windows, com Depurador do Windows x86, Configuração: Debug Win32.
+O programa foi desenvolvido no Sistema Operacional Windows, com Depurador do Windows x86, Configuração de compilador: Debug Win32.
 Utilizada biblioteca gráfica SFML 2.5.1 - 2017
 
  Referências	
