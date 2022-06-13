@@ -42,15 +42,8 @@ namespace Managers {
 		sf::Font* loadFont(const char* path);
 
 		sf::RenderWindow* getWindow() const;
-		/*
-		float updateDeltaTime();
-		*/
+	
 		bool WindowIsOpen() const;
-
-	/*
-	float updateDeltaTime();
-	*/
-
 
 	};
 
