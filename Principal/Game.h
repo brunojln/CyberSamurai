@@ -11,7 +11,6 @@ class Game : public States::StateControl
 private:
 
 	Managers::GraphicManager* pGraphics;
-	Managers::Collider collider;
 
 	sf::Event ev;
 	sf::Clock typingClock;

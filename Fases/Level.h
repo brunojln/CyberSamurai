@@ -44,7 +44,7 @@ namespace Fases {
         
         void update();
         void render();
-        //void resetState(){}
+
         void windowCollision(Entities::Entity* player);
         void updateEnemyList(Entities::Entity *pEntity, unsigned int i);
         void updateStructureList(Entities::Entity* pEntity, unsigned int i);
