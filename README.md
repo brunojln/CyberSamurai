@@ -1,6 +1,15 @@
-# CyberSamurai/
+# CyberSamurai
 
-*
+### O jogo CyberSamurai foi desenvolvido pelos alunos Bruno Julian e Nathan Yuhei para a matéria de Técnicas de Programação, ministrado pelo professor Dr. Jean M. Simão, com fim de aplicar na pratica os conceitos aprendidos sobre C++
+
+#### Vídeo e GIF do jogo: 
+
+![GIF do jogo CyberSamurai](https://github.com/brunojln/CyberSamurai/blob/master/CyberSamuraiGIF.gif)
+
+
+##### Link para o vídeo
+[![Vídeo do jogo CyberSamurai](https://img.youtube.com/vi/cYPXLD_HRfk/mqdefault.jpg)](https://youtu.be/cYPXLD_HRfk)
+
 
 Ambiente de desenvolvimento: Microsoft Visual Studio 2022.
 O programa foi desenvolvido no Sistema Operacional Windows, com Depurador do Windows x86, Configuração de compilador: Debug Win32.
@@ -22,4 +31,3 @@ Utilizada biblioteca gráfica SFML 2.5.1 - 2017 (32-bit)
 
   [5].SIMÃO, Jean M.. TÉCNICA DE PROGRAMAÇÃO.
   Disponível em: https://pessoal.dainf.ct.utfpr.edu.br/jeansimao/Fundamentos2/Fundamentos2.htm. Acesso em: 01 maio 2022.
-*/
